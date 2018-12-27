@@ -20,11 +20,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from telegram import ChatAction
 from os import environ
 
 
 def command_start(bot, update):
-    bot.send_message(chat_id=update.message.chat_id, text="Hello")
+    bot.send_message(chat_id=update.message.chat_id, text=update)
 
 
 def command_create(bot, update):
@@ -36,7 +37,9 @@ def command_reset(bot, update):
 
 
 def command_random(bot, update):
-    bot.send_message(chat_id=update.message.chat_id, text="Random")
+    chat_id = update.message.chat_id
+    bot.send_chat_action(chat_id=chat_id, action=ChatAction.TYPING)
+    bot.send_message(chat_id=chat_id, text="Random")
 
 
 def command_help(bot, update):
