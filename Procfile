@@ -1,0 +1,1 @@
+web: gunicorn --pythonpath randomovie main:app --log-file=-

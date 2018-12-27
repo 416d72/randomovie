@@ -1,0 +1,67 @@
+#!usr/bin/env python3
+# -*- coding: utf-8; -*-
+"""
+MIT License
+Copyright (c) 2018 Amr Khamis
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+"""
+
+import telegram
+from flask import Flask, request, abort
+
+# Constants
+HEROKU = "shrouded-castle-34807"
+TOKEN = "397386217:AAEkSLd9qXk_C8VvwRJ3FAEySfUg39iOxAM"
+
+# Bot
+bot = telegram.Bot(token=TOKEN)
+
+# API
+app = Flask(__name__)
+
+
+@app.route('/hook', methods=['POST'])
+def webhook_handler():
+    if request.method == "POST":
+        # retrieve the message in JSON and then transform it to Telegram object
+        update = telegram.Update.de_json(request.get_json(force=True), bot)
+
+        chat_id = update.message.chat.id
+
+        # Telegram understands UTF-8, so encode text for unicode compatibility
+        text = update.message.text.encode('utf-8')
+
+        # repeat the same message back (echo)
+        bot.sendMessage(chat_id=chat_id, text=text)
+
+    return 'ok'
+
+
+@app.route('/set_webhook', methods=['GET', 'POST'])
+def set_webhook():
+    if bot.setWebhook(f'https://www.{HEROKU}.herokuapp.com/hook'):
+        return "webhook setup ok"
+    return "webhook setup failed"
+
+
+@app.route('/')
+def index():
+    abort(403)
+
+
+if __name__ == '__main__':
+    app.run(debug=True, use_reloader=True)
