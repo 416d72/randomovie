@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath randomovie main.py --log-file=-
+web: randomovie.main.py --log-file=-
