@@ -21,17 +21,22 @@ SOFTWARE.
 """
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
-from telegram import ChatAction, ParseMode
+from telegram import ChatAction, ParseMode, ReplyKeyboardMarkup
 from os import environ
-from pprint import pprint
+
+# Constants
+bot_description = None
 
 
 def command_start(bot, update):
-    print(dir(update))
-    print(dir(update.effective_user))
+    print("Update:", dir(update))
+    print("User:", dir(update.effective_user))
+    print("Message:", dir(update.effective_message))
+    print("Chat:", dir(update.effective_chat))
+    markup = ReplyKeyboardMarkup(["Excellent", "Good"], ["Average", Bad])
     bot.send_chat_action(chat_id=update.message.chat_id, action=ChatAction.TYPING)
     bot.send_message(chat_id=update.message.chat_id, parse_mode=ParseMode.MARKDOWN,
-                     text=f"Hello *man*")
+                     text=f"Hello *{update.effective_user.full_name}*\n{bot_description}", reply_markup=markup)
 
 
 def command_create(bot, update):
