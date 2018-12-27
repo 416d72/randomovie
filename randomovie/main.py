@@ -19,13 +19,16 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
+
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
-from telegram import ChatAction
+from telegram import ChatAction, ParseMode
 from os import environ
 
 
 def command_start(bot, update):
-    bot.send_message(chat_id=update.message.chat_id, text=update)
+    bot.send_chat_action(chat_id=update.message.chat_id, action=ChatAction.TYPING)
+    bot.send_message(chat_id=update.message.chat_id, parse_mode=ParseMode.MARKDOWN, text="*Start* here")
+    print(update)
 
 
 def command_create(bot, update):
@@ -33,13 +36,12 @@ def command_create(bot, update):
 
 
 def command_reset(bot, update):
-    bot.send_message(chat_id=update.message.chat_id, text="Reset")
+    bot.send_message(chat_id=update.message.chat_id, text="Your filters have been successfully reset!")
 
 
 def command_random(bot, update):
-    chat_id = update.message.chat_id
-    bot.send_chat_action(chat_id=chat_id, action=ChatAction.TYPING)
-    bot.send_message(chat_id=chat_id, text="Random")
+    bot.send_chat_action(chat_id=update.message.chat_id, action=ChatAction.TYPING)
+    bot.send_message(chat_id=update.message.chat_id, text="Random")
 
 
 def command_help(bot, update):
