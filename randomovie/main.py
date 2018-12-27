@@ -55,6 +55,7 @@ def error(bot, update, error):
 
 @app.route(f'/{TOKEN}', methods=['POST'])
 def webhook_handler():
+    print("request received")
     dp.add_handler(CommandHandler('start', start))
     dp.add_handler(MessageHandler(Filters.text, echo))
     dp.add_error_handler(error)
