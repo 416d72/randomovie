@@ -19,48 +19,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
-import logging
-import os
+from flask import Flask
 
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
-
-
-def start(bot, update):
-    update.effective_message.reply_text("Hi!")
+app = Flask(__name__)
 
 
-def echo(bot, update):
-    update.effective_message.reply_text(update.effective_message.text)
-
-
-def error(bot, update, error):
-    logger.warning('Update "%s" caused error "%s"', update, error)
-
-
-if __name__ == "__main__":
-    # Set these variable to the appropriate values
-    TOKEN = "397386217:AAGx3KBG6xzFRg4R_FBZEDQATXjAWJqLy4s"
-    NAME = "randomovie"
-
-    # Port is given by Heroku
-    PORT = os.environ.get('PORT')
-
-    # Enable logging
-    logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                        level=logging.INFO)
-    logger = logging.getLogger(__name__)
-
-    # Set up the Updater
-    updater = Updater(TOKEN)
-    dp = updater.dispatcher
-    # Add handlers
-    dp.add_handler(CommandHandler('start', start))
-    dp.add_handler(MessageHandler(Filters.text, echo))
-    dp.add_error_handler(error)
-
-    # Start the webhook
-    updater.start_webhook(listen="0.0.0.0",
-                          port=int(PORT),
-                          url_path=TOKEN)
-    updater.bot.setWebhook("https://{}.herokuapp.com/{}".format(NAME, TOKEN))
-    updater.idle()
+@app.route('/', methods=['GET'])
+def index():
+    return "Test"
