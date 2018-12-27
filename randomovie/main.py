@@ -50,11 +50,12 @@ def webhook_handler():
     return 'ok'
 
 
-@app.route('/set_webhook', methods=['GET', 'POST'])
+@app.route('/set_webhook', methods=['GET'])
 def set_webhook():
-    if bot.setWebhook(f'https://randomovie.herokuapp.com/hook'):
+    cmd = bot.setWebhook(f'https://randomovie.herokuapp.com/hook')
+    if cmd:
         return "webhook setup ok"
-    return "webhook setup failed"
+    abort(404)
 
 
 @app.route('/')
