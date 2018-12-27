@@ -3,6 +3,8 @@
     <words>
       <w>gunicorn</w>
       <w>heroku</w>
+      <w>pythonpath</w>
+      <w>randomovie</w>
       <w>webhook</w>
     </words>
   </dictionary>
