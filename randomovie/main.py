@@ -33,7 +33,7 @@ def command_start(bot, update):
     print("User:", dir(update.effective_user))
     print("Message:", dir(update.effective_message))
     print("Chat:", dir(update.effective_chat))
-    markup = ReplyKeyboardMarkup(["Excellent", "Good"], ["Average", Bad])
+    markup = ReplyKeyboardMarkup(["Excellent", "Good"], ["Average", "Bad"])
     bot.send_chat_action(chat_id=update.message.chat_id, action=ChatAction.TYPING)
     bot.send_message(chat_id=update.message.chat_id, parse_mode=ParseMode.MARKDOWN,
                      text=f"Hello *{update.effective_user.full_name}*\n{bot_description}", reply_markup=markup)
