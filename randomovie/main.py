@@ -35,7 +35,6 @@ dp = updater.dispatcher
 updater.start_webhook(listen="0.0.0.0",
                       port=PORT,
                       url_path=TOKEN)
-updater.idle()
 
 # API
 app = Flask(__name__)
@@ -74,3 +73,6 @@ def set_webhook():
 @app.route('/')
 def index():
     abort(403)
+
+
+updater.idle()
