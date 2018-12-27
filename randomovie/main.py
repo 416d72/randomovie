@@ -20,10 +20,14 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-import logging
-import os
-
+import telegram
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from os import environ
+from flask import Flask, request, abort
+
+# Constants
+TOKEN = "397386217:AAGx3KBG6xzFRg4R_FBZEDQATXjAWJqLy4s"
+PORT = environ.get('PORT')
 
 
 def start(bot, update):
@@ -35,32 +39,45 @@ def echo(bot, update):
 
 
 def error(bot, update, error):
-    logger.warning('Update "%s" caused error "%s"', update, error)
+    update.effective_message.reply_text('Update "%s" caused error "%s"', update, error)
 
 
-if __name__ == "__main__":
-    # Set these variable to the appropriate values
-    TOKEN = "397386217:AAEYywBpMbh0uV6-_3aJps_Akao97LdfA7o"
+# Bot
+updater = Updater(TOKEN)
+dp = updater.dispatcher
+# Add handlers
 
-    # Port is given by Heroku
-    PORT = os.environ.get('PORT')
+# API
+app = Flask(__name__)
 
-    # Enable logging
-    logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                        level=logging.INFO)
-    logger = logging.getLogger(__name__)
 
-    # Set up the Updater
-    updater = Updater(TOKEN)
-    dp = updater.dispatcher
-    # Add handlers
-    dp.add_handler(CommandHandler('start', start))
-    dp.add_handler(MessageHandler(Filters.text, echo))
-    dp.add_error_handler(error)
+@app.route('/hook', methods=['POST'])
+def webhook_handler():
+    if request.method == "POST":
+        # retrieve the message in JSON and then transform it to Telegram object
+        dp.add_handler(CommandHandler('start', start))
+        dp.add_handler(MessageHandler(Filters.text, echo))
+        dp.add_error_handler(error)
+    return 'ok'
 
-    # Start the webhook
+
+@app.route('/set_webhook', methods=['GET', '[POST]'])
+def set_webhook():
+    cmd = updater.bot.setWebhook('https://randomovie.herokuapp.com/hook')
+    if cmd:
+        return "Success"
+    else:
+        abort(401)
+
+
+@app.route('/')
+def index():
+    abort(403)
+
+
+if __name__ == '__main__':
     updater.start_webhook(listen="0.0.0.0",
-                          port=int(PORT),
+                          port=PORT,
                           url_path=TOKEN)
     updater.bot.setWebhook(f"https://randomovie.herokuapp.com/{TOKEN}")
     updater.idle()
