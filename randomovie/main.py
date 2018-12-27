@@ -52,4 +52,3 @@ def telegram_request():
     dp.add_handler(MessageHandler(Filters.text, echo))
     updater.start_webhook(listen="0.0.0.0", port=PORT, url_path=TOKEN)
     updater.idle()
-    return "ok"
