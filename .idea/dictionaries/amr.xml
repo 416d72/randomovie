@@ -2,6 +2,7 @@
   <dictionary name="amr">
     <words>
       <w>gunicorn</w>
+      <w>webhook</w>
     </words>
   </dictionary>
 </component>
