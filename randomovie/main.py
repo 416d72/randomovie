@@ -20,39 +20,47 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-import telegram
-from flask import Flask, request, abort
+import logging
+import os
 
-# Constants
-TOKEN = "397386217:AAEYywBpMbh0uV6-_3aJps_Akao97LdfA7o"
-
-# Bot
-bot = telegram.Bot(token=TOKEN)
-
-# API
-app = Flask(__name__)
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 
-@app.route('/hook', methods=['POST'])
-def webhook_handler():
-    if request.method == "POST":
-        # retrieve the message in JSON and then transform it to Telegram object
-        update = telegram.Update.de_json(request.get_json(force=True), bot)
-
-        chat_id = update.message.chat.id
-
-        # Telegram understands UTF-8, so encode text for unicode compatibility
-        text = update.message.text.encode('utf-8')
-
-        # repeat the same message back (echo)
-        bot.sendMessage(chat_id=chat_id, text=text)
-    return 'ok'
+def start(bot, update):
+    update.effective_message.reply_text("Hi!")
 
 
-@app.route('/')
-def index():
-    abort(403)
+def echo(bot, update):
+    update.effective_message.reply_text(update.effective_message.text)
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+def error(bot, update, error):
+    logger.warning('Update "%s" caused error "%s"', update, error)
+
+
+if __name__ == "__main__":
+    # Set these variable to the appropriate values
+    TOKEN = "397386217:AAEYywBpMbh0uV6-_3aJps_Akao97LdfA7o"
+
+    # Port is given by Heroku
+    PORT = os.environ.get('PORT')
+
+    # Enable logging
+    logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                        level=logging.INFO)
+    logger = logging.getLogger(__name__)
+
+    # Set up the Updater
+    updater = Updater(TOKEN)
+    dp = updater.dispatcher
+    # Add handlers
+    dp.add_handler(CommandHandler('start', start))
+    dp.add_handler(MessageHandler(Filters.text, echo))
+    dp.add_error_handler(error)
+
+    # Start the webhook
+    updater.start_webhook(listen="0.0.0.0",
+                          port=int(PORT),
+                          url_path=TOKEN)
+    updater.bot.setWebhook(f"https://randomovie.herokuapp.com/{TOKEN}")
+    updater.idle()
