@@ -27,11 +27,10 @@ from pprint import pprint
 
 
 def command_start(bot, update):
-    dir(update)
+    print(dir(update))
     bot.send_chat_action(chat_id=update.message.chat_id, action=ChatAction.TYPING)
     bot.send_message(chat_id=update.message.chat_id, parse_mode=ParseMode.MARKDOWN,
                      text=f"Hello *man*")
-    print(update)
 
 
 def command_create(bot, update):
