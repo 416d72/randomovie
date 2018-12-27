@@ -19,11 +19,17 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
-from flask import Flask
+from flask import Flask, request
 
+TOKEN = '397386217:AAGx3KBG6xzFRg4R_FBZEDQATXjAWJqLy4s'
 app = Flask(__name__)
 
 
 @app.route('/', methods=['GET'])
 def index():
     return "Test"
+
+
+@app.route(f'/{TOKEN}', methods=['POST'])
+def telegram_request():
+    return "ok"
