@@ -46,16 +46,13 @@ def webhook_handler():
 
         # repeat the same message back (echo)
         bot.sendMessage(chat_id=chat_id, text=text)
-
     return 'ok'
 
 
 @app.route('/set_webhook', methods=['GET'])
 def set_webhook():
     cmd = bot.setWebhook(f'https://randomovie.herokuapp.com/hook')
-    if cmd:
-        return "webhook setup ok"
-    abort(404)
+    return cmd
 
 
 @app.route('/')
