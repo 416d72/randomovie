@@ -23,13 +23,28 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from os import environ
 
 
-def start(bot, update):
-    # update.effective_message.reply_text("Hey ..")
+def command_start(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text="Hello")
 
 
-def echo(bot, update):
-    update.effective_message.reply_text(update.effective_message.text)
+def command_create(bot, update):
+    bot.send_message(chat_id=update.message.chat_id, text="Create..")
+
+
+def command_reset(bot, update):
+    bot.send_message(chat_id=update.message.chat_id, text="Reset")
+
+
+def command_random(bot, update):
+    bot.send_message(chat_id=update.message.chat_id, text="Random")
+
+
+def command_help(bot, update):
+    bot.send_message(chat_id=update.message.chat_id, text="Help")
+
+
+def command_unknown(bot, update):
+    bot.send_message(chat_id=update.message.chat_id, text="I couldn't understand that!!\nTry /help")
 
 
 if __name__ == "__main__":
@@ -41,9 +56,13 @@ if __name__ == "__main__":
     # Set up the Updater
     updater = Updater(TOKEN)
     dp = updater.dispatcher
-    # Add handlers
-    dp.add_handler(CommandHandler('start', start))
-    dp.add_handler(MessageHandler(Filters.text, echo))
+    # Handlers
+    dp.add_handler(CommandHandler('start', command_start))
+    dp.add_handler(CommandHandler('create', command_create))
+    dp.add_handler(CommandHandler('reset', command_reset))
+    dp.add_handler(CommandHandler('random', command_random))
+    dp.add_handler(CommandHandler('help', command_help))
+    dp.add_handler(MessageHandler(Filters.text, command_unknown))
 
     # Start the webhook
     updater.start_webhook(listen="0.0.0.0",
