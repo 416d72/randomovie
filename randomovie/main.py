@@ -51,7 +51,7 @@ dp = updater.dispatcher
 app = Flask(__name__)
 
 
-@app.route('/hook', methods=['POST'])
+@app.route(f'/{TOKEN}', methods=['POST'])
 def webhook_handler():
     if request.method == "POST":
         # retrieve the message in JSON and then transform it to Telegram object
