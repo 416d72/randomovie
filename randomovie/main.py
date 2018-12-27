@@ -24,7 +24,8 @@ from os import environ
 
 
 def start(bot, update):
-    update.effective_message.reply_text("Hey ..")
+    # update.effective_message.reply_text("Hey ..")
+    bot.send_message(chat_id=update.message.chat_id, text="Hello")
 
 
 def echo(bot, update):
