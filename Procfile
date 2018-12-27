@@ -1,1 +1,1 @@
-web: randomovie.main --log-file=-
+web: python3 randomovie.main --log-file=-
