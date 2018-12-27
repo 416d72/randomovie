@@ -21,7 +21,6 @@ SOFTWARE.
 """
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from os import environ
-from flask import Flask, request, abort
 
 
 def command_start(bot, update):
@@ -48,17 +47,8 @@ def command_unknown(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text="I couldn't understand that!!\nTry /help")
 
 
-app = Flask(__name__)
-
-
-@app.route('/', methods=['GET'])
-def index():
-    abort(403)
-
-
 if __name__ == "__main__":
     # Set these variable to the appropriate values
-    index()
     TOKEN = '397386217:AAGx3KBG6xzFRg4R_FBZEDQATXjAWJqLy4s'
     PORT = int(environ.get('PORT', '8443'))
 
