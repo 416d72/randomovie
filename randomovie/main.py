@@ -23,13 +23,7 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from flask import Flask, request
 from os import environ
 
-TOKEN = '397386217:AAGx3KBG6xzFRg4R_FBZEDQATXjAWJqLy4s'
-PORT = int(environ.get('PORT', '8443'))
 
-app = Flask(__name__)
-
-
-# handlers
 def start(bot, update):
     update.effective_message.reply_text("Hi!")
 
@@ -38,18 +32,22 @@ def echo(bot, update):
     update.effective_message.reply_text(update.effective_message.text)
 
 
-@app.route('/', methods=['GET'])
-def index():
-    return "Test"
+if __name__ == "__main__":
+    # Set these variable to the appropriate values
 
+    TOKEN = '397386217:AAGx3KBG6xzFRg4R_FBZEDQATXjAWJqLy4s'
+    PORT = int(environ.get('PORT', '8443'))
 
-@app.route(f'/{TOKEN}', methods=['POST'])
-def telegram_request():
+    # Set up the Updater
     updater = Updater(TOKEN)
     dp = updater.dispatcher
     # Add handlers
     dp.add_handler(CommandHandler('start', start))
     dp.add_handler(MessageHandler(Filters.text, echo))
-    updater.start_webhook(listen="0.0.0.0", port=PORT, url_path=TOKEN)
+
+    # Start the webhook
+    updater.start_webhook(listen="0.0.0.0",
+                          port=int(PORT),
+                          url_path=TOKEN)
+    updater.bot.setWebhook(f"https://randomovie.herokuapp.com/{TOKEN}")
     updater.idle()
-    return "ok"
