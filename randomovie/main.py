@@ -63,7 +63,7 @@ def webhook_handler():
 
 @app.route('/set_webhook', methods=['GET', '[POST]'])
 def set_webhook():
-    cmd = updater.bot.setWebhook('https://randomovie.herokuapp.com/hook')
+    cmd = updater.bot.setWebhook(f'https://randomovie.herokuapp.com/{TOKEN}')
     if cmd:
         return "Success"
     else:
@@ -79,5 +79,4 @@ if __name__ == '__main__':
     updater.start_webhook(listen="0.0.0.0",
                           port=PORT,
                           url_path=TOKEN)
-    updater.bot.setWebhook(f"https://randomovie.herokuapp.com/{TOKEN}")
     updater.idle()
