@@ -19,10 +19,23 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from flask import Flask, request
+from os import environ
 
 TOKEN = '397386217:AAGx3KBG6xzFRg4R_FBZEDQATXjAWJqLy4s'
+PORT = int(environ.get('PORT'))
+
 app = Flask(__name__)
+
+
+# handlers
+def start(bot, update):
+    update.effective_message.reply_text("Hi!")
+
+
+def echo(bot, update):
+    update.effective_message.reply_text(update.effective_message.text)
 
 
 @app.route('/', methods=['GET'])
@@ -32,4 +45,13 @@ def index():
 
 @app.route(f'/{TOKEN}', methods=['POST'])
 def telegram_request():
+    updater = Updater(TOKEN)
+    dp = updater.dispatcher
+    # Add handlers
+    dp.add_handler(CommandHandler('start', start))
+    dp.add_handler(MessageHandler(Filters.text, echo))
+    updater.start_webhook(listen="0.0.0.0",
+                          port=int(PORT),
+                          url_path=TOKEN)
+    updater.idle()
     return "ok"
