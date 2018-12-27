@@ -24,7 +24,7 @@ import telegram
 from flask import Flask, request, abort
 
 # Constants
-HEROKU = "shrouded-castle-34807"
+HEROKU = "randomovie"
 TOKEN = "397386217:AAEkSLd9qXk_C8VvwRJ3FAEySfUg39iOxAM"
 
 # Bot
