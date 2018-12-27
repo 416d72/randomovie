@@ -19,25 +19,10 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
+import logging
+import os
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
-from os import environ
-from flask import Flask, request, abort
-
-# Constants
-TOKEN = "397386217:AAGx3KBG6xzFRg4R_FBZEDQATXjAWJqLy4s"
-PORT = int(environ.get('PORT'))
-
-# Bot
-updater = Updater(TOKEN)
-dp = updater.dispatcher
-
-updater.start_webhook(listen="0.0.0.0",
-                      port=PORT,
-                      url_path=TOKEN)
-
-# API
-app = Flask(__name__)
 
 
 def start(bot, update):
@@ -49,29 +34,33 @@ def echo(bot, update):
 
 
 def error(bot, update, error):
-    update.effective_message.reply_text(f'Update "{update}" caused error "{error}"')
+    logger.warning('Update "%s" caused error "%s"', update, error)
 
 
-@app.route(f'/{TOKEN}', methods=['POST'])
-def webhook_handler():
+if __name__ == "__main__":
+    # Set these variable to the appropriate values
+    TOKEN = "397386217:AAGx3KBG6xzFRg4R_FBZEDQATXjAWJqLy4s"
+    NAME = "randomovie"
+
+    # Port is given by Heroku
+    PORT = os.environ.get('PORT')
+
+    # Enable logging
+    logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                        level=logging.INFO)
+    logger = logging.getLogger(__name__)
+
+    # Set up the Updater
+    updater = Updater(TOKEN)
+    dp = updater.dispatcher
+    # Add handlers
     dp.add_handler(CommandHandler('start', start))
     dp.add_handler(MessageHandler(Filters.text, echo))
     dp.add_error_handler(error)
-    return 'ok'
 
-
-@app.route('/set_webhook', methods=['GET', '[POST]'])
-def set_webhook():
-    cmd = updater.bot.setWebhook(f'https://randomovie.herokuapp.com/{TOKEN}')
-    if cmd:
-        return "Success"
-    else:
-        abort(401)
-
-
-@app.route('/')
-def index():
-    abort(403)
-
-
-updater.idle()
+    # Start the webhook
+    updater.start_webhook(listen="0.0.0.0",
+                          port=int(PORT),
+                          url_path=TOKEN)
+    updater.bot.setWebhook("https://{}.herokuapp.com/{}".format(NAME, TOKEN))
+    updater.idle()
