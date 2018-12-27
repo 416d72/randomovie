@@ -27,7 +27,8 @@ from os import environ
 
 def command_start(bot, update):
     bot.send_chat_action(chat_id=update.message.chat_id, action=ChatAction.TYPING)
-    bot.send_message(chat_id=update.message.chat_id, parse_mode=ParseMode.MARKDOWN, text="*Start* here")
+    bot.send_message(chat_id=update.message.chat_id, parse_mode=ParseMode.MARKDOWN,
+                     text=f"Hello {update.message.first_name}")
     print(update)
 
 
