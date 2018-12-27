@@ -24,7 +24,7 @@ import telegram
 from flask import Flask, request, abort
 
 # Constants
-TOKEN = "397386217:AAEkSLd9qXk_C8VvwRJ3FAEySfUg39iOxAM"
+TOKEN = "397386217:AAEYywBpMbh0uV6-_3aJps_Akao97LdfA7o"
 
 # Bot
 bot = telegram.Bot(token=TOKEN)
@@ -57,4 +57,4 @@ def set_webhook():
 
 @app.route('/')
 def index():
-    return TOKEN
+    abort(403)
