@@ -55,11 +55,9 @@ def error(bot, update, error):
 
 @app.route(f'/{TOKEN}', methods=['POST'])
 def webhook_handler():
-    if request.method == "POST":
-        # retrieve the message in JSON and then transform it to Telegram object
-        dp.add_handler(CommandHandler('start', start))
-        dp.add_handler(MessageHandler(Filters.text, echo))
-        dp.add_error_handler(error)
+    dp.add_handler(CommandHandler('start', start))
+    dp.add_handler(MessageHandler(Filters.text, echo))
+    dp.add_error_handler(error)
     return 'ok'
 
 
