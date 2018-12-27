@@ -58,7 +58,7 @@ def index():
 
 if __name__ == "__main__":
     # Set these variable to the appropriate values
-
+    index()
     TOKEN = '397386217:AAGx3KBG6xzFRg4R_FBZEDQATXjAWJqLy4s'
     PORT = int(environ.get('PORT', '8443'))
 
