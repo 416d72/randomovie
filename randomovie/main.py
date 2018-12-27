@@ -24,7 +24,7 @@ from flask import Flask, request
 from os import environ
 
 TOKEN = '397386217:AAGx3KBG6xzFRg4R_FBZEDQATXjAWJqLy4s'
-PORT = int(environ.get('PORT'))
+PORT = int(environ.get('PORT', '8443'))
 
 app = Flask(__name__)
 
