@@ -20,7 +20,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-import telegram
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from os import environ
 from flask import Flask, request, abort
@@ -28,6 +27,18 @@ from flask import Flask, request, abort
 # Constants
 TOKEN = "397386217:AAGx3KBG6xzFRg4R_FBZEDQATXjAWJqLy4s"
 PORT = environ.get('PORT')
+
+# Bot
+updater = Updater(TOKEN)
+dp = updater.dispatcher
+
+updater.start_webhook(listen="0.0.0.0",
+                      port=PORT,
+                      url_path=TOKEN)
+updater.idle()
+
+# API
+app = Flask(__name__)
 
 
 def start(bot, update):
@@ -39,16 +50,7 @@ def echo(bot, update):
 
 
 def error(bot, update, error):
-    update.effective_message.reply_text('Update "%s" caused error "%s"', update, error)
-
-
-# Bot
-updater = Updater(TOKEN)
-dp = updater.dispatcher
-# Add handlers
-
-# API
-app = Flask(__name__)
+    update.effective_message.reply_text(f'Update "{update}" caused error "{error}"')
 
 
 @app.route(f'/{TOKEN}', methods=['POST'])
@@ -73,10 +75,3 @@ def set_webhook():
 @app.route('/')
 def index():
     abort(403)
-
-
-if __name__ == '__main__':
-    updater.start_webhook(listen="0.0.0.0",
-                          port=PORT,
-                          url_path=TOKEN)
-    updater.idle()
