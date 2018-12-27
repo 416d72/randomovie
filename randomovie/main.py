@@ -49,12 +49,10 @@ def webhook_handler():
     return 'ok'
 
 
-@app.route('/set_webhook', methods=['GET','[POST]'])
-def set_webhook():
-    cmd = bot.setWebhook('https://randomovie.herokuapp.com/hook')
-    return cmd
-
-
 @app.route('/')
 def index():
     abort(403)
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
