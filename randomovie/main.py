@@ -24,7 +24,6 @@ import telegram
 from flask import Flask, request, abort
 
 # Constants
-HEROKU = "randomovie"
 TOKEN = "397386217:AAEkSLd9qXk_C8VvwRJ3FAEySfUg39iOxAM"
 
 # Bot
@@ -53,7 +52,7 @@ def webhook_handler():
 
 @app.route('/set_webhook', methods=['GET', 'POST'])
 def set_webhook():
-    if bot.setWebhook(f'https://www.{HEROKU}.herokuapp.com/hook'):
+    if bot.setWebhook(f'https://randomovie.herokuapp.com/hook'):
         return "webhook setup ok"
     return "webhook setup failed"
 
