@@ -26,7 +26,7 @@ from flask import Flask, request, abort
 
 # Constants
 TOKEN = "397386217:AAGx3KBG6xzFRg4R_FBZEDQATXjAWJqLy4s"
-PORT = environ.get('PORT')
+PORT = int(environ.get('PORT'))
 
 # Bot
 updater = Updater(TOKEN)
