@@ -20,12 +20,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
-from flask import Flask, request
 from os import environ
 
 
 def start(bot, update):
-    update.effective_message.reply_text("Hi!")
+    update.effective_message.reply_text(update)
 
 
 def echo(bot, update):
