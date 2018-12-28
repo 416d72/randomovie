@@ -20,30 +20,31 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
 from telegram import ChatAction, ParseMode, InlineKeyboardButton, InlineKeyboardMarkup
 from os import environ
 
 # Constants
 bot_description = 'This bot was created to provide a random movie based on user\'s filter including genres,' \
-                  'minimum rating and minimum release year.' \
-                  'You can start creating your own filter using /create command' \
+                  'minimum rating and minimum release year.\n' \
+                  'You can start creating your own filter using /create command\n' \
                   'After you complete creating your filter, you can use /random command to get a random movie based ' \
-                  'on your preferences.' \
-                  'Whenever you need help just send /help' \
+                  'on your preferences\n.' \
+                  'Whenever you need help just send /help\n' \
                   'Have fun 😊'
 
 
-def build_menu(buttons,
-               n_cols,
-               header_buttons=None,
-               footer_buttons=None):
+def build_menu(buttons, n_cols, header_buttons=None, footer_buttons=None):
     menu = [buttons[i:i + n_cols] for i in range(0, len(buttons), n_cols)]
     if header_buttons:
         menu.insert(0, header_buttons)
     if footer_buttons:
         menu.append(footer_buttons)
     return menu
+
+
+def query_handler(bot, update):
+    bot.send_message(chat_id=update.message.chat_id, text=f"You wrote {update.effective_message.text}")
 
 
 def command_start(bot, update):
@@ -100,7 +101,7 @@ if __name__ == "__main__":
     dp.add_handler(CommandHandler('random', command_random))
     dp.add_handler(CommandHandler('help', command_help))
     dp.add_handler(MessageHandler(Filters.text, command_unknown))
-
+    dp.add_handler(CallbackQueryHandler(query_handler))
     # Start the webhook
     updater.start_webhook(listen="0.0.0.0",
                           port=int(PORT),
