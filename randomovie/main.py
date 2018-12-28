@@ -21,11 +21,29 @@ SOFTWARE.
 """
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
-from telegram import ChatAction, ParseMode, ReplyKeyboardMarkup
+from telegram import ChatAction, ParseMode, InlineKeyboardButton, InlineKeyboardMarkup
 from os import environ
 
 # Constants
-bot_description = None
+bot_description = 'This bot was created to provide a random movie based on user\'s filter including genres,' \
+                  'minimum rating and minimum release year.' \
+                  'You can start creating your own filter using /create command' \
+                  'After you complete creating your filter, you can use /random command to get a random movie based ' \
+                  'on your preferences.' \
+                  'Whenever you need help just send /help' \
+                  'Have fun 😊'
+
+
+def build_menu(buttons,
+               n_cols,
+               header_buttons=None,
+               footer_buttons=None):
+    menu = [buttons[i:i + n_cols] for i in range(0, len(buttons), n_cols)]
+    if header_buttons:
+        menu.insert(0, header_buttons)
+    if footer_buttons:
+        menu.append(footer_buttons)
+    return menu
 
 
 def command_start(bot, update):
@@ -33,10 +51,17 @@ def command_start(bot, update):
     print("User:", dir(update.effective_user))
     print("Message:", dir(update.effective_message))
     print("Chat:", dir(update.effective_chat))
-    markup = ReplyKeyboardMarkup([["Excellent", "Good"], ["Average", "Bad"]])
+
+    button_list = [
+        InlineKeyboardButton("Get one more", callback_data="/random"),
+        InlineKeyboardButton("Share with friends", callback_data="share"),
+        InlineKeyboardButton("Watch or Download", callback_data="download")
+    ]
+    reply_markup = InlineKeyboardMarkup(build_menu(button_list, n_cols=2))
+
     bot.send_chat_action(chat_id=update.message.chat_id, action=ChatAction.TYPING)
     bot.send_message(chat_id=update.message.chat_id, parse_mode=ParseMode.MARKDOWN,
-                     text=f"Hello *{update.effective_user.full_name}*\n{bot_description}", reply_markup=markup)
+                     text=f"Hello *{update.effective_user.full_name}*\n{bot_description}", reply_markup=reply_markup)
 
 
 def command_create(bot, update):
