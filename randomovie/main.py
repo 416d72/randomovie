@@ -21,7 +21,10 @@ SOFTWARE.
 """
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
-from telegram import ChatAction, ParseMode, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import (
+    ChatAction, ParseMode, InlineKeyboardButton, InlineKeyboardMarkup, KeyboardButton,
+    ReplyKeyboardMarkup, ReplyKeyboardRemove,
+)
 from os import environ
 
 
@@ -43,6 +46,14 @@ def random_reply_markup(url):
     return InlineKeyboardMarkup(build_menu(button_list, n_cols=2))
 
 
+def create_markup():
+    button_list = [
+        [KeyboardButton("Action"), KeyboardButton("Horror"), KeyboardButton("Action"), KeyboardButton("Action")],
+        [KeyboardButton("Action"), KeyboardButton("Action"), KeyboardButton("Load more")]
+    ]
+    return ReplyKeyboardMarkup(button_list)
+
+
 def command_start(bot, update):
     bot_description = 'This bot was created to provide a random movie based on user\'s filter including genres,' \
                       'minimum rating and minimum release year.\n' \
@@ -57,7 +68,7 @@ def command_start(bot, update):
 
 
 def command_create(bot, update):
-    bot.send_message(chat_id=update.effective_message.chat_id, text="Create..")
+    bot.send_message(chat_id=update.effective_message.chat_id, text="Create..", reply_markup=create_markup())
 
 
 def command_reset(bot, update):
