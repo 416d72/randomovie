@@ -35,11 +35,10 @@ def build_menu(buttons, n_cols, header_buttons=None, footer_buttons=None):
 
 
 # Constants
-def random_reply_markup(url, imdb_id):
+def random_reply_markup(url):
     button_list = [
         InlineKeyboardButton("Get one more", callback_data="random"),
         InlineKeyboardButton("Watch or Download", url=url),
-        InlineKeyboardButton("Share with friends", switch_inline_query=imdb_id),
     ]
     return InlineKeyboardMarkup(build_menu(button_list, n_cols=2))
 
@@ -66,12 +65,11 @@ def command_reset(bot, update):
 
 
 def command_random(bot, update):
-    imdb_id = 'tt0816692'
     title = 'Download full movie Interstellar 2014'.replace(' ', '+')
     url = f"https://www.google.com.eg/search?q={title}"
     bot.send_chat_action(chat_id=update.effective_message.chat_id, action=ChatAction.TYPING)
     bot.send_message(chat_id=update.effective_message.chat_id, text="Random",
-                     reply_markup=random_reply_markup(url=url, imdb_id=imdb_id))
+                     reply_markup=random_reply_markup(url))
 
 
 def command_help(bot, update):
