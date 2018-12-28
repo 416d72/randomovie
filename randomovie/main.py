@@ -46,7 +46,8 @@ def build_menu(buttons, n_cols, header_buttons=None, footer_buttons=None):
 def query_handler(bot, update):
     query = update.callback_query
     print(dir(query))
-    bot.edit_message_text(chat_id=query.message.chat_id, message_id=query.message.message_id, text=f"You wrote {query.data}")
+    bot.send_message(chat_id=query.message.chat_id, message_id=query.message.message_id,
+                     text=f"You wrote {query.data}")
 
 
 def command_start(bot, update):
