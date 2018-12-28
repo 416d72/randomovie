@@ -45,17 +45,11 @@ def build_menu(buttons, n_cols, header_buttons=None, footer_buttons=None):
 
 def query_handler(bot, update):
     query = update.callback_query
-    print(dir(query))
-    bot.send_message(chat_id=query.message.chat_id, message_id=query.message.message_id,
-                     text=f"You wrote {query.data}")
+    bot.edit_message_text(chat_id=query.message.chat_id, message_id=query.message.message_id,
+                          text=f"You wrote {query.data}")
 
 
 def command_start(bot, update):
-    print("Update:", dir(update))
-    print("User:", dir(update.effective_user))
-    print("Message:", dir(update.effective_message))
-    print("Chat:", dir(update.effective_chat))
-
     button_list = [
         InlineKeyboardButton("Get one more", callback_data="/random"),
         InlineKeyboardButton("Share with friends", callback_data="share"),
@@ -91,7 +85,7 @@ def command_unknown(bot, update):
 
 if __name__ == "__main__":
     TOKEN = '397386217:AAGx3KBG6xzFRg4R_FBZEDQATXjAWJqLy4s'
-    PORT = int(environ.get('PORT', '8443'))
+    # PORT = int(environ.get('PORT', '8443'))
 
     # Set up the Updater
     updater = Updater(TOKEN)
@@ -105,8 +99,7 @@ if __name__ == "__main__":
     dp.add_handler(MessageHandler(Filters.text, command_unknown))
     dp.add_handler(CallbackQueryHandler(query_handler))
     # Start the webhook
-    updater.start_webhook(listen="0.0.0.0",
-                          port=int(PORT),
-                          url_path=TOKEN)
-    updater.bot.setWebhook(f"https://randomovie.herokuapp.com/{TOKEN}")
+    # updater.start_webhook(listen="0.0.0.0", port=int(PORT), url_path=TOKEN)
+    # updater.bot.setWebhook(f"https://randomovie.herokuapp.com/{TOKEN}")
+    updater.start_polling()
     updater.idle()
