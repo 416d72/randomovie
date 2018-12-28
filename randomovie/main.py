@@ -21,7 +21,7 @@ SOFTWARE.
 """
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
-from telegram import Message, ChatAction, ParseMode, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import ChatAction, ParseMode, InlineKeyboardButton, InlineKeyboardMarkup
 from os import environ
 
 
@@ -35,11 +35,11 @@ def build_menu(buttons, n_cols, header_buttons=None, footer_buttons=None):
 
 
 # Constants
-def random_reply_markup(url):
+def random_reply_markup(url, imdb_id):
     button_list = [
         InlineKeyboardButton("Get one more", callback_data="random"),
         InlineKeyboardButton("Watch or Download", url=url),
-        InlineKeyboardButton("Share with friends", callback_data="share"),
+        InlineKeyboardButton("Share with friends", switch_inline_query=imdb_id),
     ]
     return InlineKeyboardMarkup(build_menu(button_list, n_cols=2))
 
@@ -66,11 +66,12 @@ def command_reset(bot, update):
 
 
 def command_random(bot, update):
-    print(dir(bot.forward_message))
+    imdb_id = 'tt0816692'
     title = 'Download full movie Interstellar 2014'.replace(' ', '+')
+    url = f"https://www.google.com.eg/search?q={title}"
     bot.send_chat_action(chat_id=update.effective_message.chat_id, action=ChatAction.TYPING)
     bot.send_message(chat_id=update.effective_message.chat_id, text="Random",
-                     reply_markup=random_reply_markup(f"https://www.google.com.eg/search?q={title}"))
+                     reply_markup=random_reply_markup(url=url, imdb_id=imdb_id))
 
 
 def command_help(bot, update):
@@ -81,18 +82,11 @@ def command_unknown(bot, update):
     bot.send_message(chat_id=update.effective_message.chat_id, text="I couldn't understand that!!\nTry /help")
 
 
-def share(bot, update):
-    Message()
-    bot.send_message(chat_id=update.effective_message.chat_id, text="Share")
-
-
 def query_handler(bot, update):
     query = update.callback_query
     btn = query.data
     if btn == 'random':
         command_random(bot, update)
-    elif btn == 'share':
-        share(bot, update)
 
 
 if __name__ == "__main__":
