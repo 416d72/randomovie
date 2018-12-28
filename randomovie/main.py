@@ -21,17 +21,8 @@ SOFTWARE.
 """
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
-from telegram import ChatAction, ParseMode, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import Message, ChatAction, ParseMode, InlineKeyboardButton, InlineKeyboardMarkup
 from os import environ
-
-# Constants
-bot_description = 'This bot was created to provide a random movie based on user\'s filter including genres,' \
-                  'minimum rating and minimum release year.\n' \
-                  'You can start creating your own filter using /create command\n' \
-                  'After you complete creating your filter, you can use /random command to get a random movie based ' \
-                  'on your preferences\n.' \
-                  'Whenever you need help just send /help\n' \
-                  'Have fun 😊'
 
 
 def build_menu(buttons, n_cols, header_buttons=None, footer_buttons=None):
@@ -43,44 +34,65 @@ def build_menu(buttons, n_cols, header_buttons=None, footer_buttons=None):
     return menu
 
 
-def query_handler(bot, update):
-    query = update.callback_query
-    bot.edit_message_text(chat_id=query.message.chat_id, message_id=query.message.message_id,
-                          text=f"You wrote {query.data}")
+# Constants
+def random_reply_markup(url):
+    button_list = [
+        InlineKeyboardButton("Get one more", callback_data="random"),
+        InlineKeyboardButton("Watch or Download", url=url),
+        InlineKeyboardButton("Share with friends", callback_data="share"),
+    ]
+    return InlineKeyboardMarkup(build_menu(button_list, n_cols=2))
 
 
 def command_start(bot, update):
-    button_list = [
-        InlineKeyboardButton("Get one more", callback_data="/random"),
-        InlineKeyboardButton("Share with friends", callback_data="share"),
-        InlineKeyboardButton("Watch or Download", callback_data="download")
-    ]
-    reply_markup = InlineKeyboardMarkup(build_menu(button_list, n_cols=2))
-
-    bot.send_chat_action(chat_id=update.message.chat_id, action=ChatAction.TYPING)
-    bot.send_message(chat_id=update.message.chat_id, parse_mode=ParseMode.MARKDOWN,
-                     text=f"Hello *{update.effective_user.full_name}*\n{bot_description}", reply_markup=reply_markup)
+    bot_description = 'This bot was created to provide a random movie based on user\'s filter including genres,' \
+                      'minimum rating and minimum release year.\n' \
+                      'You can start creating your own filter using /create command\n' \
+                      'After you complete creating your filter, you can use /random command to get a random movie based ' \
+                      'on your preferences\n.' \
+                      'Whenever you need help just send /help\n' \
+                      'Have fun 😊'
+    bot.send_chat_action(chat_id=update.effective_message.chat_id, action=ChatAction.TYPING)
+    bot.send_message(chat_id=update.effective_message.chat_id, parse_mode=ParseMode.MARKDOWN,
+                     text=f"Hello *{update.effective_user.full_name}*\n{bot_description}")
 
 
 def command_create(bot, update):
-    bot.send_message(chat_id=update.message.chat_id, text="Create..")
+    bot.send_message(chat_id=update.effective_message.chat_id, text="Create..")
 
 
 def command_reset(bot, update):
-    bot.send_message(chat_id=update.message.chat_id, text="Your filters have been successfully reset!")
+    bot.send_message(chat_id=update.effective_message.chat_id, text="Your filters have been successfully reset!")
 
 
 def command_random(bot, update):
-    bot.send_chat_action(chat_id=update.message.chat_id, action=ChatAction.TYPING)
-    bot.send_message(chat_id=update.message.chat_id, text="Random")
+    print(dir(bot.forward_message))
+    title = 'Download full movie Interstellar 2014'.replace(' ', '+')
+    bot.send_chat_action(chat_id=update.effective_message.chat_id, action=ChatAction.TYPING)
+    bot.send_message(chat_id=update.effective_message.chat_id, text="Random",
+                     reply_markup=random_reply_markup(f"https://www.google.com.eg/search?q={title}"))
 
 
 def command_help(bot, update):
-    bot.send_message(chat_id=update.message.chat_id, text="Help")
+    bot.send_message(chat_id=update.effective_message.chat_id, text="Help")
 
 
 def command_unknown(bot, update):
-    bot.send_message(chat_id=update.message.chat_id, text="I couldn't understand that!!\nTry /help")
+    bot.send_message(chat_id=update.effective_message.chat_id, text="I couldn't understand that!!\nTry /help")
+
+
+def share(bot, update):
+    Message()
+    bot.send_message(chat_id=update.effective_message.chat_id, text="Share")
+
+
+def query_handler(bot, update):
+    query = update.callback_query
+    btn = query.data
+    if btn == 'random':
+        command_random(bot, update)
+    elif btn == 'share':
+        share(bot, update)
 
 
 if __name__ == "__main__":
