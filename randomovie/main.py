@@ -19,46 +19,53 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
-
+from sqlite3 import connect, Error
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
-from telegram import (
-    ChatAction, ParseMode, InlineKeyboardButton, InlineKeyboardMarkup, KeyboardButton,
-    ReplyKeyboardMarkup, ReplyKeyboardRemove,
-)
+from telegram import TelegramError, ChatAction, ParseMode, InlineKeyboardButton, InlineKeyboardMarkup
 from os import environ
-
-
-def build_menu(buttons, n_cols, header_buttons=None, footer_buttons=None):
-    menu = [buttons[i:i + n_cols] for i in range(0, len(buttons), n_cols)]
-    if header_buttons:
-        menu.insert(0, header_buttons)
-    if footer_buttons:
-        menu.append(footer_buttons)
-    return menu
 
 
 # Constants
 def random_reply_markup(url):
     button_list = [
-        InlineKeyboardButton("Get one more", callback_data="random"),
-        InlineKeyboardButton("Watch or Download", url=url),
+        [
+            InlineKeyboardButton("Get one more", callback_data="random"),
+            InlineKeyboardButton("Watch or Download", url=url),
+        ]
     ]
-    return InlineKeyboardMarkup(build_menu(button_list, n_cols=2))
+    return InlineKeyboardMarkup(button_list)
 
 
-def create_markup():
+def db():
+    con = connect('data/randomovie.db')
+    return [con, con.cursor()]
+
+
+def create_markup(genre):
     button_list = [
-        [KeyboardButton("Action"), KeyboardButton("Horror"), KeyboardButton("Action"), KeyboardButton("Action")],
-        [KeyboardButton("Action"), KeyboardButton("Action"), KeyboardButton("Load more")]
+        [
+            InlineKeyboardButton(f"Yes add {genre}", callback_data=genre),
+            InlineKeyboardButton(f"No, I don't like {genre}", callback_data='skip'),
+        ],
+        [
+            InlineKeyboardButton("Add All genres"),
+            InlineKeyboardButton("Done!"),
+        ]
     ]
-    return ReplyKeyboardMarkup(button_list)
+    return InlineKeyboardMarkup(button_list)
 
 
 def command_start(bot, update):
-    bot_description = 'This bot was created to provide a random movie based on user\'s filter including genres,' \
-                      'minimum rating and minimum release year.\n' \
-                      'You can start creating your own filter using /create command\n' \
-                      'After you complete creating your filter, you can use /random command to get a random movie based ' \
+    con = connect('data/randomovie.db')
+    cursor = con.cursor()
+    user_id = update.effective_user.id
+    cmd = f'INSERT OR IGNORE INTO `users`(`uid`) VALUES({user_id})'
+    cursor.execute(cmd)
+    con.commit()
+    bot_description = 'This bot was created to provide you a random movie based on your preference including ' \
+                      'movie genres, minimum rating and oldest release year.\n' \
+                      'You can start creating your own filter using /create \n' \
+                      'After you complete setting your filter, you can use /random to get a random movie based ' \
                       'on your preferences\n.' \
                       'Whenever you need help just send /help\n' \
                       'Have fun 😊'
@@ -68,14 +75,25 @@ def command_start(bot, update):
 
 
 def command_create(bot, update):
-    bot.send_message(chat_id=update.effective_message.chat_id, text="Create..", reply_markup=create_markup())
+    bot.send_message(chat_id=update.effective_message.chat_id, text="Create..", reply_markup=create_markup('Action'))
 
 
 def command_reset(bot, update):
+    con = connect('data/randomovie.db')
+    cursor = con.cursor()
+    user_id = update.effective_user.id
+    cmd = f'UPDATE `users` SET `genres` = 0 , `year` = 0 ,`rating` = 0 WHERE `uid` = {user_id}'
+    cursor.execute(cmd)
+    con.commit()
     bot.send_message(chat_id=update.effective_message.chat_id, text="Your filters have been successfully reset!")
 
 
 def command_random(bot, update):
+    user_id = update.effective_user.id
+    cmd = f'select movies.imdb_id, movies.title, movies.year, movies.genres, movies.rating from movies inner join ' \
+          f'users ' \
+          f'on users.uid = {user_id} and movies.rating > users.rating and movies.year > users.year ' \
+          f'and movies.genres like users.genres order by random() limit 1'
     title = 'Download full movie Interstellar 2014'.replace(' ', '+')
     url = f"https://www.google.com.eg/search?q={title}"
     bot.send_chat_action(chat_id=update.effective_message.chat_id, action=ChatAction.TYPING)
@@ -99,13 +117,16 @@ def query_handler(bot, update):
 
 
 if __name__ == "__main__":
+
+    # Secrets
     TOKEN = '397386217:AAGx3KBG6xzFRg4R_FBZEDQATXjAWJqLy4s'
     # PORT = int(environ.get('PORT', '8443'))
 
-    # Set up the Updater
+    # Telegram connection
     updater = Updater(TOKEN)
     dp = updater.dispatcher
-    # Handlers
+
+    # Received messages Handlers
     dp.add_handler(CommandHandler('start', command_start))
     dp.add_handler(CommandHandler('create', command_create))
     dp.add_handler(CommandHandler('reset', command_reset))
@@ -113,8 +134,11 @@ if __name__ == "__main__":
     dp.add_handler(CommandHandler('help', command_help))
     dp.add_handler(MessageHandler(Filters.text, command_unknown))
     dp.add_handler(CallbackQueryHandler(query_handler))
-    # Start the webhook
+
+    # Webhook Initialisation on heroku
     # updater.start_webhook(listen="0.0.0.0", port=int(PORT), url_path=TOKEN)
     # updater.bot.setWebhook(f"https://randomovie.herokuapp.com/{TOKEN}")
+
+    # Simple home server
     updater.start_polling()
     updater.idle()
