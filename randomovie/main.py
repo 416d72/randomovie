@@ -154,7 +154,7 @@ def command_reset(bot, update):
     con = connect('data/randomovie.db')
     cursor = con.cursor()
     user_id = update.effective_user.id
-    cmd = f'UPDATE `users` SET `genres` = 0 , `year` = 0 ,`rating` = 0 WHERE `uid` = {user_id}'
+    cmd = f'UPDATE `users` SET `genres` = Null , `year` = Null ,`rating` = Null WHERE `uid` = {user_id}'
     cursor.execute(cmd)
     con.commit()
     con.close()
@@ -171,8 +171,8 @@ def command_random(bot, update):
           f'AND movies.genres LIKE users.genres ORDER BY RANDOM() LIMIT 1'
     cursor.execute(f'SELECT `genres`, `rating`, `year` FROM `users` WHERE users.uid = {user_id}')
     preferences = cursor.fetchone()
-    genre = choice(preferences[0].split(','))
-    if genre:
+    if preferences[0]:
+        genre = choice(preferences[0].split(',') or None)
         cursor.execute(f"SELECT imdb_id,title,year,genres,rating FROM `movies` WHERE rating > {preferences[1]} AND "
                        f"year > {preferences[2]} AND genres LIKE '%{genre}%' ORDER BY RANDOM() LIMIT 1")
         movie = cursor.fetchone()
