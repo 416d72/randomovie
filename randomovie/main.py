@@ -20,6 +20,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 from sqlite3 import connect, Error
+from random import choice
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
 from telegram import TelegramError, ChatAction, ParseMode, InlineKeyboardButton, InlineKeyboardMarkup
 from os import environ
@@ -165,27 +166,33 @@ def command_random(bot, update):
     user_id = update.effective_user.id
     con = connect('data/randomovie.db')
     cursor = con.cursor()
-    cmd = f'SELECT movies.imdb_id, movies.title, movies.year, movies.genres, movies.rating FROM movies INNER JOIN' \
+    cmd = f'SELECT movies.imdb_id, movies.title, movies.year, movies.genres, movies.rating FROM `movies` INNER JOIN' \
           f'`users` ON users.uid = {user_id} AND movies.rating > users.rating AND movies.year > users.year ' \
           f'AND movies.genres LIKE users.genres ORDER BY RANDOM() LIMIT 1'
-    cursor.execute(cmd)
-    movie = cursor.fetchone()
-    if movie:
-        title = f'Download full movie {movie[1]}'.replace(' ', '+')
-        url = f"https://www.google.com.eg/search?q={title}"
-        msg = f"*Title:* {movie[1]}\n" \
-              f"*Release year:* {movie[2]}\n" \
-              f"*Rating:* {movie[4]}\n" \
-              f"*Genres:* {movie[3]}\n" \
-              f"*IMDB:* https://www.imdb.com/title/{movie[0]}"
-        bot.send_message(chat_id=update.effective_message.chat_id, text=msg,
-                         reply_markup=random_reply_markup(url), parse_mode=ParseMode.MARKDOWN)
-        bot.send_message(chat_id=update.effective_message.chat_id, text="Enjoy 😊")
-    else:
-        msg = "Look's like you haven't created/completed your filter yet!\n" \
-              "Try /create for creating a new filter, or if you have already, Try /reset and create a new one with" \
-              "more tolerant parameters like more genres, less rating and/or older release year"
-        bot.send_message(chat_id=update.effective_message.chat_id, text=msg)
+    cursor.execute(f'SELECT `genres`, `rating`, `year` FROM `users` WHERE users.uid = {user_id}')
+    preferences = cursor.fetchone()
+    genre = choice(preferences[0].split(','))
+    if genre:
+        cursor.execute(f"SELECT imdb_id,title,year,genres,rating FROM `movies` WHERE rating > {preferences[1]} AND "
+                       f"year > {preferences[2]} AND genres LIKE '%{genre}%' ORDER BY RANDOM() LIMIT 1")
+        movie = cursor.fetchone()
+        if movie:
+            title = f'Download full movie {movie[1]}'.replace(' ', '+')
+            url = f"https://www.google.com.eg/search?q={title}"
+            msg = f"*Title:* {movie[1]}\n" \
+                  f"*Release year:* {movie[2]}\n" \
+                  f"*Rating:* {movie[4]}\n" \
+                  f"*Genres:* {movie[3]}\n" \
+                  f"*IMDB:* https://www.imdb.com/title/{movie[0]}"
+            bot.send_message(chat_id=update.effective_message.chat_id, text=msg,
+                             reply_markup=random_reply_markup(url), parse_mode=ParseMode.MARKDOWN)
+            bot.send_message(chat_id=update.effective_message.chat_id, text="Enjoy 😊")
+        else:
+            msg = "Oops 😞 I found nothing matches your filter !!\nTry /reset and /create a new filter with " \
+                  "more tolerant parameters like more genres, less rating and older release year"
+    else:  # User hasn't created his filter yet
+        msg = "Look's like you haven't created your filter yet!\nTry /create for creating a new filter"
+    bot.send_message(chat_id=update.effective_message.chat_id, text=msg)
 
 
 def command_help(bot, update):
