@@ -24,8 +24,12 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, Callb
 from telegram import TelegramError, ChatAction, ParseMode, InlineKeyboardButton, InlineKeyboardMarkup
 from os import environ
 
-
 # Constants
+default_genres = ['Action', 'Adventure', 'Animation', 'Drama', 'Comedy', 'Documentary', 'Romance', 'Thriller',
+                  'Family', 'Crime', 'Horror', 'Music', 'Fantasy', 'Sci-Fi', 'Mystery', 'Biography', 'Sport',
+                  'History', 'Musical', 'Western', 'War', 'News']
+
+
 def random_reply_markup(url):
     button_list = [
         [
@@ -41,15 +45,15 @@ def db():
     return [con, con.cursor()]
 
 
-def create_markup(genre):
+def create_markup(genre_index: int):
     button_list = [
         [
-            InlineKeyboardButton(f"Yes add {genre}", callback_data=genre),
-            InlineKeyboardButton(f"No, I don't like {genre}", callback_data='skip'),
+            InlineKeyboardButton(f"Yes I like {default_genres[genre_index]}", callback_data=f"genre{genre_index}"),
+            InlineKeyboardButton(f"No", callback_data='skip_genre'),
         ],
         [
-            InlineKeyboardButton("Add All genres"),
-            InlineKeyboardButton("Done!"),
+            InlineKeyboardButton("Add All genres", callback_data='add_all_genres'),
+            InlineKeyboardButton("I'm done", callback_data='finish_genres'),
         ]
     ]
     return InlineKeyboardMarkup(button_list)
@@ -74,8 +78,75 @@ def command_start(bot, update):
                      text=f"Hello *{update.effective_user.full_name}*\n{bot_description}")
 
 
-def command_create(bot, update):
-    bot.send_message(chat_id=update.effective_message.chat_id, text="Create..", reply_markup=create_markup('Action'))
+def command_create(bot, update):  # Create a new filter starting with oldest year, then minimum rating
+    # and finally genres
+    con = connect('data/randomovie.db')
+    cursor = con.cursor()
+    user_id = update.effective_user.id
+
+    con.close()
+    bot.send_message(chat_id=update.effective_message.chat_id, text="Great !! Let's create a new filter 😃")
+    create_year(bot, update, 'new')
+
+
+def create_year(bot, update, step: str):
+    """
+    Prompt the user for setting the oldest release year that he would get movies newer than
+    :param bot:
+    :param update:
+    :param step:
+    :return:
+    """
+    if step == 'new':  # Send a simple message
+        bot.send_message(chat_id=update.effective_message.chat_id,
+                         text="So what is the minimum release year that all movies I suggest will be newer than?\n "
+                              "Type a year in range of 1911 to 2018.",
+                         )
+    elif step == 'set':  # Verify the received number and take the appropriate response
+        pass
+
+
+def create_rating(bot, update, step: str):
+    """
+        Prompt the user for setting the oldest release year that he would get movies newer than
+        :param bot:
+        :param update:
+        :param step:
+        :return:
+        """
+    if step == 'new':  # Send a simple message
+        bot.send_message(chat_id=update.effective_message.chat_id,
+                         text="All movies have a rating between 1-9, Send me a number between those"
+                         )
+    elif step == 'set':  # Verify the received number and take the appropriate response
+        pass
+
+
+def create_genres(bot, update, query):
+    """
+    Handles genres creation
+    :param bot:
+    :param update:
+    :param query:
+    :return: None
+    """
+    if query == 'new':
+        bot.send_message(chat_id=update.effective_message.chat_id, text=f"Do you like Action movies ?",
+                         reply_markup=create_markup(0))
+    elif query == 'skip':  # Just get the next genre
+        bot.send_message(chat_id=update.effective_message.chat_id, text=f"Do you like Action movies ?",
+                         reply_markup=create_markup(0))
+    elif query == 'done':  # Finish the setup wizard
+        pass
+    else:
+        con = connect('data/randomovie.db')
+        cursor = con.cursor()
+        user_id = update.effective_user.id
+        if query == 'append':  # Append the current genre to user's database and Get the next genre and prompt user
+            bot.send_message(chat_id=update.effective_message.chat_id, text=f"Do you like Action movies ?",
+                             reply_markup=create_markup(0))
+        elif query == 'all':  # Update user's genre cell with all default genres
+            pass
 
 
 def command_reset(bot, update):
@@ -85,35 +156,81 @@ def command_reset(bot, update):
     cmd = f'UPDATE `users` SET `genres` = 0 , `year` = 0 ,`rating` = 0 WHERE `uid` = {user_id}'
     cursor.execute(cmd)
     con.commit()
-    bot.send_message(chat_id=update.effective_message.chat_id, text="Your filters have been successfully reset!")
+    con.close()
+    bot.send_message(chat_id=update.effective_message.chat_id, text="Ok .. Your filters have been successfully reset!")
 
 
 def command_random(bot, update):
-    user_id = update.effective_user.id
-    cmd = f'select movies.imdb_id, movies.title, movies.year, movies.genres, movies.rating from movies inner join ' \
-          f'users ' \
-          f'on users.uid = {user_id} and movies.rating > users.rating and movies.year > users.year ' \
-          f'and movies.genres like users.genres order by random() limit 1'
-    title = 'Download full movie Interstellar 2014'.replace(' ', '+')
-    url = f"https://www.google.com.eg/search?q={title}"
     bot.send_chat_action(chat_id=update.effective_message.chat_id, action=ChatAction.TYPING)
-    bot.send_message(chat_id=update.effective_message.chat_id, text="Random",
-                     reply_markup=random_reply_markup(url))
+    user_id = update.effective_user.id
+    con = connect('data/randomovie.db')
+    cursor = con.cursor()
+    cmd = f'SELECT movies.imdb_id, movies.title, movies.year, movies.genres, movies.rating FROM movies INNER JOIN' \
+          f'`users` ON users.uid = {user_id} AND movies.rating > users.rating AND movies.year > users.year ' \
+          f'AND movies.genres LIKE users.genres ORDER BY RANDOM() LIMIT 1'
+    cursor.execute(cmd)
+    movie = cursor.fetchone()
+    if movie:
+        title = f'Download full movie {movie[1]}'.replace(' ', '+')
+        url = f"https://www.google.com.eg/search?q={title}"
+        msg = f"*Title:* {movie[1]}\n" \
+              f"*Release year:* {movie[2]}\n" \
+              f"*Rating:* {movie[4]}\n" \
+              f"*Genres:* {movie[3]}\n" \
+              f"*IMDB:* https://www.imdb.com/title/{movie[0]}"
+        bot.send_message(chat_id=update.effective_message.chat_id, text=msg,
+                         reply_markup=random_reply_markup(url), parse_mode=ParseMode.MARKDOWN)
+        bot.send_message(chat_id=update.effective_message.chat_id, text="Enjoy 😊")
+    else:
+        msg = "Look's like you haven't created/completed your filter yet!\n" \
+              "Try /create for creating a new filter, or if you have already, Try /reset and create a new one with" \
+              "more tolerant parameters like more genres, less rating and/or older release year"
+        bot.send_message(chat_id=update.effective_message.chat_id, text=msg)
 
 
 def command_help(bot, update):
-    bot.send_message(chat_id=update.effective_message.chat_id, text="Help")
+    help_msg = "Help message"
+    bot.send_message(chat_id=update.effective_message.chat_id, text=help_msg)
 
 
-def command_unknown(bot, update):
-    bot.send_message(chat_id=update.effective_message.chat_id, text="I couldn't understand that!!\nTry /help")
+def non_command_msg(bot, update):
+    msg = update.effective_message.text
+    if msg.isdigit():  # Check the previous message that was sent by bot
+        if 1911 < int(msg) < 2018:  # Minimum release year
+            bot.send_message(chat_id=update.effective_message.chat_id,
+                             text=f"Great, I'll suggest movies that are newer than {msg}")
+            # Initialise the next /create step which is: minimum rating
+            create_rating(bot, update, 'new')
+        elif 0 < int(msg) < 10:  # Minimum rating
+            bot.send_message(chat_id=update.effective_message.chat_id,
+                             text=f"Ok, I'll only suggest movies that have a rating more than {msg}/10")
+            # Initialise the next /create step which is: genres
+            create_genres(bot, update, 'new')
+        else:
+            unknown_command(bot, update)
+    else:
+        unknown_command(bot, update)
+
+
+def unknown_command(bot, update):
+    bot.send_message(chat_id=update.effective_message.chat_id,
+                     text="Sorry, I couldn't understand that!!\nTry /help")
 
 
 def query_handler(bot, update):
     query = update.callback_query
     btn = query.data
-    if btn == 'random':
+    if btn == 'random':  # Fetch a new movie
         command_random(bot, update)
+    else:
+        if btn.startswith('genre'):  # User is creating a new filter
+            create_genres(bot, update, 'append')
+        elif btn == 'skip_genre':  # get the next genre
+            create_genres(bot, update, 'skip')
+        elif btn == 'add_all_genres':  # Add all genres
+            create_genres(bot, update, 'all')
+        elif btn == 'finish_genres':  # User has selected all genres he needs
+            create_genres(bot, update, 'done')
 
 
 if __name__ == "__main__":
@@ -132,7 +249,7 @@ if __name__ == "__main__":
     dp.add_handler(CommandHandler('reset', command_reset))
     dp.add_handler(CommandHandler('random', command_random))
     dp.add_handler(CommandHandler('help', command_help))
-    dp.add_handler(MessageHandler(Filters.text, command_unknown))
+    dp.add_handler(MessageHandler(Filters.text, non_command_msg))
     dp.add_handler(CallbackQueryHandler(query_handler))
 
     # Webhook Initialisation on heroku
