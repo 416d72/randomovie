@@ -61,6 +61,20 @@ def update_user(user_id: int, update_type: str, new_data):
     con.close()
 
 
+def last_step(user_id) -> str:
+    """
+    Get the last step user was at
+    :param user_id:
+    :return: str
+    """
+    con = sqlite3.connect(database_file)
+    cursor = con.cursor()
+    cursor.execute("SELECT `last_step` FROM `users` WHERE `uid` = ?", [user_id])
+    result = cursor.fetchone()[0]
+    con.close()
+    return result
+
+
 def fetch(user_id):
     """
     Fetches records from database using provided arguments
@@ -78,6 +92,8 @@ def fetch(user_id):
                        f"and movies.year > (select users.year from users where uid = {user_id}) "
                        f"order by random() limit 1")
         result = cursor.fetchone()
+        if not result:
+            return None
         return [f"https://www.imdb.com/title/{result[0]}", *result[1:]]
     except sqlite3.Error as e:
         return f"SQLite Error: {e}"
@@ -85,3 +101,4 @@ def fetch(user_id):
 
 if __name__ == '__main__':
     print(fetch(1))
+    print(last_step(1))
