@@ -89,6 +89,19 @@ def set_last_step(user_id, new_step):
     con.close()
 
 
+def reset(user_id):
+    """
+    Deletes all user's genres
+    :param user_id:
+    :return: None
+    """
+    con = sqlite3.connect(database_file)
+    cursor = con.cursor()
+    cursor.execute("DELETE FROM `user_genres` WHERE `uid` = ?", [user_id])
+    con.commit()
+    con.close()
+
+
 def fetch(user_id):
     """
     Fetches records from database using provided arguments
