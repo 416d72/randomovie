@@ -56,7 +56,10 @@ def update_user(user_id: int, update_type: str, new_data):
         # Update the users table
         cursor.execute(f"UPDATE `users` SET `{update_type}` = ? WHERE uid = ?", [new_data, user_id])
     else:  # genre
-        cursor.execute(f"INSERT INTO `user_genres`(`user_id`,`genre_id`) VALUES(?,?))", [user_id, new_data])
+        # Update the user_genres table
+        cursor.execute("INSERT INTO `user_genres`(`user_id`,`genre_id`) VALUES(?,"
+                       "(select id from genres where name LIKE ?))",
+                       [user_id, f"%{new_data}%"])
     con.commit()
     con.close()
 
@@ -97,7 +100,7 @@ def reset(user_id):
     """
     con = sqlite3.connect(database_file)
     cursor = con.cursor()
-    cursor.execute("DELETE FROM `user_genres` WHERE `uid` = ?", [user_id])
+    cursor.execute("DELETE FROM `user_genres` WHERE `user_id` = ?", [user_id])
     con.commit()
     con.close()
 
@@ -130,3 +133,5 @@ if __name__ == '__main__':
     print(fetch(1))
     # set_last_step(1, 'reset')
     # print(get_last_step(1))
+    # reset(1)
+    # update_user(1, 'genre', 'horror')
