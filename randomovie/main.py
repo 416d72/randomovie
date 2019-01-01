@@ -24,6 +24,7 @@ from random import choice
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
 from telegram import TelegramError, ChatAction, ParseMode, InlineKeyboardButton, InlineKeyboardMarkup
 from os import environ
+from .database import *
 
 # Constants
 default_genres = ['Action', 'Adventure', 'Animation', 'Drama', 'Comedy', 'Documentary', 'Romance', 'Thriller',
@@ -41,9 +42,18 @@ def random_reply_markup(url):
     return InlineKeyboardMarkup(button_list)
 
 
-def db():
+def last_command(update, command):
+    """
+    Insert the last response sent by bot in user's database
+    :param update:
+    :param command:
+    :return: Bool
+    """
     con = connect('data/randomovie.db')
-    return [con, con.cursor()]
+    cursor = con.cursor()
+    user_id = update.effective_user.id
+    cursor.execute(f'UPDATE `users` SET `last_command` = {command} WHERE `uid` = {user_id}')
+    con.commit()
 
 
 def create_markup(genre_index: int):
@@ -61,12 +71,6 @@ def create_markup(genre_index: int):
 
 
 def command_start(bot, update):
-    con = connect('data/randomovie.db')
-    cursor = con.cursor()
-    user_id = update.effective_user.id
-    cmd = f'INSERT OR IGNORE INTO `users`(`uid`) VALUES({user_id})'
-    cursor.execute(cmd)
-    con.commit()
     bot_description = 'This bot was created to provide you a random movie based on your preference including ' \
                       'movie genres, minimum rating and oldest release year.\n' \
                       'You can start creating your own filter using /create \n' \
@@ -130,6 +134,10 @@ def create_genres(bot, update, query):
     :param update:
     :param query:
     :return: None
+    """
+    """
+    insert or replace into users() values(coalesce((select id from users_genres where uid = 15 and genre={genre}),
+    {genre}));
     """
     if query == 'new':
         bot.send_message(chat_id=update.effective_message.chat_id, text=f"Do you like Action movies ?",
