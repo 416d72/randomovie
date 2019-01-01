@@ -85,6 +85,8 @@ def set_last_step(user_id, new_step):
     con = sqlite3.connect(database_file)
     cursor = con.cursor()
     cursor.execute("UPDATE `users` SET `last_step`= ? WHERE `uid` = ?", [new_step, user_id])
+    con.commit()
+    con.close()
 
 
 def fetch(user_id):
@@ -113,4 +115,5 @@ def fetch(user_id):
 
 if __name__ == '__main__':
     print(fetch(1))
-    print(last_step(1))
+    # set_last_step(1, 'reset')
+    # print(get_last_step(1))
