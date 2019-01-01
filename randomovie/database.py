@@ -20,42 +20,49 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 import sqlite3
-import random
 import os
-import json
 
 data = os.path.dirname(__file__) + '/data'
-database_file = data + '/randomovie.db'
+database_file = data + '/bot.db'
 
 
-def fetch(year: int = 1800, genres: list = None, rating: float = 0):
+def create_user(user_id: int):
+    """
+    Create a new user
+    :param user_id:
+    :return:
+    """
+    try:
+        con = sqlite3.connect(database_file)
+        cursor = con.cursor()
+        cursor.execute("INSERT OR IGNORE INTO `users`(uid) VALUES(?)", [user_id])
+        con.commit()
+        con.close()
+    except sqlite3.Error as e:
+        return f"SQLite Error: {e}"
+
+
+def fetch(user_id):
     """
     Fetches records from database using provided arguments
-    :param year:
-    :param genres:
-    :param rating:
+    :param user_id:
     :return: list
     """
     try:
-        if not genres:
-            genres = ['Action', 'Adventure', 'Animation', 'Drama', 'Comedy', 'Documentary', 'Romance', 'Thriller',
-                      'Family', 'Crime', 'Horror', 'Music', 'Fantasy', 'Sci-Fi', 'Mystery', 'Biography', 'Sport',
-                      'History', 'Musical', 'Western', 'War', 'News']
-        selected_genre = random.choice(genres)
         con = sqlite3.connect(database_file)
         cursor = con.cursor()
-        cursor.execute(f"SELECT `imdb_id`,`title`,`year`, `rating`,`genres` FROM `movies` WHERE "
-                       f"`year` >= ? "
-                       f"AND `rating` >= ? "
-                       f"AND `genres` LIKE ? "
-                       f"ORDER BY RANDOM() "
-                       f"LIMIT 1"
-                       , [year, rating, f"%{selected_genre}%"])
-        fetched = cursor.fetchone()
-        return [f'https://www.imdb.com/title/{fetched[0]}', fetched[3], fetched[4].replace('\n', '')]
+
+        cursor.execute(f"select imdb_id, title,genres,year,rating,votes from movies where imdb_id in "
+                       f"(select movie_id from movie_genres where genre_id in "
+                       f"(select genre_id from user_genres where user_id = {user_id} order by random())) "
+                       f"and movies.rating > (select users.rating from users where uid = {user_id}) "
+                       f"and movies.year > (select users.year from users where uid = {user_id}) "
+                       f"order by random() limit 1")
+        result = cursor.fetchone()
+        return [f"https://www.imdb.com/title/{result[0]}", *result[1:]]
     except sqlite3.Error as e:
         return f"SQLite Error: {e}"
 
 
 if __name__ == '__main__':
-    print(fetch())
+    print(fetch(1))
