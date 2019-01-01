@@ -61,7 +61,7 @@ def update_user(user_id: int, update_type: str, new_data):
     con.close()
 
 
-def last_step(user_id) -> str:
+def get_last_step(user_id) -> str:
     """
     Get the last step user was at
     :param user_id:
@@ -73,6 +73,18 @@ def last_step(user_id) -> str:
     result = cursor.fetchone()[0]
     con.close()
     return result
+
+
+def set_last_step(user_id, new_step):
+    """
+    Set the last step user has just
+    :param user_id:
+    :param new_step:
+    :return: None
+    """
+    con = sqlite3.connect(database_file)
+    cursor = con.cursor()
+    cursor.execute("UPDATE `users` SET `last_step`= ? WHERE `uid` = ?", [new_step, user_id])
 
 
 def fetch(user_id):
