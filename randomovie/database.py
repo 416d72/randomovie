@@ -42,6 +42,25 @@ def create_user(user_id: int):
         return f"SQLite Error: {e}"
 
 
+def update_user(user_id: int, update_type: str, new_data):
+    """
+    Update type is like "genre" or "year"
+    :param user_id:
+    :param update_type:
+    :param new_data:
+    :return: None
+    """
+    con = sqlite3.connect(database_file)
+    cursor = con.cursor()
+    if update_type in ['year', 'rating']:
+        # Update the users table
+        cursor.execute(f"UPDATE `users` SET `{update_type}` = ? WHERE uid = ?", [new_data, user_id])
+    else:  # genre
+        cursor.execute(f"INSERT INTO `user_genres`(`user_id`,`genre_id`) VALUES(?,?))", [user_id, new_data])
+    con.commit()
+    con.close()
+
+
 def fetch(user_id):
     """
     Fetches records from database using provided arguments
