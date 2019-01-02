@@ -55,11 +55,13 @@ def user_update(user_id: int, update_type: str, new_data):
     if update_type in ['year', 'rating']:
         # Update the users table
         cursor.execute(f"UPDATE `users` SET `{update_type}` = ? WHERE uid = ?", [new_data, user_id])
-    else:  # genre
+    elif update_type == 'genre':  # genre
         # Update the user_genres table
         cursor.execute("INSERT INTO `user_genres`(`user_id`,`genre_id`) VALUES(?,"
                        "(select id from genres where name LIKE ?))",
                        [user_id, f"%{new_data}%"])
+    elif update_type == 'all_genres':  # All
+        cursor.execute("insert into user_genres select null, ?, id from genres", [user_id])
     con.commit()
     con.close()
 
@@ -130,4 +132,5 @@ def fetch(user_id):
 if __name__ == '__main__':
     print(fetch(1))
     # update_user(1, 'genre', 'horror')
+    # user_set_last_step(1, None)
     # print(user_get_last_step(1))

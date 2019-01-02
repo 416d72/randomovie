@@ -124,23 +124,35 @@ def create_genres(bot, update, query):
     insert or replace into users() values(coalesce((select id from users_genres where uid = 15 and genre={genre}),
     {genre}));
     """
+    user_id = update.effective_user.id
+    chat_id = update.effective_message.chat_id
     if query == 'new':
-        bot.send_message(chat_id=update.effective_message.chat_id, text=f"Do you like Action movies ?",
-                         reply_markup=create_markup(0))
-    elif query == 'skip':  # Just get the next genre
-        bot.send_message(chat_id=update.effective_message.chat_id, text=f"Do you like Action movies ?",
-                         reply_markup=create_markup(0))
-    elif query == 'done':  # Finish the setup wizard
-        pass
+        user_set_last_step(user_id, 'create_genres_0')
+        bot.send_message(chat_id=chat_id, text=f"Do you like {all_genres[0]} movies ?", reply_markup=create_markup(0))
     else:
-        con = connect('data/randomovie.db')
-        cursor = con.cursor()
-        user_id = update.effective_user.id
-        if query == 'append':  # Append the current genre to user's database and Get the next genre and prompt user
-            bot.send_message(chat_id=update.effective_message.chat_id, text=f"Do you like Action movies ?",
-                             reply_markup=create_markup(0))
-        elif query == 'all':  # Update user's genre cell with all default genres
-            pass
+        last_genre = user_get_last_step(user_id)
+        next_index = int(last_genre[last_genre.rfind('_') + 1:]) + 1
+        if next_index == len(all_genres):  # This is the last genre.
+            bot.send_message(chat_id=chat_id, text="Ok, You are set, now you can start using /random")
+            user_set_last_step(user_id, 'ready')
+        else:
+            if query == 'skip':  # Just get the next genre
+                bot.send_message(chat_id=chat_id,
+                                 text=f"Do you like {all_genres[next_index]} movies ?",
+                                 reply_markup=create_markup(next_index))
+                user_set_last_step(user_id, f'create_genres_{next_index}')
+            elif query == 'done':  # Finish
+                user_set_last_step(user_id, 'ready')
+                # Hide the markup
+            elif query == 'append':  # Append the current genre to user's database and Get the next genre and prompt
+                # user
+                user_set_last_step(user_id, f'create_genres_{next_index}')
+                bot.send_message(chat_id=chat_id, text=f"Do you like {all_genres[next_index]} movies ?",
+                                 reply_markup=create_markup(next_index))
+            elif query == 'all':  # Update user's genre cell with all default genres
+                user_update(user_id, 'all_genres', None)
+                bot.send_message(chat_id=chat_id, text="Ok, You are set, now you can start using /random")
+                user_set_last_step(user_id, 'ready')
 
 
 def command_reset(bot, update):
