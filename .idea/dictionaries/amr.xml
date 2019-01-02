@@ -4,6 +4,7 @@
       <w>gunicorn</w>
       <w>heroku</w>
       <w>imdb</w>
+      <w>noir</w>
       <w>pythonpath</w>
       <w>randomovie</w>
       <w>webhook</w>
