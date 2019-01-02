@@ -142,6 +142,7 @@ def create_genres(bot, update, query):
                 user_set_last_step(user_id, f'create_genres_{next_index}')
             elif query == 'done':  # Finish
                 user_set_last_step(user_id, 'ready')
+                bot.send_message(chat_id=chat_id, text="Ok, You are set, now you can start using /random")
                 # Hide the markup
             elif query == 'append':  # Append the current genre to user's database and Get the next genre and prompt
                 # user
@@ -161,37 +162,26 @@ def command_reset(bot, update):
 
 
 def command_random(bot, update):
-    bot.send_chat_action(chat_id=update.effective_message.chat_id, action=ChatAction.TYPING)
+    chat_id = update.effective_message.chat_id
+    bot.send_chat_action(chat_id=chat_id, action=ChatAction.TYPING)
     user_id = update.effective_user.id
-    con = connect('data/randomovie.db')
-    cursor = con.cursor()
-    cmd = f'SELECT movies.imdb_id, movies.title, movies.year, movies.genres, movies.rating FROM `movies` INNER JOIN' \
-          f'`users` ON users.uid = {user_id} AND movies.rating > users.rating AND movies.year > users.year ' \
-          f'AND movies.genres LIKE users.genres ORDER BY RANDOM() LIMIT 1'
-    cursor.execute(f'SELECT `genres`, `rating`, `year` FROM `users` WHERE users.uid = {user_id}')
-    preferences = cursor.fetchone()
-    if preferences[0]:
-        genre = choice(preferences[0].split(',') or None)
-        cursor.execute(f"SELECT imdb_id,title,year,genres,rating FROM `movies` WHERE rating > {preferences[1]} AND "
-                       f"year > {preferences[2]} AND genres LIKE '%{genre}%' ORDER BY RANDOM() LIMIT 1")
-        movie = cursor.fetchone()
-        if movie:
-            title = f'Download full movie {movie[1]}'.replace(' ', '+')
-            url = f"https://www.google.com.eg/search?q={title}"
-            msg = f"*Title:* {movie[1]}\n" \
-                  f"*Release year:* {movie[2]}\n" \
-                  f"*Rating:* {movie[4]}\n" \
-                  f"*Genres:* {movie[3]}\n" \
-                  f"*IMDB:* https://www.imdb.com/title/{movie[0]}"
-            bot.send_message(chat_id=update.effective_message.chat_id, text=msg,
-                             reply_markup=random_reply_markup(url), parse_mode=ParseMode.MARKDOWN)
-            bot.send_message(chat_id=update.effective_message.chat_id, text="Enjoy 😊")
-        else:
-            msg = "Oops 😞 I found nothing matches your filter !!\nTry /reset and /create a new filter with " \
-                  "more tolerant parameters like more genres, less rating and older release year"
-    else:  # User hasn't created his filter yet
-        msg = "Look's like you haven't created your filter yet!\nTry /create for creating a new filter"
-    bot.send_message(chat_id=update.effective_message.chat_id, text=msg)
+    movie = fetch(user_id)
+    if movie:
+        title = f'Download full movie {movie[1]}'.replace(' ', '+')
+        url = f"https://www.google.com.eg/search?q={title}"
+        msg = f"*Title:* {movie[1]}\n" \
+              f"*Release year:* {movie[3]}\n" \
+              f"*Rating:* {movie[4]}\n" \
+              f"*Genres:* {movie[2]}\n" \
+              f"*Votes:* {movie[5]}\n" \
+              f"*IMDB:* {movie[0]}"
+        bot.send_message(chat_id=chat_id, text=msg,
+                         reply_markup=random_reply_markup(url), parse_mode=ParseMode.MARKDOWN)
+        bot.send_message(chat_id=chat_id, text="Enjoy 😊")
+    else:
+        msg = "Oops 😞 I found nothing matches your filter !!\nTry /create a new filter with " \
+              "more tolerant parameters like more genres, less rating and older release year"
+        bot.send_message(chat_id=chat_id, text=msg)
 
 
 def command_help(bot, update):
