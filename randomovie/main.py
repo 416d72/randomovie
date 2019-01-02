@@ -70,6 +70,7 @@ def command_start(bot, update):
 
 def command_create(bot, update):  # Create a new filter starting with oldest year, then minimum rating
     # and finally genres
+    user_reset(update.effective_user.id)
     create_year(bot, update, 'new')
 
 
@@ -107,12 +108,13 @@ def create_rating(bot, update, step: str):
         user_update(update.effective_user.id, 'rating', update.effective_message.text)
 
 
-def create_genres(bot, update, query):
+def create_genres(bot, update, step, msg_id=0):
     """
     Handles genres creation
     :param bot:
     :param update:
-    :param query:
+    :param step:
+    :param msg_id:
     :return: None
     """
     """
@@ -121,7 +123,7 @@ def create_genres(bot, update, query):
     """
     user_id = update.effective_user.id
     chat_id = update.effective_message.chat_id
-    if query == 'new':
+    if step == 'new':
         user_set_last_step(user_id, 'create_genres_0')
         bot.send_message(chat_id=chat_id, text="Now It's time to choose your favourite genres")
         bot.send_message(chat_id=chat_id, text=f"Do you like {all_genres[0]} movies ?", reply_markup=create_markup(0))
@@ -129,28 +131,31 @@ def create_genres(bot, update, query):
         last_genre = user_get_last_step(user_id)
         next_index = int(last_genre[last_genre.rfind('_') + 1:]) + 1
         if next_index == len(all_genres):  # This is the last genre.
-            bot.send_message(chat_id=chat_id, text="Ok, You are set, now you can start using /random")
+            bot.edit_message_text(chat_id=chat_id, message_id=msg_id,
+                                  text="Ok, You are set, now you can start using /random")
             user_set_last_step(user_id, 'ready')
         else:
-            if query == 'skip':  # Just get the next genre
-                bot.send_message(chat_id=chat_id,
-                                 text=f"Do you like {all_genres[next_index]} movies ?",
-                                 reply_markup=create_markup(next_index))
+            if step == 'skip':  # Just get the next genre
+                bot.edit_message_text(chat_id=chat_id, message_id=msg_id,
+                                      text=f"Do you like {all_genres[next_index]} movies ?",
+                                      reply_markup=create_markup(next_index))
                 user_set_last_step(user_id, f'create_genres_{next_index}')
-            elif query == 'done':  # Finish
+            elif step == 'done':  # Finish
                 user_set_last_step(user_id, 'ready')
-                bot.send_message(chat_id=chat_id, text="Ok, You are set, now you can start using /random")
-                # Hide the markup
-            elif query == 'append':  # Append the current genre to user's database and Get the next genre and prompt
+                bot.edit_message_text(chat_id=chat_id, message_id=msg_id,
+                                      text="Ok, You are set, now you can start using /random")
+            elif step == 'append':  # Append the current genre to user's database and Get the next genre and prompt
                 # user
                 user_set_last_step(user_id, f'create_genres_{next_index}')
                 user_update(user_id, 'genre', next_index)
-                bot.send_message(chat_id=chat_id, text=f"Do you like {all_genres[next_index]} movies ?",
-                                 reply_markup=create_markup(next_index))
-            elif query == 'all':  # Update user's genre cell with all default genres
+                bot.edit_message_text(chat_id=chat_id, message_id=msg_id,
+                                      text=f"Do you like {all_genres[next_index]} movies ?",
+                                      reply_markup=create_markup(next_index))
+            elif step == 'all':  # Update user's genre cell with all default genres
                 user_update(user_id, 'all_genres', None)
-                bot.send_message(chat_id=chat_id, text="Ok, You are set, now you can start using /random")
                 user_set_last_step(user_id, 'ready')
+                bot.edit_message_text(chat_id=chat_id, message_id=msg_id,
+                                      text="Ok, You are set, now you can start using /random")
 
 
 def command_reset(bot, update):
@@ -227,19 +232,19 @@ def unknown_command(bot, update):
 
 
 def query_handler(bot, update):
-    query = update.callback_query
-    btn = query.data
+    btn = update.callback_query.data
+    msg_id = update.callback_query.message.message_id
     if btn == 'random':  # Fetch a new movie
         command_random(bot, update)
     else:
         if btn.startswith('genre'):  # User is creating a new filter
-            create_genres(bot, update, 'append')
+            create_genres(bot, update, 'append', msg_id)
         elif btn == 'skip_genre':  # get the next genre
-            create_genres(bot, update, 'skip')
+            create_genres(bot, update, 'skip', msg_id)
         elif btn == 'add_all_genres':  # Add all genres
-            create_genres(bot, update, 'all')
+            create_genres(bot, update, 'all', msg_id)
         elif btn == 'finish_genres':  # User has selected all genres he needs
-            create_genres(bot, update, 'done')
+            create_genres(bot, update, 'done', msg_id)
 
 
 if __name__ == "__main__":
