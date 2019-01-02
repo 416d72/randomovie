@@ -27,9 +27,9 @@ from os import environ
 from .database import *
 
 # Constants
-default_genres = ['Action', 'Adventure', 'Animation', 'Drama', 'Comedy', 'Documentary', 'Romance', 'Thriller',
-                  'Family', 'Crime', 'Horror', 'Music', 'Fantasy', 'Sci-Fi', 'Mystery', 'Biography', 'Sport',
-                  'History', 'Musical', 'Western', 'War', 'News']
+all_genres = ['Action', 'Adventure', 'Animation', 'Biography', 'Comedy', 'Crime', 'Documentary', 'Drama',
+              'Family', 'Fantasy', 'Film-Noir', 'History', 'Horror', 'Music', 'Musical', 'Mystery', 'News',
+              'Romance', 'Sci-Fi', 'Short', 'Sport', 'Thriller', 'War', 'Western']
 
 
 def random_reply_markup(url):
@@ -42,24 +42,10 @@ def random_reply_markup(url):
     return InlineKeyboardMarkup(button_list)
 
 
-def last_command(update, command):
-    """
-    Insert the last response sent by bot in user's database
-    :param update:
-    :param command:
-    :return: Bool
-    """
-    con = connect('data/randomovie.db')
-    cursor = con.cursor()
-    user_id = update.effective_user.id
-    cursor.execute(f'UPDATE `users` SET `last_command` = {command} WHERE `uid` = {user_id}')
-    con.commit()
-
-
 def create_markup(genre_index: int):
     button_list = [
         [
-            InlineKeyboardButton(f"Yes I like {default_genres[genre_index]}", callback_data=f"genre{genre_index}"),
+            InlineKeyboardButton(f"Yes I like {all_genres[genre_index]}", callback_data=f"genre{genre_index}"),
             InlineKeyboardButton(f"No", callback_data='skip_genre'),
         ],
         [
@@ -71,6 +57,8 @@ def create_markup(genre_index: int):
 
 
 def command_start(bot, update):
+    bot.send_chat_action(chat_id=update.effective_message.chat_id, action=ChatAction.TYPING)
+    user_create(update.effective_user.id)
     bot_description = 'This bot was created to provide you a random movie based on your preference including ' \
                       'movie genres, minimum rating and oldest release year.\n' \
                       'You can start creating your own filter using /create \n' \
@@ -78,19 +66,14 @@ def command_start(bot, update):
                       'on your preferences\n.' \
                       'Whenever you need help just send /help\n' \
                       'Have fun 😊'
-    bot.send_chat_action(chat_id=update.effective_message.chat_id, action=ChatAction.TYPING)
     bot.send_message(chat_id=update.effective_message.chat_id, parse_mode=ParseMode.MARKDOWN,
                      text=f"Hello *{update.effective_user.full_name}*\n{bot_description}")
 
 
 def command_create(bot, update):  # Create a new filter starting with oldest year, then minimum rating
     # and finally genres
-    con = connect('data/randomovie.db')
-    cursor = con.cursor()
-    user_id = update.effective_user.id
-
-    con.close()
-    bot.send_message(chat_id=update.effective_message.chat_id, text="Great !! Let's create a new filter 😃")
+    bot.send_message(chat_id=update.effective_message.chat_id, text="OK I've just reset your last filter !\nLet's "
+                                                                    "create a new filter 😃")
     create_year(bot, update, 'new')
 
 
@@ -104,11 +87,12 @@ def create_year(bot, update, step: str):
     """
     if step == 'new':  # Send a simple message
         bot.send_message(chat_id=update.effective_message.chat_id,
-                         text="So what is the minimum release year that all movies I suggest will be newer than?\n "
+                         text="So what is the minimum release year that all movies I suggest should be newer than?\n "
                               "Type a year in range of 1911 to 2018.",
                          )
+        user_set_last_step(update.effective_user.id, 'create_year')
     elif step == 'set':  # Verify the received number and take the appropriate response
-        pass
+        user_update(update.effective_user.id, 'year', update.effective_message.text)
 
 
 def create_rating(bot, update, step: str):
@@ -123,8 +107,9 @@ def create_rating(bot, update, step: str):
         bot.send_message(chat_id=update.effective_message.chat_id,
                          text="All movies have a rating between 1-9, Send me a number between those"
                          )
+        user_set_last_step(update.effective_user.id, 'create_rating')
     elif step == 'set':  # Verify the received number and take the appropriate response
-        pass
+        user_update(update.effective_user.id, 'rating', update.effective_message.text)
 
 
 def create_genres(bot, update, query):
@@ -159,13 +144,7 @@ def create_genres(bot, update, query):
 
 
 def command_reset(bot, update):
-    con = connect('data/randomovie.db')
-    cursor = con.cursor()
-    user_id = update.effective_user.id
-    cmd = f'UPDATE `users` SET `genres` = Null , `year` = Null ,`rating` = Null WHERE `uid` = {user_id}'
-    cursor.execute(cmd)
-    con.commit()
-    con.close()
+    user_reset(update.effective_user.id)
     bot.send_message(chat_id=update.effective_message.chat_id, text="Ok .. Your filters have been successfully reset!")
 
 
@@ -209,22 +188,38 @@ def command_help(bot, update):
 
 
 def non_command_msg(bot, update):
+    user_id = update.effective_user.id
     msg = update.effective_message.text
+    chat_id = update.effective_message.chat_id
     if msg.isdigit():  # Check the previous message that was sent by bot
-        if 1911 < int(msg) < 2018:  # Minimum release year
-            bot.send_message(chat_id=update.effective_message.chat_id,
-                             text=f"Great, I'll suggest movies that are newer than {msg}")
-            # Initialise the next /create step which is: minimum rating
-            create_rating(bot, update, 'new')
-        elif 0 < int(msg) < 10:  # Minimum rating
-            bot.send_message(chat_id=update.effective_message.chat_id,
-                             text=f"Ok, I'll only suggest movies that have a rating more than {msg}/10")
-            # Initialise the next /create step which is: genres
-            create_genres(bot, update, 'new')
+        if user_get_last_step(user_id) == 'create_year':  # Check if user is responding to create_year() function
+            if 1911 < int(msg) < 2018:  # Minimum release year
+                bot.send_message(chat_id=chat_id, text=f"Great, I'll only suggest movies that are newer than {msg}")
+                create_year(bot, update, 'set')
+                # Initialise the next /create step which is: minimum rating
+                create_rating(bot, update, 'new')
+            else:  # Wrong year
+                bot.send_message(chat_id=chat_id,
+                                 text="Sorry, You must send a year between 1912-2017 because all movies are in that "
+                                      "range!")
+        elif user_get_last_step(user_id) == 'create_rating':
+            if int(msg) == 10:  # Maximum rating
+                bot.send_message(chat_id=chat_id,
+                                 text="Hey, Don't be so optimistic, There's no movies that has 10/10 rating\nSend "
+                                      "another number below 10")
+            elif 0 <= int(msg) < 10:  # Minimum rating
+                bot.send_message(chat_id=chat_id,
+                                 text=f"Ok, I'll only suggest movies that have a rating more than {msg}/10")
+                create_rating(bot, update, 'set')
+                # Initialise the next /create step which is: genres
+                create_genres(bot, update, 'new')
+            else:
+                bot.send_message(chat_id=chat_id, text="Sorry, You must specify a minimum rating number between 0-9")
+    else:
+        if user_get_last_step(user_id) == 'create_year' or user_get_last_step(user_id) == 'create_rating':
+            bot.send_message(chat_id=chat_id, text="I can only accept digit number 0-9")
         else:
             unknown_command(bot, update)
-    else:
-        unknown_command(bot, update)
 
 
 def unknown_command(bot, update):

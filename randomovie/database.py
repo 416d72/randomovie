@@ -26,7 +26,7 @@ data = os.path.dirname(__file__) + '/data'
 database_file = data + '/bot.db'
 
 
-def create_user(user_id: int):
+def user_create(user_id: int):
     """
     Create a new user
     :param user_id:
@@ -42,7 +42,7 @@ def create_user(user_id: int):
         return f"SQLite Error: {e}"
 
 
-def update_user(user_id: int, update_type: str, new_data):
+def user_update(user_id: int, update_type: str, new_data):
     """
     Update type is like "genre" or "year"
     :param user_id:
@@ -64,7 +64,7 @@ def update_user(user_id: int, update_type: str, new_data):
     con.close()
 
 
-def get_last_step(user_id) -> str:
+def user_get_last_step(user_id) -> str:
     """
     Get the last step user was at
     :param user_id:
@@ -73,12 +73,10 @@ def get_last_step(user_id) -> str:
     con = sqlite3.connect(database_file)
     cursor = con.cursor()
     cursor.execute("SELECT `last_step` FROM `users` WHERE `uid` = ?", [user_id])
-    result = cursor.fetchone()[0]
-    con.close()
-    return result
+    return cursor.fetchone()[0]
 
 
-def set_last_step(user_id, new_step):
+def user_set_last_step(user_id, new_step):
     """
     Set the last step user has just
     :param user_id:
@@ -92,7 +90,7 @@ def set_last_step(user_id, new_step):
     con.close()
 
 
-def reset(user_id):
+def user_reset(user_id):
     """
     Deletes all user's genres
     :param user_id:
@@ -131,7 +129,5 @@ def fetch(user_id):
 
 if __name__ == '__main__':
     print(fetch(1))
-    # set_last_step(1, 'reset')
-    # print(get_last_step(1))
-    # reset(1)
     # update_user(1, 'genre', 'horror')
+    # print(user_get_last_step(1))
