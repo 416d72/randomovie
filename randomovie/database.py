@@ -98,6 +98,7 @@ def user_reset(user_id):
     """
     con = sqlite3.connect(database_file)
     cursor = con.cursor()
+    cursor.execute('UPDATE `users` SET `rating` = null, `year` = null, `last_step` = null WHERE `uid` = ?', [user_id])
     cursor.execute("DELETE FROM `user_genres` WHERE `user_id` = ?", [user_id])
     con.commit()
     con.close()
