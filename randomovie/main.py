@@ -24,7 +24,7 @@ from random import choice
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
 from telegram import TelegramError, ChatAction, ParseMode, InlineKeyboardButton, InlineKeyboardMarkup
 from os import environ
-from .database import *
+from randomovie.database import *
 
 # Constants
 all_genres = ['Action', 'Adventure', 'Animation', 'Biography', 'Comedy', 'Crime', 'Documentary', 'Drama',
@@ -72,8 +72,6 @@ def command_start(bot, update):
 
 def command_create(bot, update):  # Create a new filter starting with oldest year, then minimum rating
     # and finally genres
-    bot.send_message(chat_id=update.effective_message.chat_id, text="OK I've just reset your last filter !\nLet's "
-                                                                    "create a new filter 😃")
     create_year(bot, update, 'new')
 
 
@@ -105,8 +103,7 @@ def create_rating(bot, update, step: str):
         """
     if step == 'new':  # Send a simple message
         bot.send_message(chat_id=update.effective_message.chat_id,
-                         text="All movies have a rating between 1-9, Send me a number between those"
-                         )
+                         text="OK, Send me a number between 0-9 which represents the minimum movie rating you want!")
         user_set_last_step(update.effective_user.id, 'create_rating')
     elif step == 'set':  # Verify the received number and take the appropriate response
         user_update(update.effective_user.id, 'rating', update.effective_message.text)
@@ -128,6 +125,8 @@ def create_genres(bot, update, query):
     chat_id = update.effective_message.chat_id
     if query == 'new':
         user_set_last_step(user_id, 'create_genres_0')
+        user_update(user_id, 'genre', 1)
+        bot.send_message(chat_id=chat_id, text="Now It's time to choose your favourite genres")
         bot.send_message(chat_id=chat_id, text=f"Do you like {all_genres[0]} movies ?", reply_markup=create_markup(0))
     else:
         last_genre = user_get_last_step(user_id)
@@ -147,6 +146,7 @@ def create_genres(bot, update, query):
             elif query == 'append':  # Append the current genre to user's database and Get the next genre and prompt
                 # user
                 user_set_last_step(user_id, f'create_genres_{next_index}')
+                user_update(user_id, 'genre', next_index)
                 bot.send_message(chat_id=chat_id, text=f"Do you like {all_genres[next_index]} movies ?",
                                  reply_markup=create_markup(next_index))
             elif query == 'all':  # Update user's genre cell with all default genres
@@ -217,7 +217,7 @@ def non_command_msg(bot, update):
         elif user_get_last_step(user_id) == 'create_rating':
             if int(msg) == 10:  # Maximum rating
                 bot.send_message(chat_id=chat_id,
-                                 text="Hey, Don't be so optimistic, There's no movies that has 10/10 rating\nSend "
+                                 text="Hey, Don't be so optimistic, There's no movie that has 10/10 rating\nSend "
                                       "another number below 10")
             elif 0 <= int(msg) < 10:  # Minimum rating
                 bot.send_message(chat_id=chat_id,
