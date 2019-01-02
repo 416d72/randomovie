@@ -125,7 +125,6 @@ def create_genres(bot, update, query):
     chat_id = update.effective_message.chat_id
     if query == 'new':
         user_set_last_step(user_id, 'create_genres_0')
-        user_update(user_id, 'genre', 1)
         bot.send_message(chat_id=chat_id, text="Now It's time to choose your favourite genres")
         bot.send_message(chat_id=chat_id, text=f"Do you like {all_genres[0]} movies ?", reply_markup=create_markup(0))
     else:
@@ -171,8 +170,8 @@ def command_random(bot, update):
         url = f"https://www.google.com.eg/search?q={title}"
         msg = f"*Title:* {movie[1]}\n" \
               f"*Release year:* {movie[3]}\n" \
-              f"*Rating:* {movie[4]}\n" \
               f"*Genres:* {movie[2]}\n" \
+              f"*Rating:* {movie[4]}\n" \
               f"*Votes:* {movie[5]}\n" \
               f"*IMDB:* {movie[0]}"
         bot.send_message(chat_id=chat_id, text=msg,
