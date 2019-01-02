@@ -163,7 +163,7 @@ def command_reset(bot, update):
     bot.send_message(chat_id=update.effective_message.chat_id, text="Ok .. Your filters have been successfully reset!")
 
 
-def command_random(bot, update):
+def command_random(bot, update, msg_id=None):
     chat_id = update.effective_message.chat_id
     bot.send_chat_action(chat_id=chat_id, action=ChatAction.TYPING)
     user_id = update.effective_user.id
@@ -177,9 +177,12 @@ def command_random(bot, update):
               f"*Rating:* {movie[4]}\n" \
               f"*Votes:* {movie[5]}\n" \
               f"*IMDB:* {movie[0]}"
-        bot.send_message(chat_id=chat_id, text=msg,
-                         reply_markup=random_reply_markup(url), parse_mode=ParseMode.MARKDOWN)
-        bot.send_message(chat_id=chat_id, text="Enjoy 😊")
+        if msg_id:
+            bot.edit_message_text(chat_id=chat_id, message_id=msg_id, text=msg,
+                                  reply_markup=random_reply_markup(url), parse_mode=ParseMode.MARKDOWN)
+        else:
+            bot.send_message(chat_id=chat_id, text=msg,
+                             reply_markup=random_reply_markup(url), parse_mode=ParseMode.MARKDOWN)
     else:
         msg = "Oops 😞 I found nothing matches your filter !!\nTry /create a new filter with " \
               "more tolerant parameters like more genres, less rating and older release year"
@@ -187,8 +190,9 @@ def command_random(bot, update):
 
 
 def command_help(bot, update):
-    help_msg = "Help message"
-    bot.send_message(chat_id=update.effective_message.chat_id, text=help_msg)
+    bot.send_message(chat_id=update.effective_message.chat_id,
+                     text="If you found any bug, or have issues with using this bot, please submit an issue "
+                          "in Github's repository.\n Link: https://github.com/akkk33/randomovie/issues")
 
 
 def non_command_msg(bot, update):
@@ -235,7 +239,7 @@ def query_handler(bot, update):
     btn = update.callback_query.data
     msg_id = update.callback_query.message.message_id
     if btn == 'random':  # Fetch a new movie
-        command_random(bot, update)
+        command_random(bot, update, msg_id)
     else:
         if btn.startswith('genre'):  # User is creating a new filter
             create_genres(bot, update, 'append', msg_id)
