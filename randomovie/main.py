@@ -259,7 +259,7 @@ if __name__ == "__main__":
 
     # Secrets
     TOKEN = '397386217:AAGx3KBG6xzFRg4R_FBZEDQATXjAWJqLy4s'
-    # PORT = int(environ.get('PORT', '8443'))
+    PORT = int(environ.get('PORT', '8443'))
 
     # Telegram connection
     updater = Updater(TOKEN)
@@ -275,9 +275,9 @@ if __name__ == "__main__":
     dp.add_handler(CallbackQueryHandler(query_handler))
 
     # Webhook Initialisation on heroku
-    # updater.start_webhook(listen="0.0.0.0", port=int(PORT), url_path=TOKEN)
-    # updater.bot.setWebhook(f"https://randomovie.herokuapp.com/{TOKEN}")
+    updater.start_webhook(listen="0.0.0.0", port=int(PORT), url_path=TOKEN)
+    updater.bot.setWebhook(f"https://randomovie.herokuapp.com/{TOKEN}")
 
     # Simple home server
-    updater.start_polling()
-    updater.idle()
+    # updater.start_polling()
+    # updater.idle()

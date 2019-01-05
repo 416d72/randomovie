@@ -107,4 +107,4 @@ venv.bak/
 
 
 randomovie/icon
-randomovie/data/
+randomovie/data/*
