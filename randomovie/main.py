@@ -156,8 +156,8 @@ def create_genres(bot, update, step, msg_id=0, qid=0):
                                       reply_markup=create_markup(next_index))
                 bot.answer_inline_query(inline_query_id=qid, results=[f"Added {all_genres[next_index-1]} successfully"])
             elif step == 'all':  # Update user's genre cell with all default genres
-                user_update(user_id, 'all_genres', None)
                 user_set_last_step(user_id, 'ready')
+                user_update(user_id, 'all_genres', None)
                 bot.edit_message_text(chat_id=chat_id, message_id=msg_id,
                                       text="Ok, You are set, now you can start using /random")
 
