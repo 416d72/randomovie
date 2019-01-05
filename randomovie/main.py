@@ -131,19 +131,15 @@ def create_genres(bot, update, step, msg_id=0, qid=0):
         last_genre = user_get_last_step(user_id)
         next_index = int(last_genre[last_genre.rfind('_') + 1:]) + 1
         if next_index == len(all_genres):  # This is the last genre.
+            user_set_last_step(user_id, 'ready')
             bot.edit_message_text(chat_id=chat_id, message_id=msg_id,
                                   text="Ok, You are set, now you can start using /random")
-            user_set_last_step(user_id, 'ready')
         else:
             if step == 'skip':  # Just get the next genre
-                try:
-                    bot.edit_message_text(inline_message_id=qid,
-                                          text=f"Do you like {all_genres[next_index]} movies ?",
-                                          reply_markup=create_markup(next_index))
-                except TelegramError as e:
-                    print(e)
-                finally:
-                    user_set_last_step(user_id, f'create_genres_{next_index}')
+                bot.edit_message_text(inline_message_id=qid,
+                                      text=f"Do you like {all_genres[next_index]} movies ?",
+                                      reply_markup=create_markup(next_index))
+                user_set_last_step(user_id, f'create_genres_{next_index}')
             elif step == 'done':  # Finish
                 user_set_last_step(user_id, 'ready')
                 bot.edit_message_text(chat_id=chat_id, message_id=msg_id,
