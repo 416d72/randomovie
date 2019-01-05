@@ -59,7 +59,7 @@ def user_update(user_id: int, update_type: str, new_data):
         # Update the user_genres table
         cursor.execute("INSERT INTO `user_genres`(`user_id`,`genre_id`) VALUES(?,?)", [user_id, new_data])
     elif update_type == 'all_genres':  # All
-        cursor.execute("insert into user_genres select null, ?, id from genres", [user_id])
+        cursor.execute("insert into user_genres select null, ?, id from genres;", [user_id])
     con.commit()
     con.close()
 
