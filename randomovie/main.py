@@ -43,8 +43,8 @@ def random_reply_markup(url):
 def create_markup(genre_index: int):
     button_list = [
         [
-            InlineKeyboardButton(f"Yes I like {all_genres[genre_index]}", callback_data=f"genre{genre_index}"),
-            InlineKeyboardButton(f"No", callback_data='skip_genre'),
+            InlineKeyboardButton(f"Yes I like {all_genres[genre_index]}", callback_data="append"),
+            InlineKeyboardButton(f"No", callback_data='skip'),
         ],
         [
             InlineKeyboardButton("Add All genres", callback_data='add_all_genres'),
@@ -136,10 +136,14 @@ def create_genres(bot, update, step, msg_id=0, qid=0):
                                   text="Ok, You are set, now you can start using /random")
         else:
             if step == 'skip':  # Just get the next genre
-                bot.edit_message_text(inline_message_id=qid,
-                                      text=f"Do you like {all_genres[next_index]} movies ?",
-                                      reply_markup=create_markup(next_index))
-                user_set_last_step(user_id, f'create_genres_{next_index}')
+                try:
+                    bot.edit_message_text(chat_id=chat_id, message_id=msg_id,
+                                          text=f"Do you like {all_genres[next_index]} movies ?",
+                                          reply_markup=create_markup(next_index))
+                except TelegramError as e:
+                    print(e)
+                finally:
+                    user_set_last_step(user_id, f'create_genres_{next_index}')
             elif step == 'done':  # Finish
                 user_set_last_step(user_id, 'ready')
                 bot.edit_message_text(chat_id=chat_id, message_id=msg_id,
@@ -150,7 +154,6 @@ def create_genres(bot, update, step, msg_id=0, qid=0):
                 bot.edit_message_text(chat_id=chat_id, message_id=msg_id,
                                       text=f"Do you like {all_genres[next_index]} movies ?",
                                       reply_markup=create_markup(next_index))
-                bot.answer_inline_query(inline_query_id=qid, results=[f"Added {all_genres[next_index-1]} successfully"])
             elif step == 'all':  # Update user's genre cell with all default genres
                 user_set_last_step(user_id, 'ready')
                 user_update(user_id, 'all_genres', None)
@@ -242,21 +245,21 @@ def query_handler(bot, update):
     if btn == 'random':  # Fetch a new movie
         command_random(bot, update, msg_id)
     else:
-        if btn.startswith('genre'):  # User is creating a new filter
+        if btn == 'append':  # User is creating a new filter
             create_genres(bot, update, 'append', msg_id, query_id)
-        elif btn == 'skip_genre':  # get the next genre
+        elif btn == 'skip':  # get the next genre
             create_genres(bot, update, 'skip', msg_id, query_id)
         elif btn == 'add_all_genres':  # Add all genres
-            create_genres(bot, update, 'all', msg_id)
+            create_genres(bot, update, 'all', msg_id, query_id)
         elif btn == 'finish_genres':  # User has selected all genres he needs
-            create_genres(bot, update, 'done', msg_id)
+            create_genres(bot, update, 'done', msg_id, query_id)
 
 
 if __name__ == "__main__":
 
     # Secrets
     TOKEN = '397386217:AAGx3KBG6xzFRg4R_FBZEDQATXjAWJqLy4s'
-    PORT = int(environ.get('PORT', '8443'))
+    # PORT = int(environ.get('PORT', '8443'))
 
     # Telegram connection
     updater = Updater(TOKEN)
@@ -272,9 +275,9 @@ if __name__ == "__main__":
     dp.add_handler(CallbackQueryHandler(query_handler))
 
     # Webhook Initialisation on heroku
-    updater.start_webhook(listen="0.0.0.0", port=int(PORT), url_path=TOKEN)
-    updater.bot.setWebhook(f"https://randomovie.herokuapp.com/{TOKEN}")
+    # updater.start_webhook(listen="0.0.0.0", port=int(PORT), url_path=TOKEN)
+    # updater.bot.setWebhook(f"https://randomovie.herokuapp.com/{TOKEN}")
 
     # Simple home server
-    # updater.start_polling()
-    # updater.idle()
+    updater.start_polling()
+    updater.idle()
