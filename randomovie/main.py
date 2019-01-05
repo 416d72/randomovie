@@ -108,7 +108,7 @@ def create_rating(bot, update, step: str):
         user_update(update.effective_user.id, 'rating', update.effective_message.text)
 
 
-def create_genres(bot, update, step, msg_id=0):
+def create_genres(bot, update, step, msg_id=0, qid=0):
     """
     Handles genres creation
     :param bot:
@@ -136,21 +136,25 @@ def create_genres(bot, update, step, msg_id=0):
             user_set_last_step(user_id, 'ready')
         else:
             if step == 'skip':  # Just get the next genre
-                bot.edit_message_text(chat_id=chat_id, message_id=msg_id,
-                                      text=f"Do you like {all_genres[next_index]} movies ?",
-                                      reply_markup=create_markup(next_index))
-                user_set_last_step(user_id, f'create_genres_{next_index}')
+                try:
+                    bot.edit_message_text(inline_message_id=qid,
+                                          text=f"Do you like {all_genres[next_index]} movies ?",
+                                          reply_markup=create_markup(next_index))
+                except TelegramError as e:
+                    print(e)
+                finally:
+                    user_set_last_step(user_id, f'create_genres_{next_index}')
             elif step == 'done':  # Finish
                 user_set_last_step(user_id, 'ready')
                 bot.edit_message_text(chat_id=chat_id, message_id=msg_id,
                                       text="Ok, You are set, now you can start using /random")
-            elif step == 'append':  # Append the current genre to user's database and Get the next genre and prompt
-                # user
+            elif step == 'append':  # Append the current genre to user's database and Get the next genre and prompt user
                 user_set_last_step(user_id, f'create_genres_{next_index}')
                 user_update(user_id, 'genre', next_index)
                 bot.edit_message_text(chat_id=chat_id, message_id=msg_id,
                                       text=f"Do you like {all_genres[next_index]} movies ?",
                                       reply_markup=create_markup(next_index))
+                bot.answer_inline_query(inline_query_id=qid, results=[f"Added {all_genres[next_index-1]} successfully"])
             elif step == 'all':  # Update user's genre cell with all default genres
                 user_update(user_id, 'all_genres', None)
                 user_set_last_step(user_id, 'ready')
@@ -238,13 +242,14 @@ def unknown_command(bot, update):
 def query_handler(bot, update):
     btn = update.callback_query.data
     msg_id = update.callback_query.message.message_id
+    query_id = update.callback_query.id
     if btn == 'random':  # Fetch a new movie
         command_random(bot, update, msg_id)
     else:
         if btn.startswith('genre'):  # User is creating a new filter
-            create_genres(bot, update, 'append', msg_id)
+            create_genres(bot, update, 'append', msg_id, query_id)
         elif btn == 'skip_genre':  # get the next genre
-            create_genres(bot, update, 'skip', msg_id)
+            create_genres(bot, update, 'skip', msg_id, query_id)
         elif btn == 'add_all_genres':  # Add all genres
             create_genres(bot, update, 'all', msg_id)
         elif btn == 'finish_genres':  # User has selected all genres he needs
