@@ -146,9 +146,10 @@ def create_genres(bot, update, step, msg_id=0, qid=0):
                 finally:
                     user_set_last_step(user_id, f'create_genres_{next_index}')
             elif step == 'done':  # Finish
-                user_set_last_step(user_id, 'ready')
-                bot.edit_message_text(chat_id=chat_id, message_id=msg_id,
-                                      text="Ok, You are set, now you can start using /random")
+                if user_has_genres(user_id):
+                    user_set_last_step(user_id, 'ready')
+                    bot.edit_message_text(chat_id=chat_id, message_id=msg_id,
+                                          text="Ok, You are set, now you can start using /random")
             elif step == 'append':  # Append the current genre to user's database and Get the next genre and prompt user
                 user_set_last_step(user_id, f'create_genres_{next_index}')
                 user_update(user_id, 'genre', next_index)
