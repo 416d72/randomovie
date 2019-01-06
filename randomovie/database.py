@@ -19,7 +19,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
-import sqlite3
+from sqlite3 import connect, Error
 import os
 
 data = os.path.dirname(__file__) + '/data'
@@ -33,13 +33,31 @@ def user_create(user_id: int):
     :return:
     """
     try:
-        con = sqlite3.connect(database_file)
+        con = connect(database_file)
         cursor = con.cursor()
         cursor.execute("INSERT OR IGNORE INTO `users`(uid) VALUES(?)", [user_id])
         con.commit()
         con.close()
-    except sqlite3.Error as e:
+    except Error as e:
         return f"SQLite Error: {e}"
+
+
+def user_has_genres(user_id: int) -> bool:
+    """
+    Check if user has any genres set before submitting a new filter
+    :param user_id:
+    :return:bool
+    """
+    try:
+        con = connect(database_file)
+        cursor = con.cursor()
+        cursor.execute("SELECT * FROM `user_genres` WHERE `user_id` = ?", [user_id])
+        if cursor.fetchone()[0]:
+            return True
+        return False
+    except Error as e:
+        print(e)
+        return None
 
 
 def user_update(user_id: int, update_type: str, new_data):
@@ -50,7 +68,7 @@ def user_update(user_id: int, update_type: str, new_data):
     :param new_data:
     :return: None
     """
-    con = sqlite3.connect(database_file)
+    con = connect(database_file)
     cursor = con.cursor()
     if update_type in ['year', 'rating']:
         # Update the users table
@@ -70,7 +88,7 @@ def user_get_last_step(user_id) -> str:
     :param user_id:
     :return: str
     """
-    con = sqlite3.connect(database_file)
+    con = connect(database_file)
     cursor = con.cursor()
     cursor.execute("SELECT `last_step` FROM `users` WHERE `uid` = ?", [user_id])
     return cursor.fetchone()[0]
@@ -83,7 +101,7 @@ def user_set_last_step(user_id, new_step):
     :param new_step:
     :return: None
     """
-    con = sqlite3.connect(database_file)
+    con = connect(database_file)
     cursor = con.cursor()
     cursor.execute("UPDATE `users` SET `last_step`= ? WHERE `uid` = ?", [new_step, user_id])
     con.commit()
@@ -96,7 +114,7 @@ def user_reset(user_id):
     :param user_id:
     :return: None
     """
-    con = sqlite3.connect(database_file)
+    con = connect(database_file)
     cursor = con.cursor()
     cursor.execute('UPDATE `users` SET `rating` = null, `year` = null, `last_step` = null WHERE `uid` = ?', [user_id])
     cursor.execute("DELETE FROM `user_genres` WHERE `user_id` = ?", [user_id])
@@ -111,7 +129,7 @@ def fetch(user_id):
     :return: list
     """
     try:
-        con = sqlite3.connect(database_file)
+        con = connect(database_file)
         cursor = con.cursor()
 
         cursor.execute(f"select imdb_id, title,genres,year,rating,votes from movies where imdb_id in "
@@ -124,7 +142,7 @@ def fetch(user_id):
         if not result:
             return None
         return [f"https://www.imdb.com/title/{result[0]}", *result[1:]]
-    except sqlite3.Error as e:
+    except Error as e:
         return f"SQLite Error: {e}"
 
 
