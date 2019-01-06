@@ -172,25 +172,29 @@ def command_random(bot, update, msg_id=None):
     chat_id = update.effective_message.chat_id
     bot.send_chat_action(chat_id=chat_id, action=ChatAction.TYPING)
     user_id = update.effective_user.id
-    movie = fetch(user_id)
-    if movie:
-        title = f'Download full movie {movie[1]}'.replace(' ', '+')
-        url = f"https://www.google.com.eg/search?q={title}"
-        msg = f"*Title:* {movie[1]}\n" \
-              f"*Release year:* {movie[3]}\n" \
-              f"*Genres:* {movie[2]}\n" \
-              f"*Rating:* {movie[4]}\n" \
-              f"*Votes:* {movie[5]}\n" \
-              f"*IMDB:* {movie[0]}"
-        if msg_id:
-            bot.edit_message_text(chat_id=chat_id, message_id=msg_id, text=msg,
-                                  reply_markup=random_reply_markup(url), parse_mode=ParseMode.MARKDOWN)
+    if user_has_genres(user_id):
+        movie = fetch(user_id)
+        if movie:
+            title = f'Download full movie {movie[1]}'.replace(' ', '+')
+            url = f"https://www.google.com.eg/search?q={title}"
+            msg = f"*Title:* {movie[1]}\n" \
+                  f"*Release year:* {movie[3]}\n" \
+                  f"*Genres:* {movie[2]}\n" \
+                  f"*Rating:* {movie[4]}\n" \
+                  f"*Votes:* {movie[5]}\n" \
+                  f"*IMDB:* {movie[0]}"
+            if msg_id:
+                bot.edit_message_text(chat_id=chat_id, message_id=msg_id, text=msg,
+                                      reply_markup=random_reply_markup(url), parse_mode=ParseMode.MARKDOWN)
+            else:
+                bot.send_message(chat_id=chat_id, text=msg,
+                                 reply_markup=random_reply_markup(url), parse_mode=ParseMode.MARKDOWN)
         else:
-            bot.send_message(chat_id=chat_id, text=msg,
-                             reply_markup=random_reply_markup(url), parse_mode=ParseMode.MARKDOWN)
+            msg = "Oops 😞 I found nothing matches your filter !!\nTry /create a new filter with " \
+                  "more tolerant parameters like more genres, less rating and older release year"
+            bot.send_message(chat_id=chat_id, text=msg)
     else:
-        msg = "Oops 😞 I found nothing matches your filter !!\nTry /create a new filter with " \
-              "more tolerant parameters like more genres, less rating and older release year"
+        msg = "Looks like you haven't yet created a filter, so I can't suggest a movie unless you /create a new filter"
         bot.send_message(chat_id=chat_id, text=msg)
 
 

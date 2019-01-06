@@ -51,7 +51,7 @@ def user_has_genres(user_id: int) -> bool:
     try:
         con = connect(database_file)
         cursor = con.cursor()
-        cursor.execute("SELECT * FROM `user_genres` WHERE `user_id` = ?", [user_id])
+        cursor.execute("SELECT * FROM `user_genres` WHERE `user_id` = ? LIMIT 1;", [user_id])
         if cursor.fetchone()[0]:
             return True
         return False
