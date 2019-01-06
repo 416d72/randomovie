@@ -115,6 +115,7 @@ def create_genres(bot, update, step, msg_id=0, qid=0):
     :param update:
     :param step:
     :param msg_id:
+    :param qid: Will be used to reply to incoming queries
     :return: None
     """
     """
