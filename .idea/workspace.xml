@@ -1,0 +1,874 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2d300c70-2013-45a1-82f3-724faad0b0b6" name="Default Changelist" comment="" />
+    <list id="3af1febc-77b9-413d-ad8d-6411c6c6aee6" name="Heroku commit" comment="Heroku commit&#10;&#10;(cherry picked from commit 7d5abbfbc0d266e0ce75bdc8c09fc238d62407d7)">
+      <changelist_data name="akkk33" email="akkk33@protonmail.com" date="1545886200000" />
+    </list>
+    <list id="53abfbe5-ca78-459a-b21c-00c0269c0fef" name="Heroku update" comment="Heroku update" />
+    <list id="d609c0d3-33c2-4cdf-b8e9-e9b140014a35" name="Publishing source code to github." comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="14765287">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="12" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.23" value="1" />
+          <entry key="project.open.time.25" value="1" />
+          <entry key="project.open.time.26" value="1" />
+          <entry key="project.open.time.27" value="1" />
+          <entry key="project.open.time.28" value="1" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.31" value="2" />
+          <entry key="project.open.time.39" value="1" />
+          <entry key="project.open.time.52" value="1" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.opened" value="12" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="LICENSE" value="2" />
+          <entry key="Procfile" value="8" />
+          <entry key="env" value="3" />
+          <entry key="gitignore" value="15" />
+          <entry key="md" value="2" />
+          <entry key="py" value="38" />
+          <entry key="txt" value="10" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key=".env file" value="3" />
+          <entry key="Git file" value="15" />
+          <entry key="Markdown" value="2" />
+          <entry key="PLAIN_TEXT" value="20" />
+          <entry key="Python" value="38" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="Procfile" value="42" />
+          <entry key="gitignore" value="104" />
+          <entry key="py" value="13296" />
+          <entry key="txt" value="2596" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="Git file" value="104" />
+          <entry key="PLAIN_TEXT" value="2638" />
+          <entry key="Python" value="13296" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>forward</find>
+      <find>KeyboardButton</find>
+      <find>create_markup</find>
+      <find>last</find>
+      <find>sqlite3.</find>
+      <find>print</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Procfile" />
+        <option value="$PROJECT_DIR$/randomovie/tests/__init__.py" />
+        <option value="$PROJECT_DIR$/randomovie/tests/common.py" />
+        <option value="$PROJECT_DIR$/randomovie/__init__.py" />
+        <option value="$PROJECT_DIR$/LICENSE" />
+        <option value="$PROJECT_DIR$/randomovie/data/build.py" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/randomovie/database.py" />
+        <option value="$PROJECT_DIR$/randomovie/main.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="width" value="1060" />
+    <option name="height" value="864" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="randomovie" type="b2602c69:ProjectViewProjectNode" />
+              <item name="randomovie" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="randomovie" type="b2602c69:ProjectViewProjectNode" />
+              <item name="randomovie" type="462c0819:PsiDirectoryNode" />
+              <item name="randomovie" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="randomovie" type="b2602c69:ProjectViewProjectNode" />
+              <item name="randomovie" type="462c0819:PsiDirectoryNode" />
+              <item name="randomovie" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="add_unversioned_files" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../randomovie_old" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="PyDebuggerOptionsProvider">
+    <option name="myPyQtBackend" value="PyQt5" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/randomovie/data" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.database">
+    <configuration name="build" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="randomovie" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/randomovie/data" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/randomovie/data/build.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="database" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="randomovie" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/randomovie" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/randomovie/database.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="randomovie" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/randomovie" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/randomovie/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.database" />
+      <item itemvalue="Python.build" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.database" />
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.build" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2d300c70-2013-45a1-82f3-724faad0b0b6" name="Default Changelist" comment="" />
+      <changelist id="53abfbe5-ca78-459a-b21c-00c0269c0fef" name="Heroku update" comment="" />
+      <changelist id="d609c0d3-33c2-4cdf-b8e9-e9b140014a35" name="Publishing source code to github." comment="" />
+      <created>1545877313705</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1545877313705</updated>
+    </task>
+    <task id="LOCAL-00070" summary="Implemented basic /random functionality">
+      <created>1546141339197</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1546141339198</updated>
+    </task>
+    <task id="LOCAL-00071" summary="Completed /random with straight algorithm fetching user's genres, selecting a random one, and fetch a random movie having that genre.">
+      <created>1546143193031</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1546143193032</updated>
+    </task>
+    <task id="LOCAL-00072" summary="Completed /random with straight algorithm fetching user's genres, selecting a random one, and fetch a random movie having that genre.">
+      <created>1546143731310</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1546143731310</updated>
+    </task>
+    <task id="LOCAL-00073" summary="Re-constructed database with new structure.">
+      <created>1546314905253</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1546314905255</updated>
+    </task>
+    <task id="LOCAL-00074" summary="new function 'update' that updates user's preferences.">
+      <created>1546322099276</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1546322099277</updated>
+    </task>
+    <task id="LOCAL-00075" summary="Implemented last_step() function which retrieves user's last used command.">
+      <created>1546322915903</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1546322915904</updated>
+    </task>
+    <task id="LOCAL-00076" summary="Refactored last_step() and separated it to two functions: get and set">
+      <created>1546323421216</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1546323421218</updated>
+    </task>
+    <task id="LOCAL-00077" summary="fixed small bug in set_last_step()">
+      <created>1546323565012</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1546323565012</updated>
+    </task>
+    <task id="LOCAL-00078" summary="Added reset() function to delete all genres that user have chose before">
+      <created>1546328233079</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1546328233079</updated>
+    </task>
+    <task id="LOCAL-00079" summary="Refactored update_user() function with more tolerance with new data mistakes.">
+      <created>1546330126551</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1546330126551</updated>
+    </task>
+    <task id="LOCAL-00080" summary="Completed create_year and create_rating functionality, also implemented incoming messages validation.">
+      <created>1546399367106</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1546399367110</updated>
+    </task>
+    <task id="LOCAL-00081" summary="Implemented create_genres function">
+      <created>1546403463731</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1546403463731</updated>
+    </task>
+    <task id="LOCAL-00082" summary="Fixed some bugs in create_genres function">
+      <created>1546405652577</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1546405652577</updated>
+    </task>
+    <task id="LOCAL-00083" summary="Refactored random function">
+      <created>1546413175651</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1546413175651</updated>
+    </task>
+    <task id="LOCAL-00084" summary="Some minor fixes">
+      <created>1546414522692</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1546414522692</updated>
+    </task>
+    <task id="LOCAL-00085" summary="Redefined requirements">
+      <created>1546414827450</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1546414827450</updated>
+    </task>
+    <task id="LOCAL-00086" summary="Removed unused dependencies.&#10;Next step is to refactor inline keyboard actions.">
+      <created>1546415239505</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1546415239505</updated>
+    </task>
+    <task id="LOCAL-00087" summary="Re created inline keyboard">
+      <created>1546417479446</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1546417479447</updated>
+    </task>
+    <task id="LOCAL-00088" summary="Made some improvements in random function&#10;Typed basic help message">
+      <created>1546418410436</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1546418410436</updated>
+    </task>
+    <task id="LOCAL-00089" summary="Added build and database files.">
+      <created>1546418610657</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1546418610658</updated>
+    </task>
+    <task id="LOCAL-00090" summary="Pushing to heroku">
+      <created>1546418656981</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1546418656981</updated>
+    </task>
+    <task id="LOCAL-00091" summary="Pushing to heroku">
+      <created>1546494027870</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1546494027870</updated>
+    </task>
+    <task id="LOCAL-00092" summary="Completed phase one with all basic functionality.&#10;Now working on enhancements.">
+      <created>1546498896586</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1546498896587</updated>
+    </task>
+    <task id="LOCAL-00093" summary="Bug discovered that users are being deleted after a while !!">
+      <created>1546670458776</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1546670458777</updated>
+    </task>
+    <task id="LOCAL-00094" summary="Heroku update">
+      <created>1546670901631</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1546670901631</updated>
+    </task>
+    <task id="LOCAL-00095" summary="Heroku update">
+      <created>1546674191633</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1546674191633</updated>
+    </task>
+    <task id="LOCAL-00096" summary="removed answer_inline_query() function, with plan to add it later">
+      <created>1546697084450</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1546697084450</updated>
+    </task>
+    <task id="LOCAL-00097" summary="Heroku update">
+      <created>1546697164539</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1546697164539</updated>
+    </task>
+    <task id="LOCAL-00098" summary="Implemented a function to check if user has set any genres.">
+      <created>1546762569787</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1546762569787</updated>
+    </task>
+    <task id="LOCAL-00099" summary="Heroku update">
+      <created>1546762850909</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1546762850909</updated>
+    </task>
+    <task id="LOCAL-00100" summary="Removed cached files from git.">
+      <created>1546764593572</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1546764593572</updated>
+    </task>
+    <task id="LOCAL-00101" summary="Heroku update">
+      <created>1546765648607</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1546765648607</updated>
+    </task>
+    <task id="LOCAL-00102" summary="Heroku update">
+      <created>1546851836687</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1546851836688</updated>
+    </task>
+    <task id="LOCAL-00103" summary="Heroku update">
+      <created>1546851918329</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1546851918330</updated>
+    </task>
+    <task id="LOCAL-00104" summary="Heroku update">
+      <created>1546852100369</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1546852100370</updated>
+    </task>
+    <task id="LOCAL-00105" summary="Heroku update">
+      <created>1546852228058</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1546852228058</updated>
+    </task>
+    <task id="LOCAL-00106" summary="Starting some basic exception handling approach.">
+      <created>1546852746487</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1546852746487</updated>
+    </task>
+    <task id="LOCAL-00107" summary="Heroku update.">
+      <created>1546853454446</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1546853454446</updated>
+    </task>
+    <task id="LOCAL-00108" summary="Heroku update.">
+      <created>1546853498172</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1546853498172</updated>
+    </task>
+    <task id="LOCAL-00109" summary="Heroku update.">
+      <created>1546853864823</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1546853864824</updated>
+    </task>
+    <task id="LOCAL-00110" summary="Heroku update.">
+      <created>1546857168382</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1546857168382</updated>
+    </task>
+    <task id="LOCAL-00111" summary="Heroku update.">
+      <created>1546857331004</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1546857331004</updated>
+    </task>
+    <task id="LOCAL-00112" summary="Heroku update.">
+      <created>1546857407014</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1546857407014</updated>
+    </task>
+    <task id="LOCAL-00113" summary="Heroku update.">
+      <created>1546857558062</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1546857558062</updated>
+    </task>
+    <task id="LOCAL-00114" summary="Heroku update.">
+      <created>1546857747836</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1546857747836</updated>
+    </task>
+    <task id="LOCAL-00115" summary="Heroku update.">
+      <created>1546857875512</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1546857875512</updated>
+    </task>
+    <task id="LOCAL-00116" summary="Changed token and secretly saved it in heroku's vault.">
+      <created>1546858219542</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1546858219542</updated>
+    </task>
+    <task id="LOCAL-00117" summary="Publishing source code to github.">
+      <created>1546858946162</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1546858946162</updated>
+    </task>
+    <task id="LOCAL-00118" summary="Publishing source code to github.">
+      <created>1546859176651</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1546859176652</updated>
+    </task>
+    <option name="localTasksCounter" value="119" />
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1440" height="864" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18181819" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32967034" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49855632" weight="0.21565934" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.45467034" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49855632" weight="0.30906594" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5014437" side_tool="true" weight="0.30906594" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32967034" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24831569" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32984293" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49855632" visible="true" weight="0.21565934" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.45467034" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49964765" weight="0.30906594" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5014437" side_tool="true" weight="0.21565934" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32967034" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Refactored last_step() and separated it to two functions: get and set" />
+    <MESSAGE value="fixed small bug in set_last_step()" />
+    <MESSAGE value="Added reset() function to delete all genres that user have chose before" />
+    <MESSAGE value="Refactored update_user() function with more tolerance with new data mistakes." />
+    <MESSAGE value="Completed create_year and create_rating functionality, also implemented incoming messages validation." />
+    <MESSAGE value="Implemented create_genres function" />
+    <MESSAGE value="Fixed some bugs in create_genres function" />
+    <MESSAGE value="Refactored random function" />
+    <MESSAGE value="Some minor fixes" />
+    <MESSAGE value="Redefined requirements" />
+    <MESSAGE value="Removed unused dependencies.&#10;Next step is to refactor inline keyboard actions." />
+    <MESSAGE value="Re created inline keyboard" />
+    <MESSAGE value="Made some improvements in random function&#10;Typed basic help message" />
+    <MESSAGE value="Added build and database files." />
+    <MESSAGE value="Pushing to heroku" />
+    <MESSAGE value="Completed phase one with all basic functionality.&#10;Now working on enhancements." />
+    <MESSAGE value="Bug discovered that users are being deleted after a while !!" />
+    <MESSAGE value="removed answer_inline_query() function, with plan to add it later" />
+    <MESSAGE value="Implemented a function to check if user has set any genres." />
+    <MESSAGE value="Removed cached files from git." />
+    <MESSAGE value="Heroku update" />
+    <MESSAGE value="Starting some basic exception handling approach." />
+    <MESSAGE value="Heroku update." />
+    <MESSAGE value="Changed token and secretly saved it in heroku's vault." />
+    <MESSAGE value="Publishing source code to github." />
+    <option name="LAST_COMMIT_MESSAGE" value="Publishing source code to github." />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/randomovie/tests/test_database.py" />
+    <entry file="file://$USER_HOME$/.local/lib/python3.7/site-packages/telegram/ext/commandhandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="157" column="17" lean-forward="true" selection-start-line="157" selection-start-column="17" selection-end-line="157" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python3.7/site-packages/telegram/inline/inlinekeyboardmarkup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="46" column="12" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python3.7/site-packages/telegram/inline/inlinekeyboardbutton.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="77" column="20" selection-start-line="77" selection-start-column="17" selection-end-line="77" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/randomovie/tests/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="14" lean-forward="true" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/randomovie/tests/common.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/randomovie/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LICENSE">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/runtime.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="12" lean-forward="true" selection-start-column="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/randomovie/data/build.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/randomovie/database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="53" column="45" selection-start-line="53" selection-start-column="45" selection-end-line="53" selection-end-column="45" />
+          <folding>
+            <element signature="n#!!doc" />
+            <element signature="e#47#1117#1" />
+            <element signature="e#1277#1601#0" />
+            <element signature="e#1277#1343#1" />
+            <element signature="e#1361#1542#0" />
+            <element signature="e#1651#1767#1" />
+            <element signature="e#2141#2871#0" />
+            <element signature="e#2141#2277#1" />
+            <element signature="e#2387#2512#0" />
+            <element signature="e#2563#2700#0" />
+            <element signature="e#2918#3172#0" />
+            <element signature="e#2918#3000#1" />
+            <element signature="e#3222#3513#0" />
+            <element signature="e#3222#3328#1" />
+            <element signature="e#3545#3914#0" />
+            <element signature="e#3545#3624#1" />
+            <element signature="e#3941#4882#0" />
+            <element signature="e#3941#4049#1" />
+            <element signature="e#4067#4823#0" />
+            <element signature="e#4150#4668#0" />
+            <element signature="e#4916#5040#0" />
+            <element signature="e#4936#4971#0" />
+            <marker date="1546852056477" expanded="true" signature="1638:2047" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/randomovie/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-897">
+          <caret line="206" column="13" lean-forward="true" selection-start-line="206" selection-start-column="13" selection-end-line="206" selection-end-column="13" />
+          <folding>
+            <element signature="e#47#1117#1" />
+            <element signature="e#1118#1213#0" expanded="true" />
+            <element signature="e#1399#1682#0" />
+            <element signature="e#1719#1943#0" />
+            <element signature="e#1733#1898#0" />
+            <element signature="e#1743#1892#0" />
+            <element signature="e#1987#2417#0" />
+            <element signature="e#2001#2372#0" />
+            <element signature="e#2011#2184#0" />
+            <element signature="e#2194#2366#0" />
+            <element signature="e#2456#3315#0" />
+            <element signature="e#3425#3522#0" />
+            <element signature="e#3570#4310#0" />
+            <element signature="e#3570#3738#1" />
+            <element signature="e#3794#4137#0" />
+            <element signature="e#3883#4041#0" />
+            <element signature="e#4360#5029#0" />
+            <element signature="e#4360#4552#1" />
+            <element signature="e#4608#4854#0" />
+            <element signature="e#5091#5277#1" />
+            <element signature="e#5282#5423#1" />
+            <element signature="e#5540#5801#0" />
+            <element signature="e#6011#6208#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/randomovie/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="17" lean-forward="true" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="96" column="11" lean-forward="true" selection-start-line="96" selection-start-column="11" selection-end-line="96" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Procfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="44" lean-forward="true" selection-start-column="44" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="19" selection-start-column="19" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
