@@ -172,6 +172,7 @@ def command_reset(bot, update):
 
 
 def command_random(bot, update, msg_id=None):
+    print(environ.get('telegram_token'))
     chat_id = update.effective_message.chat_id
     bot.send_chat_action(chat_id=chat_id, action=ChatAction.TYPING)
     user_id = update.effective_user.id
@@ -280,7 +281,6 @@ def query_handler(bot, update):
 if __name__ == "__main__":
 
     # Secrets
-    print(environ.get('telegram_token'),end="print this fuckin' token")
     TOKEN = '397386217:AAGx3KBG6xzFRg4R_FBZEDQATXjAWJqLy4s'
     PORT = int(environ.get('PORT', '8443'))
 
