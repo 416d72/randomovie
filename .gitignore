@@ -106,5 +106,4 @@ venv.bak/
 .mypy_cache/
 
 
-randomovie/icon
-randomovie/data/
+randomovie/data/*.*sv
