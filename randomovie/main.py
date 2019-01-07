@@ -177,8 +177,7 @@ def command_random(bot, update, msg_id=None):
     user_id = update.effective_user.id
     movie = fetch(user_id)
     if movie:
-        title = f'Download f ull movie {movie[1]}'.replace(' ', '+')
-        url = f"https://www.google.com.eg/search?q={title}"
+        url = f"https://www.google.com.eg/search?q=Download full movie {movie[1]}"
         msg = f"*Title:* {movie[1]}\n" \
               f"*Release year:* {movie[3]}\n" \
               f"*Genres:* {movie[2]}\n" \
