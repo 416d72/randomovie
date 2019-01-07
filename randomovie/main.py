@@ -280,7 +280,7 @@ def query_handler(bot, update):
 if __name__ == "__main__":
 
     # Secrets
-    print(environ.get('telegram_token'))
+    print(environ.get('telegram_token'),end="print this fuckin' token")
     TOKEN = '397386217:AAGx3KBG6xzFRg4R_FBZEDQATXjAWJqLy4s'
     PORT = int(environ.get('PORT', '8443'))
 
