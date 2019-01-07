@@ -22,7 +22,7 @@ SOFTWARE.
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
 from telegram import TelegramError, ChatAction, ParseMode, InlineKeyboardButton, InlineKeyboardMarkup
 from os import environ
-from randomovie.database import *
+from .database import *
 
 # Constants
 all_genres = ['Action', 'Adventure', 'Animation', 'Biography', 'Comedy', 'Crime', 'Documentary', 'Drama',
@@ -177,7 +177,7 @@ def command_random(bot, update, msg_id=None):
     user_id = update.effective_user.id
     movie = fetch(user_id)
     if movie:
-        title = f'Download full movie {movie[1]}'.replace(' ', '+')
+        title = f'Download f ull movie {movie[1]}'.replace(' ', '+')
         url = f"https://www.google.com.eg/search?q={title}"
         msg = f"*Title:* {movie[1]}\n" \
               f"*Release year:* {movie[3]}\n" \
@@ -206,7 +206,8 @@ def command_random(bot, update, msg_id=None):
             except TelegramError as e:
                 print(e)
         else:
-            msg = "Looks like you haven't yet created a filter, so I can't suggest a movie unless you /create a new filter"
+            msg = "Looks like you haven't yet created a filter, so I can't suggest a movie unless you " \
+                  "/create a new filter"
             try:
                 bot.send_message(chat_id=chat_id, text=msg)
             except TelegramError as e:
