@@ -172,7 +172,9 @@ def command_random(bot, update, msg_id=None):
     chat_id = update.effective_message.chat_id
     bot.send_chat_action(chat_id=chat_id, action=ChatAction.TYPING)
     user_id = update.effective_user.id
-    if user_has_genres(user_id):
+    genres = user_has_genres(user_id)
+    print(genres)
+    if genres:
         movie = fetch(user_id)
         if movie:
             title = f'Download full movie {movie[1]}'.replace(' ', '+')
