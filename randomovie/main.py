@@ -172,7 +172,6 @@ def command_random(bot, update, msg_id=None):
     chat_id = update.effective_message.chat_id
     bot.send_chat_action(chat_id=chat_id, action=ChatAction.TYPING)
     user_id = update.effective_user.id
-    print("hi")
     genres = user_has_genres(user_id)
     print(genres)
     if genres:

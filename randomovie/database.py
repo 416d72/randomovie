@@ -42,7 +42,7 @@ def user_create(user_id: int):
         return f"SQLite Error: {e}"
 
 
-def user_has_genres(user_id: int) -> bool:
+def user_has_genres(user_id: int):
     """
     Check if user has any genres set before submitting a new filter
     :param user_id:
@@ -52,12 +52,11 @@ def user_has_genres(user_id: int) -> bool:
         con = connect(database_file)
         cursor = con.cursor()
         cursor.execute("SELECT * FROM `user_genres` WHERE `user_id` = ? LIMIT 1;", [user_id])
-        if cursor.fetchone()[0]:
+        if cursor.fetchone():
             return True
         return False
     except Error as e:
         print(e)
-        return None
 
 
 def user_update(user_id: int, update_type: str, new_data):
@@ -148,6 +147,7 @@ def fetch(user_id):
 
 if __name__ == '__main__':
     print(fetch(1))
+    print(user_has_genres(1))
     # update_user(1, 'genre', 'horror')
     # user_set_last_step(1, None)
     # print(user_get_last_step(1))
