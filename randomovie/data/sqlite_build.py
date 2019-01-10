@@ -32,7 +32,7 @@ skipped_genres = ['Adult', 'Film-Noir', 'Short', 'Game-Show', 'Musical', 'News',
 def create_db():
     con = connect(db_file)
     cursor = con.cursor()
-    cursor.execute("CREATE TABLE IF NOT EXISTS 'genres' ( `id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT UNIQUE )")
+    cursor.execute("CREATE TABLE IF NOT EXISTS 'genres' ( `id` INTEGER PRIMARY KEY AUTOINCREMENT, `genre` TEXT UNIQUE )")
     cursor.execute(
         'CREATE TABLE IF NOT EXISTS `movie_genres` ( `id` INTEGER PRIMARY KEY AUTOINCREMENT, '
         '`movie_id` INTEGER, `genre_id` INTEGER, FOREIGN KEY(`movie_id`) REFERENCES `movies`(`imdb_id`), '
