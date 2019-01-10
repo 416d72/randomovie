@@ -21,7 +21,7 @@ SOFTWARE.
 """
 from os import environ
 from sqlite_build import default_genres
-from psycopg2 import connect
+import psycopg2
 
 db_url = environ.get('DATABASE_URL')
 if not db_url:
@@ -29,14 +29,14 @@ if not db_url:
 
 
 def create_users():
-    con = connect(db_url)
+    con = psycopg2.connect(db_url)
     cursor = con.cursor()
-    cursor.execute(
-        'CREATE TABLE IF NOT EXISTS  `genres` (`id` SERIAL PRIMARY KEY , `genre` TEXT UNIQUE')
-    cursor.execute(
-        'CREATE TABLE IF NOT EXISTS  `users` (`id` SERIAL PRIMARY KEY , `uid` INTEGER UNIQUE,'
-        '`year` INTEGER, `rating` INTEGER,`last_step` TEXT) ')
-    cursor.execute(
-        'CREATE TABLE IF NOT EXISTS `user_genres` (`id` SERIAL PRIMARY KEY, `uid` INTEGER,'
-        ' `genre_id` INTEGER, foreign key(`user_id`) references users(`uid`),'
-        ' foreign key(`genre_id`) references genres(`id`) )')
+    cursor.execute('CREATE TABLE IF NOT EXISTS genres (id SERIAL PRIMARY KEY , genre TEXT UNIQUE);')
+    cursor.execute('CREATE TABLE IF NOT EXISTS users (uid INTEGER PRIMARY KEY ,year SMALLINT, rating SMALLINT, '
+                   'last_step TEXT);')
+    cursor.execute('CREATE TABLE IF NOT EXISTS user_genres (id SERIAL PRIMARY KEY ,uid INTEGER REFERENCES users(uid), '
+                   'genre_id SMALLINT REFERENCES genres (id));')
+
+
+if __name__ == '__main__':
+    create_users()
