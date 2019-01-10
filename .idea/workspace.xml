@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2d300c70-2013-45a1-82f3-724faad0b0b6" name="Default Changelist" comment="" />
+    <list default="true" id="2d300c70-2013-45a1-82f3-724faad0b0b6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/randomovie/data/pg_build.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/randomovie/data/bot.db" beforeDir="false" afterPath="$PROJECT_DIR$/randomovie/data/bot.db.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/randomovie/data/build.py" beforeDir="false" afterPath="$PROJECT_DIR$/randomovie/data/sqlite_build.py" afterDir="false" />
+    </list>
     <list id="3af1febc-77b9-413d-ad8d-6411c6c6aee6" name="Heroku commit" comment="Heroku commit&#10;&#10;(cherry picked from commit 7d5abbfbc0d266e0ce75bdc8c09fc238d62407d7)">
       <changelist_data name="akkk33" email="akkk33@protonmail.com" date="1545886200000" />
     </list>
@@ -39,7 +45,7 @@
           <entry key="env" value="3" />
           <entry key="gitignore" value="15" />
           <entry key="md" value="2" />
-          <entry key="py" value="38" />
+          <entry key="py" value="40" />
           <entry key="txt" value="10" />
         </counts>
       </usages-collector>
@@ -49,28 +55,87 @@
           <entry key="Git file" value="15" />
           <entry key="Markdown" value="2" />
           <entry key="PLAIN_TEXT" value="20" />
-          <entry key="Python" value="38" />
+          <entry key="Python" value="40" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Procfile" value="42" />
+          <entry key="dummy" value="7" />
           <entry key="gitignore" value="104" />
-          <entry key="py" value="13296" />
+          <entry key="py" value="13674" />
           <entry key="txt" value="2596" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Git file" value="104" />
-          <entry key="PLAIN_TEXT" value="2638" />
-          <entry key="Python" value="13296" />
+          <entry key="PLAIN_TEXT" value="2645" />
+          <entry key="Python" value="13674" />
         </counts>
       </usages-collector>
     </session>
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="randomovie" />
+  </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/randomovie/data/sqlite_build.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
+              <folding>
+                <element signature="n#!!doc" />
+                <element signature="e#47#1117#1" />
+                <element signature="e#1567#2277#0" />
+                <element signature="e#1765#2020#0" />
+                <element signature="e#2050#2243#0" />
+                <element signature="e#2304#2609#0" />
+                <element signature="e#2635#3896#0" />
+                <element signature="e#2825#3825#0" />
+                <element signature="e#2893#3825#0" />
+                <element signature="e#2928#3086#1" />
+                <element signature="e#3137#3825#0" />
+                <element signature="e#3419#3825#0" />
+                <element signature="e#3654#3825#0" />
+                <element signature="e#3669#3811#0" />
+                <element signature="e#3924#4578#0" />
+                <element signature="e#4116#4507#0" />
+                <element signature="e#4184#4507#0" />
+                <element signature="e#4219#4339#1" />
+                <element signature="e#4601#4784#0" />
+                <element signature="e#5305#5388#0" />
+                <element signature="e#5429#5781#0" />
+                <element signature="e#5479#5781#0" />
+                <element signature="e#5547#5740#0" />
+                <element signature="e#5615#5740#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/randomovie/data/pg_build.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="167">
+              <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+              <folding>
+                <element signature="e#1118#1140#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -80,7 +145,11 @@
       <find>last</find>
       <find>sqlite3.</find>
       <find>print</find>
+      <find>sqliteconnect</find>
     </findStrings>
+    <replaceStrings>
+      <replace>connect</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -94,15 +163,17 @@
         <option value="$PROJECT_DIR$/randomovie/tests/common.py" />
         <option value="$PROJECT_DIR$/randomovie/__init__.py" />
         <option value="$PROJECT_DIR$/LICENSE" />
-        <option value="$PROJECT_DIR$/randomovie/data/build.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/randomovie/database.py" />
-        <option value="$PROJECT_DIR$/randomovie/main.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/randomovie/main.py" />
+        <option value="$PROJECT_DIR$/randomovie/data/build.py" />
+        <option value="$PROJECT_DIR$/randomovie/data/pg_build.py" />
+        <option value="$PROJECT_DIR$/randomovie/data/sqlite_build.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="4">
     <option name="width" value="1060" />
     <option name="height" value="864" />
   </component>
@@ -162,7 +233,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.database">
+  <component name="RunManager" selected="Python.build">
     <configuration name="build" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="randomovie" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -175,7 +246,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/randomovie/data/build.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/randomovie/data/sqlite_build.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -226,16 +297,39 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="pg_build" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="randomovie" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/randomovie/data" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/randomovie/data/pg_build.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.main" />
       <item itemvalue="Python.database" />
       <item itemvalue="Python.build" />
+      <item itemvalue="Python.pg_build" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.build" />
+        <item itemvalue="Python.pg_build" />
         <item itemvalue="Python.database" />
         <item itemvalue="Python.main" />
-        <item itemvalue="Python.build" />
       </list>
     </recent_temporary>
   </component>
@@ -599,14 +693,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="864" extended-state="6" />
+    <frame x="0" y="0" width="1060" height="864" extended-state="4" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18181819" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.2512031" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.24927816" />
+      <window_info id="Favorites" order="2" side_tool="true" weight="0.32916266" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32967034" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49855632" weight="0.21565934" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49855632" visible="true" weight="0.21565934" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -764,13 +859,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/randomovie/data/build.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/randomovie/database.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -805,11 +893,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/randomovie/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-897">
-          <caret line="206" column="13" lean-forward="true" selection-start-line="206" selection-start-column="13" selection-end-line="206" selection-end-column="13" />
+        <state relative-caret-position="270">
+          <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
           <folding>
+            <element signature="n#!!doc" />
             <element signature="e#47#1117#1" />
-            <element signature="e#1118#1213#0" expanded="true" />
             <element signature="e#1399#1682#0" />
             <element signature="e#1719#1943#0" />
             <element signature="e#1733#1898#0" />
@@ -819,6 +907,7 @@
             <element signature="e#2011#2184#0" />
             <element signature="e#2194#2366#0" />
             <element signature="e#2456#3315#0" />
+            <element signature="e#2609#3130#0" />
             <element signature="e#3425#3522#0" />
             <element signature="e#3570#4310#0" />
             <element signature="e#3570#3738#1" />
@@ -827,21 +916,56 @@
             <element signature="e#4360#5029#0" />
             <element signature="e#4360#4552#1" />
             <element signature="e#4608#4854#0" />
+            <element signature="e#5091#8031#0" />
             <element signature="e#5091#5277#1" />
             <element signature="e#5282#5423#1" />
             <element signature="e#5540#5801#0" />
+            <element signature="e#5820#8031#0" />
             <element signature="e#6011#6208#0" />
+            <element signature="e#6235#8031#0" />
+            <element signature="e#6297#6734#0" />
+            <element signature="e#6322#6558#0" />
+            <element signature="e#6794#7169#0" />
+            <element signature="e#6843#7169#0" />
+            <element signature="e#6929#7089#0" />
+            <element signature="e#7307#7668#0" />
+            <element signature="e#7769#8031#0" />
+            <element signature="e#8070#8226#0" />
+            <element signature="e#8279#10041#0" />
+            <element signature="e#8478#9352#0" />
+            <element signature="e#8567#8802#0" />
+            <element signature="e#8834#9094#0" />
+            <element signature="e#8855#9030#0" />
+            <element signature="e#9121#9352#0" />
+            <element signature="e#9142#9288#0" />
+            <element signature="e#9371#10041#0" />
+            <element signature="e#9412#9739#0" />
+            <element signature="e#9418#9598#0" />
+            <element signature="e#9766#10041#0" />
+            <element signature="e#9772#9900#0" />
+            <element signature="e#10079#10352#0" />
+            <element signature="e#10164#10351#0" />
+            <element signature="e#10393#12422#0" />
+            <element signature="e#10596#12161#0" />
+            <element signature="e#10714#11303#0" />
+            <element signature="e#10781#11055#0" />
+            <element signature="e#11104#11303#0" />
+            <element signature="e#11176#11302#0" />
+            <element signature="e#11377#12161#0" />
+            <element signature="e#11430#11643#0" />
+            <element signature="e#11502#11642#0" />
+            <element signature="e#11715#12025#0" />
+            <element signature="e#12180#12422#0" />
+            <element signature="e#12463#12597#0" />
+            <element signature="e#12636#13367#0" />
+            <element signature="e#12870#13367#0" />
+            <element signature="e#13402#14304#0" />
+            <element signature="e#14233#14253#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/randomovie/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="17" lean-forward="true" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/randomovie/.env" />
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="217">
@@ -867,6 +991,49 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/randomovie/data/pg_build.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+          <folding>
+            <element signature="e#1118#1140#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/randomovie/data/sqlite_build.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="n#!!doc" />
+            <element signature="e#47#1117#1" />
+            <element signature="e#1567#2277#0" />
+            <element signature="e#1765#2020#0" />
+            <element signature="e#2050#2243#0" />
+            <element signature="e#2304#2609#0" />
+            <element signature="e#2635#3896#0" />
+            <element signature="e#2825#3825#0" />
+            <element signature="e#2893#3825#0" />
+            <element signature="e#2928#3086#1" />
+            <element signature="e#3137#3825#0" />
+            <element signature="e#3419#3825#0" />
+            <element signature="e#3654#3825#0" />
+            <element signature="e#3669#3811#0" />
+            <element signature="e#3924#4578#0" />
+            <element signature="e#4116#4507#0" />
+            <element signature="e#4184#4507#0" />
+            <element signature="e#4219#4339#1" />
+            <element signature="e#4601#4784#0" />
+            <element signature="e#5305#5388#0" />
+            <element signature="e#5429#5781#0" />
+            <element signature="e#5479#5781#0" />
+            <element signature="e#5547#5740#0" />
+            <element signature="e#5615#5740#0" />
+          </folding>
         </state>
       </provider>
     </entry>

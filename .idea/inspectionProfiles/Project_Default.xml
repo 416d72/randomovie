@@ -15,6 +15,7 @@
       <option name="ignoredIdentifiers">
         <list>
           <option value="randomovie.main.database" />
+          <option value="randomovie.data.pg_build.sqlite_build" />
         </list>
       </option>
     </inspection_tool>
