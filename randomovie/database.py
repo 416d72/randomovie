@@ -57,7 +57,7 @@ def user_has_genres(user_id: int):
         con = psconnect(db_url)
         cursor = con.cursor()
         cursor.execute("SELECT genre_id FROM user_genres WHERE uid = %s ORDER BY RANDOM() LIMIT 1;", (user_id,))
-        return cursor.fetchone()[0]
+        return cursor.fetchone()
     except psError as e:
         print(e)
 
@@ -161,16 +161,16 @@ def fetch(user_id: int):
         year, rating = user_get_year_rating(user_id)
         random_genre = user_has_genres(user_id)
         if not random_genre:
-            return None
+            return "No filter"
         con = lconnect(database_file)
         cursor = con.cursor()
         cursor.execute("SELECT imdb_id, title,genres,year,rating,votes from movies where imdb_id in "
                        "(select movie_id from movie_genres where genre_id = ?)"
                        "AND movies.rating > ? AND movies.year > ? ORDER BY RANDOM() LIMIT 1",
-                       [random_genre, rating, year])
+                       [random_genre[0], rating, year])
         result = cursor.fetchone()
         if not result:
-            return None
+            return "No result"
         return [f"https://www.imdb.com/title/{result[0]}", *result[1:]]
     except lError as e:
         print(e)

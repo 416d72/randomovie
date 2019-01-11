@@ -176,8 +176,7 @@ def command_random(bot, update, msg_id=None):
     bot.send_chat_action(chat_id=chat_id, action=ChatAction.TYPING)
     user_id = update.effective_user.id
     movie = fetch(user_id)
-    if movie:
-        print("Fetched on movie")
+    if type(movie) is list:
         url = f"https://www.google.com.eg/search?q=Download full movie {movie[1]}"
         msg = f"*Title:* {movie[1]}\n" \
               f"*Release year:* {movie[3]}\n" \
@@ -197,17 +196,16 @@ def command_random(bot, update, msg_id=None):
                                  reply_markup=random_reply_markup(url), parse_mode=ParseMode.MARKDOWN)
             except TelegramError as e:
                 print(e)
-    else:
-        return
-        if user_has_genres(user_id):
-            print("No genres")
+    else:  # Error message
+        if movie is "No result":  # User has set strict rules
+            print("No result")
             msg = "Oops 😞 I found nothing matches your filter !!\nTry /create a new filter with " \
                   "more tolerant parameters like more genres, less rating and older release year"
             try:
                 bot.send_message(chat_id=chat_id, text=msg)
             except TelegramError as e:
                 print(e)
-        else:
+        else:  # User hasn't yet created a filter
             print("No filter")
             msg = "Looks like you haven't yet created a filter, so I can't suggest a movie unless you " \
                   "/create a new filter"
