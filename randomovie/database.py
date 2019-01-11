@@ -182,3 +182,4 @@ if __name__ == '__main__':
     # update_user(1, 'genre', 'horror')
     # user_set_last_step(1, None)
     # print(user_get_last_step(1))
+    pass

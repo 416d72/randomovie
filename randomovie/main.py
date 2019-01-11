@@ -198,6 +198,7 @@ def command_random(bot, update, msg_id=None):
             except TelegramError as e:
                 print(e)
     else:
+        return
         if user_has_genres(user_id):
             print("No genres")
             msg = "Oops 😞 I found nothing matches your filter !!\nTry /create a new filter with " \
