@@ -144,7 +144,7 @@ def user_reset(user_id):
         con = psconnect(db_url)
         cursor = con.cursor()
         cursor.execute('UPDATE users SET rating = null, year = null, last_step = null WHERE uid = %s', (user_id,))
-        cursor.execute("DELETE FROM user_genres WHERE user_id = %s", (user_id,))
+        cursor.execute("DELETE FROM user_genres WHERE uid = %s", (user_id,))
         con.commit()
         con.close()
     except psError as e:
