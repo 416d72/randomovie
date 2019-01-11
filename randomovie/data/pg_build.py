@@ -81,8 +81,7 @@ def drop():
 
 
 if __name__ == '__main__':
-    # drop()
-    # create_users()
-    # test_insert()
-    # insert_default_genres()
+    create_users()
+    test_insert()
+    insert_default_genres()
     pass
