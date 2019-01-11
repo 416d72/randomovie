@@ -29,15 +29,19 @@ if not db_url:
 
 
 def create_users():
-    con = psycopg2.connect(db_url)
-    cursor = con.cursor()
-    cursor.execute('CREATE TABLE IF NOT EXISTS genres (id SERIAL PRIMARY KEY , genre TEXT UNIQUE);')
-    cursor.execute('CREATE TABLE IF NOT EXISTS users (uid INTEGER PRIMARY KEY ,year SMALLINT, rating SMALLINT, '
-                   'last_step TEXT);')
-    cursor.execute('CREATE TABLE IF NOT EXISTS user_genres (id SERIAL PRIMARY KEY ,uid INTEGER REFERENCES users(uid), '
-                   'genre_id SMALLINT REFERENCES genres (id));')
-    con.commit()
-    con.close()
+    try:
+        con = psycopg2.connect(db_url)
+        cursor = con.cursor()
+        cursor.execute('CREATE TABLE IF NOT EXISTS genres (id SERIAL PRIMARY KEY , genre TEXT UNIQUE);')
+        cursor.execute('CREATE TABLE IF NOT EXISTS users (uid INTEGER PRIMARY KEY ,year SMALLINT, rating SMALLINT, '
+                       'last_step TEXT);')
+        cursor.execute(
+            'CREATE TABLE IF NOT EXISTS user_genres (id SERIAL PRIMARY KEY ,uid INTEGER REFERENCES users(uid), '
+            'genre_id SMALLINT REFERENCES genres (id));')
+        con.commit()
+        con.close()
+    except psycopg2.Error as e:
+        print(e)
 
 
 def insert_default_genres():
@@ -61,11 +65,14 @@ def test_insert():
     Insert a test row
     :return:
     """
-    con = psycopg2.connect(db_url)
-    cursor = con.cursor()
-    cursor.execute('INSERT INTO users (uid, year,rating,last_step) VALUES (%s,%s,%s,%s);', (1, 1993, 7, 'test'))
-    con.commit()
-    con.close()
+    try:
+        con = psycopg2.connect(db_url)
+        cursor = con.cursor()
+        cursor.execute('INSERT INTO users (uid, year,rating,last_step) VALUES (%s,%s,%s,%s);', (1, 1993, 7, 'test'))
+        con.commit()
+        con.close()
+    except psycopg2.Error as e:
+        print(e)
 
 
 def drop():
@@ -73,11 +80,14 @@ def drop():
     Delete everything
     :return:
     """
-    con = psycopg2.connect(db_url)
-    cursor = con.cursor()
-    cursor.execute('DROP TABLE user_genres,users,genres;')
-    con.commit()
-    con.close()
+    try:
+        con = psycopg2.connect(db_url)
+        cursor = con.cursor()
+        cursor.execute('DROP TABLE user_genres,users,genres;')
+        con.commit()
+        con.close()
+    except psycopg2.Error as e:
+        print(e)
 
 
 if __name__ == '__main__':

@@ -44,7 +44,7 @@ def user_create(user_id: int):
         con.commit()
         con.close()
     except psError as e:
-        return e
+        print(e)
 
 
 def user_has_genres(user_id: int):
@@ -59,7 +59,7 @@ def user_has_genres(user_id: int):
         cursor.execute("SELECT genre_id FROM user_genres WHERE uid = %s ORDER BY RANDOM() LIMIT 1;", (user_id,))
         return cursor.fetchone()[0]
     except psError as e:
-        return e
+        print(e)
 
 
 def user_update(user_id: int, update_type: str, new_data):
@@ -84,7 +84,7 @@ def user_update(user_id: int, update_type: str, new_data):
         con.commit()
         con.close()
     except psError as e:
-        return e
+        print(e)
 
 
 def user_get_year_rating(user_id: int):
@@ -99,7 +99,7 @@ def user_get_year_rating(user_id: int):
         cursor.execute("SELECT year,rating FROM users WHERE uid = %s", (user_id,))
         return cursor.fetchone()
     except psError as e:
-        return e
+        print(e)
 
 
 def user_get_last_step(user_id):
@@ -114,7 +114,7 @@ def user_get_last_step(user_id):
         cursor.execute("SELECT last_step FROM users WHERE uid = %s", (user_id,))
         return cursor.fetchone()[0]
     except psError as e:
-        return e
+        print(e)
 
 
 def user_set_last_step(user_id, new_step):
@@ -131,7 +131,7 @@ def user_set_last_step(user_id, new_step):
         con.commit()
         con.close()
     except psError as e:
-        return e
+        print(e)
 
 
 def user_reset(user_id):
@@ -148,7 +148,7 @@ def user_reset(user_id):
         con.commit()
         con.close()
     except psError as e:
-        return e
+        print(e)
 
 
 def fetch(user_id: int):
@@ -173,7 +173,7 @@ def fetch(user_id: int):
             return None
         return [f"https://www.imdb.com/title/{result[0]}", *result[1:]]
     except lError as e:
-        return e
+        print(e)
 
 
 if __name__ == '__main__':
