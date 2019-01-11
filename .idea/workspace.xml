@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2d300c70-2013-45a1-82f3-724faad0b0b6" name="Default Changelist" comment="Updated postgres">
+    <list default="true" id="2d300c70-2013-45a1-82f3-724faad0b0b6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/randomovie/data/pg_build.py" beforeDir="false" afterPath="$PROJECT_DIR$/randomovie/data/pg_build.py" afterDir="false" />
     </list>
     <list id="3af1febc-77b9-413d-ad8d-6411c6c6aee6" name="Heroku commit" comment="Heroku commit&#10;&#10;(cherry picked from commit 7d5abbfbc0d266e0ce75bdc8c09fc238d62407d7)">
       <changelist_data name="akkk33" email="akkk33@protonmail.com" date="1545886200000" />
@@ -61,13 +61,13 @@
           <entry key="dummy" value="7" />
           <entry key="gitignore" value="115" />
           <entry key="py" value="14889" />
-          <entry key="txt" value="3169" />
+          <entry key="txt" value="3193" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Git file" value="115" />
-          <entry key="PLAIN_TEXT" value="3218" />
+          <entry key="PLAIN_TEXT" value="3242" />
           <entry key="Python" value="14889" />
         </counts>
       </usages-collector>
@@ -110,28 +110,28 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/randomovie/data/pg_build.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="39" />
+            <state relative-caret-position="332">
+              <caret line="86" column="14" lean-forward="true" selection-start-line="83" selection-start-column="11" selection-end-line="86" selection-end-column="14" />
               <folding>
                 <element signature="e#1118#1140#0" expanded="true" />
                 <element signature="e#1869#2122#0" />
                 <element signature="e#2200#2363#0" />
-                <marker date="1547230719574" expanded="true" signature="1874:2224" ph="..." />
-                <marker date="1547230719574" expanded="true" signature="2242:2721" ph="..." />
-                <marker date="1547230719574" expanded="true" signature="2514:2721" ph="..." />
+                <marker date="1547231025159" expanded="true" signature="1874:2224" ph="..." />
+                <marker date="1547231025159" expanded="true" signature="2242:2721" ph="..." />
+                <marker date="1547231025159" expanded="true" signature="2514:2721" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/randomovie/database.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="30" column="35" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
+            <state relative-caret-position="269">
+              <caret line="118" lean-forward="true" selection-start-line="118" selection-end-line="118" />
               <folding>
                 <element signature="n#!!doc" />
                 <element signature="e#47#1117#1" />
@@ -281,8 +281,8 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/randomovie/data/sqlite_build.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/randomovie/data/pg_build.py" />
         <option value="$PROJECT_DIR$/randomovie/database.py" />
+        <option value="$PROJECT_DIR$/randomovie/data/pg_build.py" />
       </list>
     </option>
   </component>
@@ -458,13 +458,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1545877313705</updated>
-    </task>
-    <task id="LOCAL-00077" summary="fixed small bug in set_last_step()">
-      <created>1546323565012</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1546323565012</updated>
     </task>
     <task id="LOCAL-00078" summary="Added reset() function to delete all genres that user have chose before">
       <created>1546328233079</created>
@@ -802,7 +795,14 @@
       <option name="project" value="LOCAL" />
       <updated>1547229935840</updated>
     </task>
-    <option name="localTasksCounter" value="126" />
+    <task id="LOCAL-00126" summary="Updated requirements.">
+      <created>1547230787002</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1547230787002</updated>
+    </task>
+    <option name="localTasksCounter" value="127" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -887,7 +887,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactored random function" />
     <MESSAGE value="Some minor fixes" />
     <MESSAGE value="Redefined requirements" />
     <MESSAGE value="Removed unused dependencies.&#10;Next step is to refactor inline keyboard actions." />
@@ -912,7 +911,8 @@
     <MESSAGE value="Implemented inserting default genres algorithm." />
     <MESSAGE value="Finished migration to Postgres.&#10;Possible bug: When user_genres table reach 10K rows, The DBMS will not accept any insertion due to free plan limitation.&#10;So the fix will come in a future patch." />
     <MESSAGE value="Implemeted basic exception handling in database module." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemeted basic exception handling in database module." />
+    <MESSAGE value="Updated requirements." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated requirements." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/randomovie/tests/test_database.py" />
@@ -1106,25 +1106,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/randomovie/data/pg_build.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="39" />
-          <folding>
-            <element signature="e#1118#1140#0" expanded="true" />
-            <element signature="e#1869#2122#0" />
-            <element signature="e#2200#2363#0" />
-            <marker date="1547230719574" expanded="true" signature="1874:2224" ph="..." />
-            <marker date="1547230719574" expanded="true" signature="2242:2721" ph="..." />
-            <marker date="1547230719574" expanded="true" signature="2514:2721" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/randomovie/database.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="30" column="35" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
+        <state relative-caret-position="269">
+          <caret line="118" lean-forward="true" selection-start-line="118" selection-end-line="118" />
           <folding>
             <element signature="n#!!doc" />
             <element signature="e#47#1117#1" />
@@ -1157,6 +1142,21 @@
             <element signature="e#4119#4637#0" />
             <element signature="e#4885#5039#0" />
             <element signature="e#5256#5283#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/randomovie/data/pg_build.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="86" column="14" lean-forward="true" selection-start-line="83" selection-start-column="11" selection-end-line="86" selection-end-column="14" />
+          <folding>
+            <element signature="e#1118#1140#0" expanded="true" />
+            <element signature="e#1869#2122#0" />
+            <element signature="e#2200#2363#0" />
+            <marker date="1547231025159" expanded="true" signature="1874:2224" ph="..." />
+            <marker date="1547231025159" expanded="true" signature="2242:2721" ph="..." />
+            <marker date="1547231025159" expanded="true" signature="2514:2721" ph="..." />
           </folding>
         </state>
       </provider>
