@@ -166,7 +166,7 @@ def fetch(user_id: int):
         cursor = con.cursor()
         cursor.execute("SELECT imdb_id, title,genres,year,rating,votes from movies where imdb_id in "
                        "(select movie_id from movie_genres where genre_id = ?)"
-                       "AND movies.rating > ? AND movies.year > ? ORDER BY RANDOM() LIMIT 1",
+                       "AND movies.rating >= ? AND movies.year >= ? ORDER BY RANDOM() LIMIT 1",
                        [random_genre[0], rating, year])
         result = cursor.fetchone()
         if not result:
