@@ -29,8 +29,8 @@ from data.sqlite_build import default_genres
 def random_reply_markup(url):
     button_list = [
         [
-            InlineKeyboardButton("Get one more", callback_data="random"),
-            InlineKeyboardButton("Watch or Download", url=url),
+            InlineKeyboardButton("👍 Get one more", callback_data="random"),
+            InlineKeyboardButton("📺 Watch or Download", url=url),
         ]
     ]
     return InlineKeyboardMarkup(button_list)
@@ -39,12 +39,12 @@ def random_reply_markup(url):
 def create_markup(genre_index: int):
     button_list = [
         [
-            InlineKeyboardButton(f"Yes I like {default_genres[genre_index]}", callback_data="append"),
-            InlineKeyboardButton(f"No", callback_data='skip'),
+            InlineKeyboardButton(f"👍 Yes I like {default_genres[genre_index]}", callback_data="append"),
+            InlineKeyboardButton(f"👎 No", callback_data='skip'),
         ],
         [
-            InlineKeyboardButton("Add All genres", callback_data='add_all_genres'),
-            InlineKeyboardButton("I'm done", callback_data='finish_genres'),
+            InlineKeyboardButton("☑️ Add All genres", callback_data='add_all_genres'),
+            InlineKeyboardButton("👌 I'm done", callback_data='finish_genres'),
         ]
     ]
     return InlineKeyboardMarkup(button_list)
@@ -90,7 +90,7 @@ def create_year(bot, update, step: str):
 
 def create_rating(bot, update, step: str):
     """
-        Prompt the user for setting the oldest release year that he would get movies newer than
+        Prompt the user setting the oldest release year that he/she would get movies newer than
         :param bot:
         :param update:
         :param step:
@@ -113,10 +113,6 @@ def create_genres(bot, update, step, msg_id=0, qid=0):
     :param msg_id:
     :param qid: Will be used to reply to incoming queries
     :return: None
-    """
-    """
-    insert or replace into users() values(coalesce((select id from users_genres where uid = 15 and genre={genre}),
-    {genre}));
     """
     user_id = update.effective_user.id
     chat_id = update.effective_message.chat_id
@@ -194,7 +190,6 @@ def command_random(bot, update, msg_id=None):
             except TelegramError as e:
                 print(e)
     else:  # Error message
-        print(movie)
         if movie == "No result":  # User has set strict rules
             msg = "Oops 😞 I found nothing matches your filter !!\nTry /create a new filter with " \
                   "more tolerant parameters like more genres, less rating and older release year"
@@ -203,7 +198,7 @@ def command_random(bot, update, msg_id=None):
             except TelegramError as e:
                 print(e)
         else:  # User hasn't yet created a filter
-            msg = "Looks like you haven't yet created a filter, so I can't suggest a movie unless you " \
+            msg = "⛔ Looks like you haven't created a filter yet, so I can't suggest a movie unless you " \
                   "/create a new filter"
             try:
                 bot.send_message(chat_id=chat_id, text=msg)
