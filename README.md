@@ -7,7 +7,7 @@ Then you can always get a random movie based on your filter.
 This bot basically provides you the ability to set custom rules then fetch a random movie based on these rules.
 
 # Inspired by:
-An obselete bot called [@movie_adviser_bot](https://t.me/movie_adviser_bot), but this bot focuses on more simplisity.
+An obsolete bot called [@movie_adviser_bot](https://t.me/movie_adviser_bot), but this bot focuses on more simplicity.
 
 # Movie Database:
 Movie database was fetched from [IMDB](https://www.imdb.com/interfaces/).
@@ -28,15 +28,17 @@ I made a script `randomovie/data/build.py` which automates local database buildi
 - Create a new [heroku](https://www.heroku.com/) account or sign in if you have one.
 - Create a new app.
 - Install [heroku cli](https://devcenter.heroku.com/articles/heroku-cli)
+- Install PostgreSQL with `heroku addons:create heroku-postgresql:hobby-dev`
 - Now open your terminal and type:
     - `git clone https://github.com/akkk33/randomovie.git`
     - `cd randomovie/`
-    - `git remote add heroku <YOUR HEROKU APP NAME>`
     - `heroku login`
+    - `heroku create`
+    - `heroku git:remote -a <YOUR APP NAME>`
     - `heroku config:set telegram_token=<YOUR TELEGRAM BOT TOKEN>`
-    - `heroku`
     - `git push heroku master`
 # Credits:
 - [Free Software Foundation](https://www.fsf.org/)
 - [Telegram](https://telegram.org/)
 - [Heroku](https://www.heroku.com)
+- [JetBrains](https://www.jetbrains.com/)
