@@ -36,7 +36,22 @@ def create_users():
                    'last_step TEXT);')
     cursor.execute('CREATE TABLE IF NOT EXISTS user_genres (id SERIAL PRIMARY KEY ,uid INTEGER REFERENCES users(uid), '
                    'genre_id SMALLINT REFERENCES genres (id));')
+    con.commit()
+    con.close()
+
+
+def test_insert():
+    """
+    Insert a test row
+    :return:
+    """
+    con = psycopg2.connect(db_url)
+    cursor = con.cursor()
+    cursor.execute('INSERT INTO users (uid, year,rating,last_step) VALUES (%s,%s,%s,%s);', (1, 1993, 7, 'test'))
+    con.commit()
+    con.close()
 
 
 if __name__ == '__main__':
     create_users()
+    test_insert()
