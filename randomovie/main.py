@@ -194,7 +194,8 @@ def command_random(bot, update, msg_id=None):
             except TelegramError as e:
                 print(e)
     else:  # Error message
-        if movie is "No result":  # User has set strict rules
+        print(movie)
+        if movie == "No result":  # User has set strict rules
             msg = "Oops 😞 I found nothing matches your filter !!\nTry /create a new filter with " \
                   "more tolerant parameters like more genres, less rating and older release year"
             try:
