@@ -92,6 +92,5 @@ def drop():
 
 if __name__ == '__main__':
     create_users()
-    test_insert()
     insert_default_genres()
     pass
