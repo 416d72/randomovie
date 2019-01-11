@@ -23,11 +23,7 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, Callb
 from telegram import TelegramError, ChatAction, ParseMode, InlineKeyboardButton, InlineKeyboardMarkup
 from os import environ
 from randomovie.database import *
-
-# Constants
-all_genres = ['Action', 'Adventure', 'Animation', 'Biography', 'Comedy', 'Crime', 'Documentary', 'Drama',
-              'Family', 'Fantasy', 'Film-Noir', 'History', 'Horror', 'Music', 'Musical', 'Mystery', 'News',
-              'Romance', 'Sci-Fi', 'Short', 'Sport', 'Thriller', 'War', 'Western']
+from data.sqlite_build import default_genres
 
 
 def random_reply_markup(url):
@@ -43,7 +39,7 @@ def random_reply_markup(url):
 def create_markup(genre_index: int):
     button_list = [
         [
-            InlineKeyboardButton(f"Yes I like {all_genres[genre_index]}", callback_data="append"),
+            InlineKeyboardButton(f"Yes I like {default_genres[genre_index]}", callback_data="append"),
             InlineKeyboardButton(f"No", callback_data='skip'),
         ],
         [
@@ -127,11 +123,12 @@ def create_genres(bot, update, step, msg_id=0, qid=0):
     if step == 'new':
         user_set_last_step(user_id, 'create_genres_0')
         bot.send_message(chat_id=chat_id, text="Now It's time to choose your favourite genres")
-        bot.send_message(chat_id=chat_id, text=f"Do you like {all_genres[0]} movies ?", reply_markup=create_markup(0))
+        bot.send_message(chat_id=chat_id, text=f"Do you like {default_genres[0]} movies ?",
+                         reply_markup=create_markup(0))
     else:
         last_genre = user_get_last_step(user_id)
         next_index = int(last_genre[last_genre.rfind('_') + 1:]) + 1
-        if next_index == len(all_genres):  # This is the last genre.
+        if next_index == len(default_genres):  # This is the last genre.
             user_set_last_step(user_id, 'ready')
             bot.edit_message_text(chat_id=chat_id, message_id=msg_id,
                                   text="Ok, You are set, now you can start using /random")
@@ -139,7 +136,7 @@ def create_genres(bot, update, step, msg_id=0, qid=0):
             if step == 'skip':  # Just get the next genre
                 try:
                     bot.edit_message_text(chat_id=chat_id, message_id=msg_id,
-                                          text=f"Do you like {all_genres[next_index]} movies ?",
+                                          text=f"Do you like {default_genres[next_index]} movies ?",
                                           reply_markup=create_markup(next_index))
                 except TelegramError as e:
                     print(e)
@@ -157,7 +154,7 @@ def create_genres(bot, update, step, msg_id=0, qid=0):
                 user_set_last_step(user_id, f'create_genres_{next_index}')
                 user_update(user_id, 'genre', next_index)
                 bot.edit_message_text(chat_id=chat_id, message_id=msg_id,
-                                      text=f"Do you like {all_genres[next_index]} movies ?",
+                                      text=f"Do you like {default_genres[next_index]} movies ?",
                                       reply_markup=create_markup(next_index))
             elif step == 'all':  # Update user's genre cell with all default genres
                 user_set_last_step(user_id, 'ready')
@@ -237,8 +234,7 @@ def non_command_msg(bot, update):
         elif user_get_last_step(user_id) == 'create_rating':
             if int(msg) == 10:  # Maximum rating
                 bot.send_message(chat_id=chat_id,
-                                 text="Hey, Don't be so optimistic, There's no movie that has 10/10 rating\nSend "
-                                      "another number below 10")
+                                 text="Hey, there's no movie that has 10/10 rating\nSend another number below 10")
             elif 0 <= int(msg) < 10:  # Minimum rating
                 bot.send_message(chat_id=chat_id,
                                  text=f"Ok, I'll only suggest movies that have a rating more than {msg}/10")
