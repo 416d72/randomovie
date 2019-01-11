@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2d300c70-2013-45a1-82f3-724faad0b0b6" name="Default Changelist" comment="">
+    <list default="true" id="2d300c70-2013-45a1-82f3-724faad0b0b6" name="Default Changelist" comment="Automated build postgres database">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/randomovie/data/pg_build.py" beforeDir="false" afterPath="$PROJECT_DIR$/randomovie/data/pg_build.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/randomovie/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/randomovie/database.py" afterDir="false" />
     </list>
     <list id="3af1febc-77b9-413d-ad8d-6411c6c6aee6" name="Heroku commit" comment="Heroku commit&#10;&#10;(cherry picked from commit 7d5abbfbc0d266e0ce75bdc8c09fc238d62407d7)">
       <changelist_data name="akkk33" email="akkk33@protonmail.com" date="1545886200000" />
@@ -60,15 +61,15 @@
           <entry key="Procfile" value="42" />
           <entry key="dummy" value="7" />
           <entry key="gitignore" value="115" />
-          <entry key="py" value="14889" />
-          <entry key="txt" value="3193" />
+          <entry key="py" value="14932" />
+          <entry key="txt" value="3267" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Git file" value="115" />
-          <entry key="PLAIN_TEXT" value="3242" />
-          <entry key="Python" value="14889" />
+          <entry key="PLAIN_TEXT" value="3316" />
+          <entry key="Python" value="14932" />
         </counts>
       </usages-collector>
     </session>
@@ -114,14 +115,12 @@
         <entry file="file://$PROJECT_DIR$/randomovie/data/pg_build.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="332">
-              <caret line="86" column="14" lean-forward="true" selection-start-line="83" selection-start-column="11" selection-end-line="86" selection-end-column="14" />
+              <caret line="93" column="16" selection-start-line="93" selection-start-column="16" selection-end-line="93" selection-end-column="16" />
               <folding>
                 <element signature="e#1118#1140#0" expanded="true" />
-                <element signature="e#1869#2122#0" />
-                <element signature="e#2200#2363#0" />
-                <marker date="1547231025159" expanded="true" signature="1874:2224" ph="..." />
-                <marker date="1547231025159" expanded="true" signature="2242:2721" ph="..." />
-                <marker date="1547231025159" expanded="true" signature="2514:2721" ph="..." />
+                <marker date="1547231646001" expanded="true" signature="1970:2320" ph="..." />
+                <marker date="1547231646001" expanded="true" signature="2338:2973" ph="..." />
+                <marker date="1547231646001" expanded="true" signature="2688:2973" ph="..." />
               </folding>
             </state>
           </provider>
@@ -130,41 +129,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/randomovie/database.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="118" lean-forward="true" selection-start-line="118" selection-end-line="118" />
-              <folding>
-                <element signature="n#!!doc" />
-                <element signature="e#47#1117#1" />
-                <element signature="e#1402#1716#0" />
-                <element signature="e#1277#1343#1" />
-                <element signature="e#1486#1657#0" />
-                <element signature="e#1845#2223#0" />
-                <element signature="e#1758#1874#1" />
-                <element signature="e#1918#2126#0" />
-                <element signature="e#2270#3088#0" />
-                <element signature="e#2221#2357#1" />
-                <element signature="e#2424#3090#0" />
-                <element signature="e#2548#2680#0" />
-                <element signature="e#2747#2885#0" />
-                <element signature="e#3135#3446#0" />
-                <element signature="e#3005#3087#1" />
-                <element signature="e#3235#3404#0" />
-                <element signature="e#3493#3805#0" />
-                <element signature="e#2988#3070#1" />
-                <element signature="e#3593#3763#0" />
-                <element signature="e#3855#4208#0" />
-                <element signature="e#3286#3392#1" />
-                <element signature="e#3979#4166#0" />
-                <element signature="e#4233#4662#0" />
-                <element signature="e#3603#3682#1" />
-                <element signature="e#4330#4620#0" />
-                <element signature="e#3910#4851#0" />
-                <element signature="e#3910#4018#1" />
-                <element signature="e#4455#5205#0" />
-                <element signature="e#4119#4637#0" />
-                <element signature="e#4885#5039#0" />
-                <element signature="e#5256#5283#0" />
-              </folding>
+            <state relative-caret-position="422">
+              <caret line="184" lean-forward="true" selection-start-line="184" selection-end-line="184" />
             </state>
           </provider>
         </entry>
@@ -458,20 +424,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1545877313705</updated>
-    </task>
-    <task id="LOCAL-00078" summary="Added reset() function to delete all genres that user have chose before">
-      <created>1546328233079</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1546328233079</updated>
-    </task>
-    <task id="LOCAL-00079" summary="Refactored update_user() function with more tolerance with new data mistakes.">
-      <created>1546330126551</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1546330126551</updated>
     </task>
     <task id="LOCAL-00080" summary="Completed create_year and create_rating functionality, also implemented incoming messages validation.">
       <created>1546399367106</created>
@@ -802,7 +754,21 @@
       <option name="project" value="LOCAL" />
       <updated>1547230787002</updated>
     </task>
-    <option name="localTasksCounter" value="127" />
+    <task id="LOCAL-00127" summary="Deleted test lines from pg_build">
+      <created>1547231053315</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1547231053315</updated>
+    </task>
+    <task id="LOCAL-00128" summary="Automated build postgres database">
+      <created>1547231213096</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1547231213096</updated>
+    </task>
+    <option name="localTasksCounter" value="129" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -887,8 +853,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Some minor fixes" />
-    <MESSAGE value="Redefined requirements" />
     <MESSAGE value="Removed unused dependencies.&#10;Next step is to refactor inline keyboard actions." />
     <MESSAGE value="Re created inline keyboard" />
     <MESSAGE value="Made some improvements in random function&#10;Typed basic help message" />
@@ -912,7 +876,9 @@
     <MESSAGE value="Finished migration to Postgres.&#10;Possible bug: When user_genres table reach 10K rows, The DBMS will not accept any insertion due to free plan limitation.&#10;So the fix will come in a future patch." />
     <MESSAGE value="Implemeted basic exception handling in database module." />
     <MESSAGE value="Updated requirements." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated requirements." />
+    <MESSAGE value="Deleted test lines from pg_build" />
+    <MESSAGE value="Automated build postgres database" />
+    <option name="LAST_COMMIT_MESSAGE" value="Automated build postgres database" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/randomovie/tests/test_database.py" />
@@ -1108,55 +1074,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/randomovie/database.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="118" lean-forward="true" selection-start-line="118" selection-end-line="118" />
-          <folding>
-            <element signature="n#!!doc" />
-            <element signature="e#47#1117#1" />
-            <element signature="e#1402#1716#0" />
-            <element signature="e#1277#1343#1" />
-            <element signature="e#1486#1657#0" />
-            <element signature="e#1845#2223#0" />
-            <element signature="e#1758#1874#1" />
-            <element signature="e#1918#2126#0" />
-            <element signature="e#2270#3088#0" />
-            <element signature="e#2221#2357#1" />
-            <element signature="e#2424#3090#0" />
-            <element signature="e#2548#2680#0" />
-            <element signature="e#2747#2885#0" />
-            <element signature="e#3135#3446#0" />
-            <element signature="e#3005#3087#1" />
-            <element signature="e#3235#3404#0" />
-            <element signature="e#3493#3805#0" />
-            <element signature="e#2988#3070#1" />
-            <element signature="e#3593#3763#0" />
-            <element signature="e#3855#4208#0" />
-            <element signature="e#3286#3392#1" />
-            <element signature="e#3979#4166#0" />
-            <element signature="e#4233#4662#0" />
-            <element signature="e#3603#3682#1" />
-            <element signature="e#4330#4620#0" />
-            <element signature="e#3910#4851#0" />
-            <element signature="e#3910#4018#1" />
-            <element signature="e#4455#5205#0" />
-            <element signature="e#4119#4637#0" />
-            <element signature="e#4885#5039#0" />
-            <element signature="e#5256#5283#0" />
-          </folding>
+        <state relative-caret-position="422">
+          <caret line="184" lean-forward="true" selection-start-line="184" selection-end-line="184" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/randomovie/data/pg_build.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="332">
-          <caret line="86" column="14" lean-forward="true" selection-start-line="83" selection-start-column="11" selection-end-line="86" selection-end-column="14" />
+          <caret line="93" column="16" selection-start-line="93" selection-start-column="16" selection-end-line="93" selection-end-column="16" />
           <folding>
             <element signature="e#1118#1140#0" expanded="true" />
-            <element signature="e#1869#2122#0" />
-            <element signature="e#2200#2363#0" />
-            <marker date="1547231025159" expanded="true" signature="1874:2224" ph="..." />
-            <marker date="1547231025159" expanded="true" signature="2242:2721" ph="..." />
-            <marker date="1547231025159" expanded="true" signature="2514:2721" ph="..." />
+            <marker date="1547231646001" expanded="true" signature="1970:2320" ph="..." />
+            <marker date="1547231646001" expanded="true" signature="2338:2973" ph="..." />
+            <marker date="1547231646001" expanded="true" signature="2688:2973" ph="..." />
           </folding>
         </state>
       </provider>
