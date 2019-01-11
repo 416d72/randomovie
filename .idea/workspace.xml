@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d300c70-2013-45a1-82f3-724faad0b0b6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/randomovie/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/randomovie/main.py" afterDir="false" />
     </list>
     <list id="3af1febc-77b9-413d-ad8d-6411c6c6aee6" name="Heroku commit" comment="Heroku commit&#10;&#10;(cherry picked from commit 7d5abbfbc0d266e0ce75bdc8c09fc238d62407d7)">
@@ -60,15 +59,15 @@
           <entry key="Procfile" value="42" />
           <entry key="dummy" value="7" />
           <entry key="gitignore" value="115" />
-          <entry key="py" value="15414" />
-          <entry key="txt" value="3817" />
+          <entry key="py" value="15418" />
+          <entry key="txt" value="3847" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Git file" value="115" />
-          <entry key="PLAIN_TEXT" value="3866" />
-          <entry key="Python" value="15414" />
+          <entry key="PLAIN_TEXT" value="3896" />
+          <entry key="Python" value="15418" />
         </counts>
       </usages-collector>
     </session>
@@ -121,8 +120,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/randomovie/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="193" column="18" selection-start-line="193" selection-start-column="12" selection-end-line="193" selection-end-column="18" />
+            <state relative-caret-position="150">
+              <caret line="211" column="106" selection-start-line="211" selection-start-column="106" selection-end-line="211" selection-end-column="106" />
               <folding>
                 <element signature="e#1118#1213#0" expanded="true" />
               </folding>
@@ -153,6 +152,7 @@
       <find>all_genres</find>
       <find>default_genres</find>
       <find>msg =</find>
+      <find>help</find>
     </findStrings>
     <replaceStrings>
       <replace>connect</replace>
@@ -410,13 +410,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1545877313705</updated>
-    </task>
-    <task id="LOCAL-00102" summary="Heroku update">
-      <created>1546851836687</created>
-      <option name="number" value="00102" />
-      <option name="presentableId" value="LOCAL-00102" />
-      <option name="project" value="LOCAL" />
-      <updated>1546851836688</updated>
     </task>
     <task id="LOCAL-00103" summary="Heroku update">
       <created>1546851918329</created>
@@ -754,7 +747,14 @@
       <option name="project" value="LOCAL" />
       <updated>1547237993902</updated>
     </task>
-    <option name="localTasksCounter" value="151" />
+    <task id="LOCAL-00151" summary="Added some emoticons.">
+      <created>1547242118147</created>
+      <option name="number" value="00151" />
+      <option name="presentableId" value="LOCAL-00151" />
+      <option name="project" value="LOCAL" />
+      <updated>1547242118148</updated>
+    </task>
+    <option name="localTasksCounter" value="152" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -772,7 +772,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.4542974" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49759385" weight="0.30832195" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49759385" visible="true" weight="0.30695772" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5024062" side_tool="true" weight="0.30906594" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32967034" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -839,7 +839,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Removed cached files from git." />
     <MESSAGE value="Starting some basic exception handling approach." />
     <MESSAGE value="Changed token and secretly saved it in heroku's vault." />
     <MESSAGE value="Publishing source code to github." />
@@ -864,7 +863,8 @@
     <MESSAGE value="Imported default genres list from data/sqlite_build.py module" />
     <MESSAGE value="Fixed a logic bug in fetch statement." />
     <MESSAGE value="Working on /random exceptions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working on /random exceptions" />
+    <MESSAGE value="Added some emoticons." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added some emoticons." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/randomovie/tests/test_database.py" />
@@ -1005,8 +1005,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/randomovie/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="193" column="18" selection-start-line="193" selection-start-column="12" selection-end-line="193" selection-end-column="18" />
+        <state relative-caret-position="150">
+          <caret line="211" column="106" selection-start-line="211" selection-start-column="106" selection-end-line="211" selection-end-column="106" />
           <folding>
             <element signature="e#1118#1213#0" expanded="true" />
           </folding>
