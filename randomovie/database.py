@@ -20,8 +20,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 from os import path, environ
-import psycopg2
-from sqlite3 import connect, Error
+from psycopg2 import connect as psconnect, Error as psError
+from sqlite3 import connect as lconnect, Error as lError
 
 data = path.dirname(__file__) + '/data'
 database_file = data + '/bot.db'
@@ -38,13 +38,13 @@ def user_create(user_id: int):
     :return:
     """
     try:
-        con = psycopg2.connect(db_url)
+        con = psconnect(db_url)
         cursor = con.cursor()
         cursor.execute("INSERT INTO users(uid) VALUES(%s) ON CONFLICT DO NOTHING;", (user_id,))
         con.commit()
         con.close()
-    except Error as e:
-        return f"SQLite Error: {e}"
+    except psError as e:
+        return e
 
 
 def user_has_genres(user_id: int):
@@ -54,12 +54,12 @@ def user_has_genres(user_id: int):
     :return:bool
     """
     try:
-        con = psycopg2.connect(db_url)
+        con = psconnect(db_url)
         cursor = con.cursor()
         cursor.execute("SELECT genre_id FROM user_genres WHERE uid = %s ORDER BY RANDOM() LIMIT 1;", (user_id,))
         return cursor.fetchone()[0]
-    except Error as e:
-        print(e)
+    except psError as e:
+        return e
 
 
 def user_update(user_id: int, update_type: str, new_data):
@@ -70,18 +70,21 @@ def user_update(user_id: int, update_type: str, new_data):
     :param new_data:
     :return: None
     """
-    con = psycopg2.connect(db_url)
-    cursor = con.cursor()
-    if update_type in ['year', 'rating']:
-        # Update the users table
-        cursor.execute(f"UPDATE users SET {update_type} = %s WHERE uid = %s;", (new_data, user_id))
-    elif update_type == 'genre':  # genre
-        # Update the user_genres table
-        cursor.execute("INSERT INTO user_genres(uid,genre_id) VALUES(%s,%s);", (user_id, new_data))
-    elif update_type == 'all_genres':  # All
-        cursor.execute("INSERT INTO user_genres SELECT Null, %s, id FROM genres;", (user_id,))
-    con.commit()
-    con.close()
+    try:
+        con = psconnect(db_url)
+        cursor = con.cursor()
+        if update_type in ['year', 'rating']:
+            # Update the users table
+            cursor.execute(f"UPDATE users SET {update_type} = %s WHERE uid = %s;", (new_data, user_id))
+        elif update_type == 'genre':  # genre
+            # Update the user_genres table
+            cursor.execute("INSERT INTO user_genres(uid,genre_id) VALUES(%s,%s);", (user_id, new_data))
+        elif update_type == 'all_genres':  # All
+            cursor.execute("INSERT INTO user_genres SELECT Null, %s, id FROM genres;", (user_id,))
+        con.commit()
+        con.close()
+    except psError as e:
+        return e
 
 
 def user_get_year_rating(user_id: int):
@@ -90,22 +93,28 @@ def user_get_year_rating(user_id: int):
     :param user_id:
     :return: str
     """
-    con = psycopg2.connect(db_url)
-    cursor = con.cursor()
-    cursor.execute("SELECT year,rating FROM users WHERE uid = %s", (user_id,))
-    return cursor.fetchone()
+    try:
+        con = psconnect(db_url)
+        cursor = con.cursor()
+        cursor.execute("SELECT year,rating FROM users WHERE uid = %s", (user_id,))
+        return cursor.fetchone()
+    except psError as e:
+        return e
 
 
-def user_get_last_step(user_id) -> str:
+def user_get_last_step(user_id):
     """
     Get the last step user was at
     :param user_id:
     :return: str
     """
-    con = psycopg2.connect(db_url)
-    cursor = con.cursor()
-    cursor.execute("SELECT last_step FROM users WHERE uid = %s", (user_id,))
-    return cursor.fetchone()[0]
+    try:
+        con = psconnect(db_url)
+        cursor = con.cursor()
+        cursor.execute("SELECT last_step FROM users WHERE uid = %s", (user_id,))
+        return cursor.fetchone()[0]
+    except psError as e:
+        return e
 
 
 def user_set_last_step(user_id, new_step):
@@ -115,11 +124,14 @@ def user_set_last_step(user_id, new_step):
     :param new_step:
     :return: None
     """
-    con = psycopg2.connect(db_url)
-    cursor = con.cursor()
-    cursor.execute("UPDATE users SET last_step= %s WHERE uid = %s", (new_step, user_id))
-    con.commit()
-    con.close()
+    try:
+        con = psconnect(db_url)
+        cursor = con.cursor()
+        cursor.execute("UPDATE users SET last_step= %s WHERE uid = %s", (new_step, user_id))
+        con.commit()
+        con.close()
+    except psError as e:
+        return e
 
 
 def user_reset(user_id):
@@ -128,12 +140,15 @@ def user_reset(user_id):
     :param user_id:
     :return: None
     """
-    con = psycopg2.connect(db_url)
-    cursor = con.cursor()
-    cursor.execute('UPDATE users SET rating = null, year = null, last_step = null WHERE uid = %s', (user_id,))
-    cursor.execute("DELETE FROM user_genres WHERE user_id = %s", (user_id,))
-    con.commit()
-    con.close()
+    try:
+        con = psconnect(db_url)
+        cursor = con.cursor()
+        cursor.execute('UPDATE users SET rating = null, year = null, last_step = null WHERE uid = %s', (user_id,))
+        cursor.execute("DELETE FROM user_genres WHERE user_id = %s", (user_id,))
+        con.commit()
+        con.close()
+    except psError as e:
+        return e
 
 
 def fetch(user_id: int):
@@ -147,7 +162,7 @@ def fetch(user_id: int):
         random_genre = user_has_genres(user_id)
         if not random_genre:
             return None
-        con = connect(database_file)
+        con = lconnect(database_file)
         cursor = con.cursor()
         cursor.execute("SELECT imdb_id, title,genres,year,rating,votes from movies where imdb_id in "
                        "(select movie_id from movie_genres where genre_id = ?)"
@@ -157,8 +172,8 @@ def fetch(user_id: int):
         if not result:
             return None
         return [f"https://www.imdb.com/title/{result[0]}", *result[1:]]
-    except Error as e:
-        return f"SQLite Error: {e}"
+    except lError as e:
+        return e
 
 
 if __name__ == '__main__':
