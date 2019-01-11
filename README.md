@@ -2,7 +2,7 @@
 # Introduction
 >Ever wanted to watch a movie and needed a suggestion?
 You can specify a minimum release year, genres and a minimum IMDB user ratings.
-Then you can always get a random movie based on your filter.
+Then you can get a random movie based on your filter any time.
 
 This bot basically provides you the ability to set custom rules then fetch a random movie based on these rules.
 
@@ -12,10 +12,11 @@ An obsolete bot called [@movie_adviser_bot](https://t.me/movie_adviser_bot), but
 # Usage
 Through this [link](https://t.me/randomovie_bot) which opens Telegram on your device.
 
-Or 
+Or with directly starting chat with user `@randomovie_bot`
+
 
 # Movie Database:
-Movie database was fetched from [IMDB](https://www.imdb.com/interfaces/).
+Movie database was legally fetched from [IMDB](https://www.imdb.com/interfaces/).
 
 There are only two databases used:
 - title.basics.tsv.gz
@@ -53,8 +54,8 @@ I made a script `randomovie/data/pg_build.py` which automates Postgres database 
     - `python3 pg_build.py`
 Now you're done with installation.
 
-# Credits:
+# Thanks to:
 - [Free Software Foundation](https://www.fsf.org/)
-- [Telegram](https://telegram.org/)
 - [Heroku](https://www.heroku.com)
 - [JetBrains](https://www.jetbrains.com/)
+And to anyone that contributes to this repository.
