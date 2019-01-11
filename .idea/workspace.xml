@@ -43,7 +43,7 @@
           <entry key="gitignore" value="16" />
           <entry key="md" value="2" />
           <entry key="py" value="44" />
-          <entry key="txt" value="14" />
+          <entry key="txt" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -51,7 +51,7 @@
           <entry key=".env file" value="3" />
           <entry key="Git file" value="16" />
           <entry key="Markdown" value="2" />
-          <entry key="PLAIN_TEXT" value="24" />
+          <entry key="PLAIN_TEXT" value="25" />
           <entry key="Python" value="44" />
         </counts>
       </usages-collector>
@@ -60,15 +60,15 @@
           <entry key="Procfile" value="42" />
           <entry key="dummy" value="7" />
           <entry key="gitignore" value="115" />
-          <entry key="py" value="14972" />
-          <entry key="txt" value="3384" />
+          <entry key="py" value="14980" />
+          <entry key="txt" value="3407" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Git file" value="115" />
-          <entry key="PLAIN_TEXT" value="3433" />
-          <entry key="Python" value="14972" />
+          <entry key="PLAIN_TEXT" value="3456" />
+          <entry key="Python" value="14980" />
         </counts>
       </usages-collector>
     </session>
@@ -128,8 +128,39 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/randomovie/database.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="12" column="47" lean-forward="true" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
+            <state relative-caret-position="497">
+              <caret line="181" column="39" lean-forward="true" selection-start-line="181" selection-start-column="39" selection-end-line="181" selection-end-column="39" />
+              <folding>
+                <element signature="n#!!doc" />
+                <element signature="e#47#1117#1" />
+                <element signature="e#1468#1796#0" />
+                <element signature="e#1277#1343#1" />
+                <element signature="e#1486#1657#0" />
+                <element signature="e#1845#2223#0" />
+                <element signature="e#1758#1874#1" />
+                <element signature="e#1918#2126#0" />
+                <element signature="e#2270#3088#0" />
+                <element signature="e#2221#2357#1" />
+                <element signature="e#2424#3090#0" />
+                <element signature="e#2548#2680#0" />
+                <element signature="e#2747#2885#0" />
+                <element signature="e#3135#3446#0" />
+                <element signature="e#3005#3087#1" />
+                <element signature="e#3235#3404#0" />
+                <element signature="e#3493#3805#0" />
+                <element signature="e#2988#3070#1" />
+                <element signature="e#3593#3763#0" />
+                <element signature="e#3855#4208#0" />
+                <element signature="e#3286#3392#1" />
+                <element signature="e#3979#4166#0" />
+                <element signature="e#4233#4662#0" />
+                <element signature="e#3603#3682#1" />
+                <element signature="e#4330#4620#0" />
+                <element signature="e#3910#4851#0" />
+                <element signature="e#3910#4018#1" />
+                <element signature="e#4455#5205#0" />
+                <element signature="e#4119#4637#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -137,8 +168,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/randomovie/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="210" column="41" selection-start-line="210" selection-start-column="41" selection-end-line="210" selection-end-column="41" />
+            <state relative-caret-position="197">
+              <caret line="224" lean-forward="true" selection-start-line="224" selection-end-line="224" />
               <folding>
                 <element signature="n#!!doc" />
                 <element signature="e#47#1117#1" />
@@ -201,8 +232,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/requirements.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="19" selection-start-column="19" selection-end-column="19" />
+            <state relative-caret-position="15">
+              <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -247,9 +278,9 @@
         <option value="$PROJECT_DIR$/randomovie/data/build.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/randomovie/data/sqlite_build.py" />
-        <option value="$PROJECT_DIR$/randomovie/database.py" />
         <option value="$PROJECT_DIR$/randomovie/data/pg_build.py" />
         <option value="$PROJECT_DIR$/randomovie/main.py" />
+        <option value="$PROJECT_DIR$/randomovie/database.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
       </list>
     </option>
@@ -490,20 +521,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1545877313705</updated>
-    </task>
-    <task id="LOCAL-00084" summary="Some minor fixes">
-      <created>1546414522692</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1546414522692</updated>
-    </task>
-    <task id="LOCAL-00085" summary="Redefined requirements">
-      <created>1546414827450</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1546414827450</updated>
     </task>
     <task id="LOCAL-00086" summary="Removed unused dependencies.&#10;Next step is to refactor inline keyboard actions.">
       <created>1546415239505</created>
@@ -834,14 +851,28 @@
       <option name="project" value="LOCAL" />
       <updated>1547232513645</updated>
     </task>
-    <option name="localTasksCounter" value="133" />
+    <task id="LOCAL-00133" summary="Updated requirements.">
+      <created>1547232580118</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1547232580118</updated>
+    </task>
+    <task id="LOCAL-00134" summary="Heroku update.">
+      <created>1547232821185</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1547232821185</updated>
+    </task>
+    <option name="localTasksCounter" value="135" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1060" height="864" extended-state="4" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2512031" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.2512031" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24927816" />
       <window_info id="Favorites" order="2" side_tool="true" weight="0.32916266" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -852,7 +883,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.45467034" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49759385" visible="true" weight="0.30906594" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49759385" visible="true" weight="0.30906594" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5024062" side_tool="true" weight="0.30906594" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32967034" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -928,7 +959,6 @@
     <MESSAGE value="Implemented a function to check if user has set any genres." />
     <MESSAGE value="Removed cached files from git." />
     <MESSAGE value="Starting some basic exception handling approach." />
-    <MESSAGE value="Heroku update." />
     <MESSAGE value="Changed token and secretly saved it in heroku's vault." />
     <MESSAGE value="Publishing source code to github." />
     <MESSAGE value="Redesigned database structure building algorithm." />
@@ -944,7 +974,8 @@
     <MESSAGE value="Updated requirements" />
     <MESSAGE value="Heroku update" />
     <MESSAGE value="Updated requirements." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated requirements." />
+    <MESSAGE value="Heroku update." />
+    <option name="LAST_COMMIT_MESSAGE" value="Heroku update." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/randomovie/tests/test_database.py" />
@@ -1078,15 +1109,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/randomovie/database.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="12" column="47" lean-forward="true" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
+        <state relative-caret-position="497">
+          <caret line="181" column="39" lean-forward="true" selection-start-line="181" selection-start-column="39" selection-end-line="181" selection-end-column="39" />
+          <folding>
+            <element signature="n#!!doc" />
+            <element signature="e#47#1117#1" />
+            <element signature="e#1468#1796#0" />
+            <element signature="e#1277#1343#1" />
+            <element signature="e#1486#1657#0" />
+            <element signature="e#1845#2223#0" />
+            <element signature="e#1758#1874#1" />
+            <element signature="e#1918#2126#0" />
+            <element signature="e#2270#3088#0" />
+            <element signature="e#2221#2357#1" />
+            <element signature="e#2424#3090#0" />
+            <element signature="e#2548#2680#0" />
+            <element signature="e#2747#2885#0" />
+            <element signature="e#3135#3446#0" />
+            <element signature="e#3005#3087#1" />
+            <element signature="e#3235#3404#0" />
+            <element signature="e#3493#3805#0" />
+            <element signature="e#2988#3070#1" />
+            <element signature="e#3593#3763#0" />
+            <element signature="e#3855#4208#0" />
+            <element signature="e#3286#3392#1" />
+            <element signature="e#3979#4166#0" />
+            <element signature="e#4233#4662#0" />
+            <element signature="e#3603#3682#1" />
+            <element signature="e#4330#4620#0" />
+            <element signature="e#3910#4851#0" />
+            <element signature="e#3910#4018#1" />
+            <element signature="e#4455#5205#0" />
+            <element signature="e#4119#4637#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/randomovie/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="210" column="41" selection-start-line="210" selection-start-column="41" selection-end-line="210" selection-end-column="41" />
+        <state relative-caret-position="197">
+          <caret line="224" lean-forward="true" selection-start-line="224" selection-end-line="224" />
           <folding>
             <element signature="n#!!doc" />
             <element signature="e#47#1117#1" />
@@ -1147,8 +1209,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="19" selection-start-column="19" selection-end-column="19" />
+        <state relative-caret-position="15">
+          <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
         </state>
       </provider>
     </entry>
