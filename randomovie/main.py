@@ -177,6 +177,7 @@ def command_random(bot, update, msg_id=None):
     user_id = update.effective_user.id
     movie = fetch(user_id)
     if movie:
+        print("Fetched on movie")
         url = f"https://www.google.com.eg/search?q=Download full movie {movie[1]}"
         msg = f"*Title:* {movie[1]}\n" \
               f"*Release year:* {movie[3]}\n" \
@@ -198,6 +199,7 @@ def command_random(bot, update, msg_id=None):
                 print(e)
     else:
         if user_has_genres(user_id):
+            print("No genres")
             msg = "Oops 😞 I found nothing matches your filter !!\nTry /create a new filter with " \
                   "more tolerant parameters like more genres, less rating and older release year"
             try:
@@ -205,6 +207,7 @@ def command_random(bot, update, msg_id=None):
             except TelegramError as e:
                 print(e)
         else:
+            print("No filter")
             msg = "Looks like you haven't yet created a filter, so I can't suggest a movie unless you " \
                   "/create a new filter"
             try:
