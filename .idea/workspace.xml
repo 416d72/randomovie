@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d300c70-2013-45a1-82f3-724faad0b0b6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/randomovie/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/randomovie/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <list id="3af1febc-77b9-413d-ad8d-6411c6c6aee6" name="Heroku commit" comment="Heroku commit&#10;&#10;(cherry picked from commit 7d5abbfbc0d266e0ce75bdc8c09fc238d62407d7)">
       <changelist_data name="akkk33" email="akkk33@protonmail.com" date="1545886200000" />
@@ -44,7 +43,7 @@
           <entry key="gitignore" value="16" />
           <entry key="md" value="2" />
           <entry key="py" value="44" />
-          <entry key="txt" value="12" />
+          <entry key="txt" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -52,7 +51,7 @@
           <entry key=".env file" value="3" />
           <entry key="Git file" value="16" />
           <entry key="Markdown" value="2" />
-          <entry key="PLAIN_TEXT" value="22" />
+          <entry key="PLAIN_TEXT" value="24" />
           <entry key="Python" value="44" />
         </counts>
       </usages-collector>
@@ -62,13 +61,13 @@
           <entry key="dummy" value="7" />
           <entry key="gitignore" value="115" />
           <entry key="py" value="14972" />
-          <entry key="txt" value="3350" />
+          <entry key="txt" value="3384" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Git file" value="115" />
-          <entry key="PLAIN_TEXT" value="3399" />
+          <entry key="PLAIN_TEXT" value="3433" />
           <entry key="Python" value="14972" />
         </counts>
       </usages-collector>
@@ -135,11 +134,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/randomovie/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="209" column="28" selection-start-line="209" selection-start-column="28" selection-end-line="209" selection-end-column="28" />
+            <state relative-caret-position="272">
+              <caret line="210" column="41" selection-start-line="210" selection-start-column="41" selection-end-line="210" selection-end-column="41" />
               <folding>
                 <element signature="n#!!doc" />
                 <element signature="e#47#1117#1" />
@@ -199,6 +198,15 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="19" selection-start-column="19" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -241,8 +249,8 @@
         <option value="$PROJECT_DIR$/randomovie/data/sqlite_build.py" />
         <option value="$PROJECT_DIR$/randomovie/database.py" />
         <option value="$PROJECT_DIR$/randomovie/data/pg_build.py" />
-        <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/randomovie/main.py" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
       </list>
     </option>
   </component>
@@ -482,20 +490,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1545877313705</updated>
-    </task>
-    <task id="LOCAL-00082" summary="Fixed some bugs in create_genres function">
-      <created>1546405652577</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1546405652577</updated>
-    </task>
-    <task id="LOCAL-00083" summary="Refactored random function">
-      <created>1546413175651</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1546413175651</updated>
     </task>
     <task id="LOCAL-00084" summary="Some minor fixes">
       <created>1546414522692</created>
@@ -826,14 +820,28 @@
       <option name="project" value="LOCAL" />
       <updated>1547231814704</updated>
     </task>
-    <option name="localTasksCounter" value="131" />
+    <task id="LOCAL-00131" summary="Heroku update">
+      <created>1547232242860</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1547232242860</updated>
+    </task>
+    <task id="LOCAL-00132" summary="Updated requirements.">
+      <created>1547232513645</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1547232513645</updated>
+    </task>
+    <option name="localTasksCounter" value="133" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1060" height="864" extended-state="4" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.2512031" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2512031" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24927816" />
       <window_info id="Favorites" order="2" side_tool="true" weight="0.32916266" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -844,8 +852,8 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.45467034" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49855632" visible="true" weight="0.30906594" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5024062" side_tool="true" weight="0.21565934" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49759385" visible="true" weight="0.30906594" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5024062" side_tool="true" weight="0.30906594" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32967034" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -919,7 +927,6 @@
     <MESSAGE value="removed answer_inline_query() function, with plan to add it later" />
     <MESSAGE value="Implemented a function to check if user has set any genres." />
     <MESSAGE value="Removed cached files from git." />
-    <MESSAGE value="Heroku update" />
     <MESSAGE value="Starting some basic exception handling approach." />
     <MESSAGE value="Heroku update." />
     <MESSAGE value="Changed token and secretly saved it in heroku's vault." />
@@ -931,12 +938,13 @@
     <MESSAGE value="Implemented inserting default genres algorithm." />
     <MESSAGE value="Finished migration to Postgres.&#10;Possible bug: When user_genres table reach 10K rows, The DBMS will not accept any insertion due to free plan limitation.&#10;So the fix will come in a future patch." />
     <MESSAGE value="Implemeted basic exception handling in database module." />
-    <MESSAGE value="Updated requirements." />
     <MESSAGE value="Deleted test lines from pg_build" />
     <MESSAGE value="Automated build postgres database" />
     <MESSAGE value="Updated exception handling in database and pg_build modules." />
     <MESSAGE value="Updated requirements" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated requirements" />
+    <MESSAGE value="Heroku update" />
+    <MESSAGE value="Updated requirements." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated requirements." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/randomovie/tests/test_database.py" />
@@ -1055,13 +1063,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/randomovie/data/pg_build.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="62">
@@ -1084,8 +1085,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/randomovie/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="209" column="28" selection-start-line="209" selection-start-column="28" selection-end-line="209" selection-end-column="28" />
+        <state relative-caret-position="272">
+          <caret line="210" column="41" selection-start-line="210" selection-start-column="41" selection-end-line="210" selection-end-column="41" />
           <folding>
             <element signature="n#!!doc" />
             <element signature="e#47#1117#1" />
@@ -1141,6 +1142,13 @@
             <element signature="e#13402#14304#0" />
             <element signature="e#14233#14253#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="19" selection-start-column="19" selection-end-column="19" />
         </state>
       </provider>
     </entry>
