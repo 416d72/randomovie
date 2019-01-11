@@ -85,7 +85,7 @@ def create_year(bot, update, step: str):
     if step == 'new':  # Send a simple message
         bot.send_message(chat_id=update.effective_message.chat_id,
                          text="So what is the minimum release year that all movies I suggest should be newer than?\n "
-                              "Type a year in range of 1911 to 2018.",
+                              "Type a year in range of 1912 to 2017.",
                          )
         user_set_last_step(update.effective_user.id, 'create_year')
     elif step == 'set':  # Verify the received number and take the appropriate response
@@ -198,7 +198,6 @@ def command_random(bot, update, msg_id=None):
                 print(e)
     else:  # Error message
         if movie is "No result":  # User has set strict rules
-            print("No result")
             msg = "Oops 😞 I found nothing matches your filter !!\nTry /create a new filter with " \
                   "more tolerant parameters like more genres, less rating and older release year"
             try:
@@ -206,7 +205,6 @@ def command_random(bot, update, msg_id=None):
             except TelegramError as e:
                 print(e)
         else:  # User hasn't yet created a filter
-            print("No filter")
             msg = "Looks like you haven't yet created a filter, so I can't suggest a movie unless you " \
                   "/create a new filter"
             try:
