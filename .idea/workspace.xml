@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2d300c70-2013-45a1-82f3-724faad0b0b6" name="Default Changelist" comment="">
+    <list default="true" id="2d300c70-2013-45a1-82f3-724faad0b0b6" name="Default Changelist" comment="Updated postgres">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/randomovie/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/randomovie/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <list id="3af1febc-77b9-413d-ad8d-6411c6c6aee6" name="Heroku commit" comment="Heroku commit&#10;&#10;(cherry picked from commit 7d5abbfbc0d266e0ce75bdc8c09fc238d62407d7)">
       <changelist_data name="akkk33" email="akkk33@protonmail.com" date="1545886200000" />
@@ -43,7 +43,7 @@
           <entry key="gitignore" value="16" />
           <entry key="md" value="2" />
           <entry key="py" value="44" />
-          <entry key="txt" value="10" />
+          <entry key="txt" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -51,7 +51,7 @@
           <entry key=".env file" value="3" />
           <entry key="Git file" value="16" />
           <entry key="Markdown" value="2" />
-          <entry key="PLAIN_TEXT" value="20" />
+          <entry key="PLAIN_TEXT" value="21" />
           <entry key="Python" value="44" />
         </counts>
       </usages-collector>
@@ -60,15 +60,15 @@
           <entry key="Procfile" value="42" />
           <entry key="dummy" value="7" />
           <entry key="gitignore" value="115" />
-          <entry key="py" value="14879" />
-          <entry key="txt" value="3094" />
+          <entry key="py" value="14889" />
+          <entry key="txt" value="3169" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Git file" value="115" />
-          <entry key="PLAIN_TEXT" value="3143" />
-          <entry key="Python" value="14879" />
+          <entry key="PLAIN_TEXT" value="3218" />
+          <entry key="Python" value="14889" />
         </counts>
       </usages-collector>
     </session>
@@ -113,15 +113,15 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/randomovie/data/pg_build.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="28" lean-forward="true" selection-start-line="25" selection-end-line="28" />
+            <state relative-caret-position="225">
+              <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="39" />
               <folding>
                 <element signature="e#1118#1140#0" expanded="true" />
                 <element signature="e#1869#2122#0" />
                 <element signature="e#2200#2363#0" />
-                <marker date="1547166421205" expanded="true" signature="1874:2224" ph="..." />
-                <marker date="1547166421205" expanded="true" signature="2242:2721" ph="..." />
-                <marker date="1547166421205" expanded="true" signature="2514:2721" ph="..." />
+                <marker date="1547230719574" expanded="true" signature="1874:2224" ph="..." />
+                <marker date="1547230719574" expanded="true" signature="2242:2721" ph="..." />
+                <marker date="1547230719574" expanded="true" signature="2514:2721" ph="..." />
               </folding>
             </state>
           </provider>
@@ -130,12 +130,40 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/randomovie/database.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="150" column="16" selection-start-line="150" selection-start-column="16" selection-end-line="150" selection-end-column="16" />
+            <state relative-caret-position="135">
+              <caret line="30" column="35" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
               <folding>
                 <element signature="n#!!doc" />
                 <element signature="e#47#1117#1" />
-                <element signature="e#1118#1146#0" expanded="true" />
+                <element signature="e#1402#1716#0" />
+                <element signature="e#1277#1343#1" />
+                <element signature="e#1486#1657#0" />
+                <element signature="e#1845#2223#0" />
+                <element signature="e#1758#1874#1" />
+                <element signature="e#1918#2126#0" />
+                <element signature="e#2270#3088#0" />
+                <element signature="e#2221#2357#1" />
+                <element signature="e#2424#3090#0" />
+                <element signature="e#2548#2680#0" />
+                <element signature="e#2747#2885#0" />
+                <element signature="e#3135#3446#0" />
+                <element signature="e#3005#3087#1" />
+                <element signature="e#3235#3404#0" />
+                <element signature="e#3493#3805#0" />
+                <element signature="e#2988#3070#1" />
+                <element signature="e#3593#3763#0" />
+                <element signature="e#3855#4208#0" />
+                <element signature="e#3286#3392#1" />
+                <element signature="e#3979#4166#0" />
+                <element signature="e#4233#4662#0" />
+                <element signature="e#3603#3682#1" />
+                <element signature="e#4330#4620#0" />
+                <element signature="e#3910#4851#0" />
+                <element signature="e#3910#4018#1" />
+                <element signature="e#4455#5205#0" />
+                <element signature="e#4119#4637#0" />
+                <element signature="e#4885#5039#0" />
+                <element signature="e#5256#5283#0" />
               </folding>
             </state>
           </provider>
@@ -144,8 +172,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/randomovie/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="200" column="19" lean-forward="true" selection-start-line="200" selection-start-column="19" selection-end-line="200" selection-end-column="19" />
+            <state relative-caret-position="615">
+              <caret line="201" column="27" selection-start-line="201" selection-start-column="27" selection-end-line="201" selection-end-column="27" />
               <folding>
                 <element signature="n#!!doc" />
                 <element signature="e#47#1117#1" />
@@ -248,11 +276,11 @@
         <option value="$PROJECT_DIR$/randomovie/tests/common.py" />
         <option value="$PROJECT_DIR$/randomovie/__init__.py" />
         <option value="$PROJECT_DIR$/LICENSE" />
-        <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/randomovie/main.py" />
         <option value="$PROJECT_DIR$/randomovie/data/build.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/randomovie/data/sqlite_build.py" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/randomovie/data/pg_build.py" />
         <option value="$PROJECT_DIR$/randomovie/database.py" />
       </list>
@@ -430,13 +458,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1545877313705</updated>
-    </task>
-    <task id="LOCAL-00076" summary="Refactored last_step() and separated it to two functions: get and set">
-      <created>1546323421216</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1546323421218</updated>
     </task>
     <task id="LOCAL-00077" summary="fixed small bug in set_last_step()">
       <created>1546323565012</created>
@@ -774,7 +795,14 @@
       <option name="project" value="LOCAL" />
       <updated>1547229560664</updated>
     </task>
-    <option name="localTasksCounter" value="125" />
+    <task id="LOCAL-00125" summary="Implemeted basic exception handling in database module.">
+      <created>1547229935840</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1547229935840</updated>
+    </task>
+    <option name="localTasksCounter" value="126" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -786,13 +814,13 @@
       <window_info id="Favorites" order="2" side_tool="true" weight="0.32916266" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32967034" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49759385" visible="true" weight="0.21565934" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49759385" weight="0.21565934" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.45467034" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49855632" weight="0.30906594" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49855632" visible="true" weight="0.30906594" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5024062" side_tool="true" weight="0.21565934" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32967034" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -859,7 +887,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed some bugs in create_genres function" />
     <MESSAGE value="Refactored random function" />
     <MESSAGE value="Some minor fixes" />
     <MESSAGE value="Redefined requirements" />
@@ -884,7 +911,8 @@
     <MESSAGE value="Implemented Postgres database with name 'bot' contains all users' data." />
     <MESSAGE value="Implemented inserting default genres algorithm." />
     <MESSAGE value="Finished migration to Postgres.&#10;Possible bug: When user_genres table reach 10K rows, The DBMS will not accept any insertion due to free plan limitation.&#10;So the fix will come in a future patch." />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished migration to Postgres.&#10;Possible bug: When user_genres table reach 10K rows, The DBMS will not accept any insertion due to free plan limitation.&#10;So the fix will come in a future patch." />
+    <MESSAGE value="Implemeted basic exception handling in database module." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemeted basic exception handling in database module." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/randomovie/tests/test_database.py" />
@@ -952,13 +980,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="19" selection-start-column="19" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -1010,25 +1031,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/randomovie/data/pg_build.py">
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="28" lean-forward="true" selection-start-line="25" selection-end-line="28" />
-          <folding>
-            <element signature="e#1118#1140#0" expanded="true" />
-            <element signature="e#1869#2122#0" />
-            <element signature="e#2200#2363#0" />
-            <marker date="1547166421205" expanded="true" signature="1874:2224" ph="..." />
-            <marker date="1547166421205" expanded="true" signature="2242:2721" ph="..." />
-            <marker date="1547166421205" expanded="true" signature="2514:2721" ph="..." />
-          </folding>
+        <state relative-caret-position="15">
+          <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/randomovie/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="200" column="19" lean-forward="true" selection-start-line="200" selection-start-column="19" selection-end-line="200" selection-end-column="19" />
+        <state relative-caret-position="615">
+          <caret line="201" column="27" selection-start-line="201" selection-start-column="27" selection-end-line="201" selection-end-column="27" />
           <folding>
             <element signature="n#!!doc" />
             <element signature="e#47#1117#1" />
@@ -1093,14 +1106,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/randomovie/data/pg_build.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="39" />
+          <folding>
+            <element signature="e#1118#1140#0" expanded="true" />
+            <element signature="e#1869#2122#0" />
+            <element signature="e#2200#2363#0" />
+            <marker date="1547230719574" expanded="true" signature="1874:2224" ph="..." />
+            <marker date="1547230719574" expanded="true" signature="2242:2721" ph="..." />
+            <marker date="1547230719574" expanded="true" signature="2514:2721" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/randomovie/database.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="150" column="16" selection-start-line="150" selection-start-column="16" selection-end-line="150" selection-end-column="16" />
+        <state relative-caret-position="135">
+          <caret line="30" column="35" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
           <folding>
             <element signature="n#!!doc" />
             <element signature="e#47#1117#1" />
-            <element signature="e#1118#1146#0" expanded="true" />
+            <element signature="e#1402#1716#0" />
+            <element signature="e#1277#1343#1" />
+            <element signature="e#1486#1657#0" />
+            <element signature="e#1845#2223#0" />
+            <element signature="e#1758#1874#1" />
+            <element signature="e#1918#2126#0" />
+            <element signature="e#2270#3088#0" />
+            <element signature="e#2221#2357#1" />
+            <element signature="e#2424#3090#0" />
+            <element signature="e#2548#2680#0" />
+            <element signature="e#2747#2885#0" />
+            <element signature="e#3135#3446#0" />
+            <element signature="e#3005#3087#1" />
+            <element signature="e#3235#3404#0" />
+            <element signature="e#3493#3805#0" />
+            <element signature="e#2988#3070#1" />
+            <element signature="e#3593#3763#0" />
+            <element signature="e#3855#4208#0" />
+            <element signature="e#3286#3392#1" />
+            <element signature="e#3979#4166#0" />
+            <element signature="e#4233#4662#0" />
+            <element signature="e#3603#3682#1" />
+            <element signature="e#4330#4620#0" />
+            <element signature="e#3910#4851#0" />
+            <element signature="e#3910#4018#1" />
+            <element signature="e#4455#5205#0" />
+            <element signature="e#4119#4637#0" />
+            <element signature="e#4885#5039#0" />
+            <element signature="e#5256#5283#0" />
           </folding>
         </state>
       </provider>
