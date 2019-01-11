@@ -80,7 +80,7 @@ def user_update(user_id: int, update_type: str, new_data):
             # Update the user_genres table
             cursor.execute("INSERT INTO user_genres(uid,genre_id) VALUES(%s,%s);", (user_id, new_data))
         elif update_type == 'all_genres':  # All
-            cursor.execute("INSERT INTO user_genres SELECT Null, %s, id FROM genres;", (user_id,))
+            cursor.execute("INSERT INTO user_genres (uid,genre_id) SELECT %s, id FROM genres;", (user_id,))
         con.commit()
         con.close()
     except psError as e:
