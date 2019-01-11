@@ -1,6 +1,7 @@
 <component name="ProjectDictionaryState">
   <dictionary name="amr">
     <words>
+      <w>dbname</w>
       <w>gunicorn</w>
       <w>heroku</w>
       <w>imdb</w>
