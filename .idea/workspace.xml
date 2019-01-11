@@ -60,15 +60,15 @@
           <entry key="Procfile" value="42" />
           <entry key="dummy" value="7" />
           <entry key="gitignore" value="115" />
-          <entry key="py" value="14748" />
-          <entry key="txt" value="2878" />
+          <entry key="py" value="14879" />
+          <entry key="txt" value="3094" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Git file" value="115" />
-          <entry key="PLAIN_TEXT" value="2927" />
-          <entry key="Python" value="14748" />
+          <entry key="PLAIN_TEXT" value="3143" />
+          <entry key="Python" value="14879" />
         </counts>
       </usages-collector>
     </session>
@@ -130,17 +130,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/randomovie/database.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="70">
-              <caret line="145" column="52" selection-start-line="145" selection-start-column="52" selection-end-line="145" selection-end-column="52" />
+            <state relative-caret-position="273">
+              <caret line="150" column="16" selection-start-line="150" selection-start-column="16" selection-end-line="150" selection-end-column="16" />
               <folding>
                 <element signature="n#!!doc" />
                 <element signature="e#47#1117#1" />
-                <element signature="e#1118#1145#0" expanded="true" />
-                <element signature="e#1402#1716#0" />
-                <element signature="e#1784#2166#0" />
-                <element signature="e#2221#2941#0" />
-                <element signature="e#3286#3571#0" />
-                <element signature="e#3603#3958#0" />
+                <element signature="e#1118#1146#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -149,7 +144,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/randomovie/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
+            <state relative-caret-position="312">
               <caret line="200" column="19" lean-forward="true" selection-start-line="200" selection-start-column="19" selection-end-line="200" selection-end-column="19" />
               <folding>
                 <element signature="n#!!doc" />
@@ -435,13 +430,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1545877313705</updated>
-    </task>
-    <task id="LOCAL-00075" summary="Implemented last_step() function which retrieves user's last used command.">
-      <created>1546322915903</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1546322915904</updated>
     </task>
     <task id="LOCAL-00076" summary="Refactored last_step() and separated it to two functions: get and set">
       <created>1546323421216</created>
@@ -779,7 +767,14 @@
       <option name="project" value="LOCAL" />
       <updated>1547166491084</updated>
     </task>
-    <option name="localTasksCounter" value="124" />
+    <task id="LOCAL-00124" summary="Finished migration to Postgres.&#10;Possible bug: When user_genres table reach 10K rows, The DBMS will not accept any insertion due to free plan limitation.&#10;So the fix will come in a future patch.">
+      <created>1547229560664</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1547229560664</updated>
+    </task>
+    <option name="localTasksCounter" value="125" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -864,7 +859,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implemented create_genres function" />
     <MESSAGE value="Fixed some bugs in create_genres function" />
     <MESSAGE value="Refactored random function" />
     <MESSAGE value="Some minor fixes" />
@@ -889,7 +883,8 @@
     <MESSAGE value="Initialised Postgres database building algorithm." />
     <MESSAGE value="Implemented Postgres database with name 'bot' contains all users' data." />
     <MESSAGE value="Implemented inserting default genres algorithm." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented inserting default genres algorithm." />
+    <MESSAGE value="Finished migration to Postgres.&#10;Possible bug: When user_genres table reach 10K rows, The DBMS will not accept any insertion due to free plan limitation.&#10;So the fix will come in a future patch." />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished migration to Postgres.&#10;Possible bug: When user_genres table reach 10K rows, The DBMS will not accept any insertion due to free plan limitation.&#10;So the fix will come in a future patch." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/randomovie/tests/test_database.py" />
@@ -1032,7 +1027,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/randomovie/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
+        <state relative-caret-position="312">
           <caret line="200" column="19" lean-forward="true" selection-start-line="200" selection-start-column="19" selection-end-line="200" selection-end-column="19" />
           <folding>
             <element signature="n#!!doc" />
@@ -1100,17 +1095,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/randomovie/database.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="145" column="52" selection-start-line="145" selection-start-column="52" selection-end-line="145" selection-end-column="52" />
+        <state relative-caret-position="273">
+          <caret line="150" column="16" selection-start-line="150" selection-start-column="16" selection-end-line="150" selection-end-column="16" />
           <folding>
             <element signature="n#!!doc" />
             <element signature="e#47#1117#1" />
-            <element signature="e#1118#1145#0" expanded="true" />
-            <element signature="e#1402#1716#0" />
-            <element signature="e#1784#2166#0" />
-            <element signature="e#2221#2941#0" />
-            <element signature="e#3286#3571#0" />
-            <element signature="e#3603#3958#0" />
+            <element signature="e#1118#1146#0" expanded="true" />
           </folding>
         </state>
       </provider>
