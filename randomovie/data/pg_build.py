@@ -25,7 +25,7 @@ import psycopg2
 
 db_url = environ.get('DATABASE_URL')
 if not db_url:
-    db_url = "dbname=users user=postgres"
+    db_url = "dbname=bot user=postgres"
 
 
 def create_users():
@@ -52,6 +52,20 @@ def test_insert():
     con.close()
 
 
+def drop():
+    """
+    Delete everything
+    :return:
+    """
+    con = psycopg2.connect(db_url)
+    cursor = con.cursor()
+    cursor.execute('DROP TABLE user_genres,users,genres;')
+    con.commit()
+    con.close()
+
+
 if __name__ == '__main__':
+    # drop()
     create_users()
     test_insert()
+    pass
