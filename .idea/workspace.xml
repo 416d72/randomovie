@@ -42,7 +42,7 @@
           <entry key="env" value="3" />
           <entry key="gitignore" value="16" />
           <entry key="md" value="2" />
-          <entry key="py" value="44" />
+          <entry key="py" value="45" />
           <entry key="txt" value="15" />
         </counts>
       </usages-collector>
@@ -52,7 +52,7 @@
           <entry key="Git file" value="16" />
           <entry key="Markdown" value="2" />
           <entry key="PLAIN_TEXT" value="26" />
-          <entry key="Python" value="44" />
+          <entry key="Python" value="45" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -60,15 +60,15 @@
           <entry key="Procfile" value="42" />
           <entry key="dummy" value="7" />
           <entry key="gitignore" value="115" />
-          <entry key="py" value="15359" />
-          <entry key="txt" value="3529" />
+          <entry key="py" value="15389" />
+          <entry key="txt" value="3716" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Git file" value="115" />
-          <entry key="PLAIN_TEXT" value="3578" />
-          <entry key="Python" value="15359" />
+          <entry key="PLAIN_TEXT" value="3765" />
+          <entry key="Python" value="15389" />
         </counts>
       </usages-collector>
     </session>
@@ -81,7 +81,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/randomovie/database.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
+            <state relative-caret-position="765">
               <caret line="169" column="38" selection-start-line="169" selection-start-column="38" selection-end-line="169" selection-end-column="38" />
               <folding>
                 <element signature="n#!!doc" />
@@ -111,64 +111,38 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/randomovie/main.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/randomovie/data/sqlite_build.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="87" column="67" selection-start-line="87" selection-start-column="67" selection-end-line="87" selection-end-column="67" />
+            <state relative-caret-position="270">
+              <caret line="37" column="65" selection-start-line="37" selection-start-column="65" selection-end-line="37" selection-end-column="65" />
               <folding>
                 <element signature="n#!!doc" />
                 <element signature="e#47#1117#1" />
-                <element signature="e#1399#1682#0" />
-                <element signature="e#1719#1943#0" />
-                <element signature="e#1733#1898#0" />
-                <element signature="e#1743#1892#0" />
-                <element signature="e#1987#2417#0" />
-                <element signature="e#2001#2372#0" />
-                <element signature="e#2011#2184#0" />
-                <element signature="e#2194#2366#0" />
-                <element signature="e#2456#3315#0" />
-                <element signature="e#2609#3130#0" />
-                <element signature="e#3425#3522#0" />
-                <element signature="e#3570#3738#1" />
-                <element signature="e#4360#5029#0" />
-                <element signature="e#4360#4552#1" />
-                <element signature="e#4608#4854#0" />
-                <element signature="e#5091#8031#0" />
-                <element signature="e#5091#5277#1" />
-                <element signature="e#5282#5423#1" />
-                <element signature="e#5540#5801#0" />
-                <element signature="e#5820#8031#0" />
-                <element signature="e#6011#6208#0" />
-                <element signature="e#6235#8031#0" />
-                <element signature="e#6297#6734#0" />
-                <element signature="e#6322#6558#0" />
-                <element signature="e#6794#7169#0" />
-                <element signature="e#6843#7169#0" />
-                <element signature="e#6929#7089#0" />
-                <element signature="e#7307#7668#0" />
-                <element signature="e#7769#8031#0" />
-                <element signature="e#8070#8226#0" />
-                <element signature="e#8279#10011#0" />
-                <element signature="e#10079#10352#0" />
-                <element signature="e#10164#10351#0" />
-                <element signature="e#10393#12422#0" />
-                <element signature="e#10596#12161#0" />
-                <element signature="e#10714#11303#0" />
-                <element signature="e#10781#11055#0" />
-                <element signature="e#11104#11303#0" />
-                <element signature="e#11176#11302#0" />
-                <element signature="e#11377#12161#0" />
-                <element signature="e#11430#11643#0" />
-                <element signature="e#11502#11642#0" />
-                <element signature="e#11715#12025#0" />
-                <element signature="e#12180#12422#0" />
-                <element signature="e#12463#12597#0" />
-                <element signature="e#12636#13367#0" />
-                <element signature="e#12870#13367#0" />
-                <element signature="e#13402#14304#0" />
-                <element signature="e#14233#14253#0" />
+                <element signature="e#2304#2609#0" />
+                <element signature="e#2635#3896#0" />
+                <element signature="e#2825#3825#0" />
+                <element signature="e#2893#3825#0" />
+                <element signature="e#2928#3086#1" />
+                <element signature="e#3137#3825#0" />
+                <element signature="e#3419#3825#0" />
+                <element signature="e#3654#3825#0" />
+                <element signature="e#3669#3811#0" />
+                <element signature="e#3924#4578#0" />
+                <element signature="e#4116#4507#0" />
+                <element signature="e#4184#4507#0" />
+                <element signature="e#4219#4339#1" />
+                <element signature="e#4601#4784#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/randomovie/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -193,6 +167,8 @@
       <find>sqliteconnect</find>
       <find>commit</find>
       <find>`</find>
+      <find>all_genres</find>
+      <find>default_genres</find>
     </findStrings>
     <replaceStrings>
       <replace>connect</replace>
@@ -456,20 +432,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1545877313705</updated>
-    </task>
-    <task id="LOCAL-00096" summary="removed answer_inline_query() function, with plan to add it later">
-      <created>1546697084450</created>
-      <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
-      <option name="project" value="LOCAL" />
-      <updated>1546697084450</updated>
-    </task>
-    <task id="LOCAL-00097" summary="Heroku update">
-      <created>1546697164539</created>
-      <option name="number" value="00097" />
-      <option name="presentableId" value="LOCAL-00097" />
-      <option name="project" value="LOCAL" />
-      <updated>1546697164539</updated>
     </task>
     <task id="LOCAL-00098" summary="Implemented a function to check if user has set any genres.">
       <created>1546762569787</created>
@@ -800,7 +762,21 @@
       <option name="project" value="LOCAL" />
       <updated>1547236177180</updated>
     </task>
-    <option name="localTasksCounter" value="145" />
+    <task id="LOCAL-00145" summary="Updated the message which bot sends when creating a new filter at the year stage.">
+      <created>1547236392171</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1547236392171</updated>
+    </task>
+    <task id="LOCAL-00146" summary="Imported default genres list from data/sqlite_build.py module">
+      <created>1547236817778</created>
+      <option name="number" value="00146" />
+      <option name="presentableId" value="LOCAL-00146" />
+      <option name="project" value="LOCAL" />
+      <updated>1547236817778</updated>
+    </task>
+    <option name="localTasksCounter" value="147" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -818,7 +794,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.45467034" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49759385" visible="true" weight="0.30906594" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49759385" visible="true" weight="0.30906594" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5024062" side_tool="true" weight="0.30906594" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32967034" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -885,8 +861,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Completed phase one with all basic functionality.&#10;Now working on enhancements." />
-    <MESSAGE value="Bug discovered that users are being deleted after a while !!" />
     <MESSAGE value="removed answer_inline_query() function, with plan to add it later" />
     <MESSAGE value="Implemented a function to check if user has set any genres." />
     <MESSAGE value="Removed cached files from git." />
@@ -910,7 +884,9 @@
     <MESSAGE value="Fixed SQL syntax error" />
     <MESSAGE value="Fixed SQL syntax error in user_update function" />
     <MESSAGE value="Little logic enhancement in /random command response." />
-    <option name="LAST_COMMIT_MESSAGE" value="Little logic enhancement in /random command response." />
+    <MESSAGE value="Updated the message which bot sends when creating a new filter at the year stage." />
+    <MESSAGE value="Imported default genres list from data/sqlite_build.py module" />
+    <option name="LAST_COMMIT_MESSAGE" value="Imported default genres list from data/sqlite_build.py module" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/randomovie/tests/test_database.py" />
@@ -999,36 +975,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/randomovie/data/sqlite_build.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-117">
-          <caret line="37" column="65" selection-start-line="37" selection-start-column="65" selection-end-line="37" selection-end-column="65" />
-          <folding>
-            <element signature="n#!!doc" />
-            <element signature="e#47#1117#1" />
-            <element signature="e#2304#2609#0" />
-            <element signature="e#2635#3896#0" />
-            <element signature="e#2825#3825#0" />
-            <element signature="e#2893#3825#0" />
-            <element signature="e#2928#3086#1" />
-            <element signature="e#3137#3825#0" />
-            <element signature="e#3419#3825#0" />
-            <element signature="e#3654#3825#0" />
-            <element signature="e#3669#3811#0" />
-            <element signature="e#3924#4578#0" />
-            <element signature="e#4116#4507#0" />
-            <element signature="e#4184#4507#0" />
-            <element signature="e#4219#4339#1" />
-            <element signature="e#4601#4784#0" />
-            <element signature="e#5305#5388#0" />
-            <element signature="e#5429#5781#0" />
-            <element signature="e#5479#5781#0" />
-            <element signature="e#5547#5740#0" />
-            <element signature="e#5615#5740#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1051,7 +997,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/randomovie/database.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
+        <state relative-caret-position="765">
           <caret line="169" column="38" selection-start-line="169" selection-start-column="38" selection-end-line="169" selection-end-column="38" />
           <folding>
             <element signature="n#!!doc" />
@@ -1080,63 +1026,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/randomovie/main.py">
+    <entry file="file://$PROJECT_DIR$/randomovie/data/sqlite_build.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="87" column="67" selection-start-line="87" selection-start-column="67" selection-end-line="87" selection-end-column="67" />
+        <state relative-caret-position="270">
+          <caret line="37" column="65" selection-start-line="37" selection-start-column="65" selection-end-line="37" selection-end-column="65" />
           <folding>
             <element signature="n#!!doc" />
             <element signature="e#47#1117#1" />
-            <element signature="e#1399#1682#0" />
-            <element signature="e#1719#1943#0" />
-            <element signature="e#1733#1898#0" />
-            <element signature="e#1743#1892#0" />
-            <element signature="e#1987#2417#0" />
-            <element signature="e#2001#2372#0" />
-            <element signature="e#2011#2184#0" />
-            <element signature="e#2194#2366#0" />
-            <element signature="e#2456#3315#0" />
-            <element signature="e#2609#3130#0" />
-            <element signature="e#3425#3522#0" />
-            <element signature="e#3570#3738#1" />
-            <element signature="e#4360#5029#0" />
-            <element signature="e#4360#4552#1" />
-            <element signature="e#4608#4854#0" />
-            <element signature="e#5091#8031#0" />
-            <element signature="e#5091#5277#1" />
-            <element signature="e#5282#5423#1" />
-            <element signature="e#5540#5801#0" />
-            <element signature="e#5820#8031#0" />
-            <element signature="e#6011#6208#0" />
-            <element signature="e#6235#8031#0" />
-            <element signature="e#6297#6734#0" />
-            <element signature="e#6322#6558#0" />
-            <element signature="e#6794#7169#0" />
-            <element signature="e#6843#7169#0" />
-            <element signature="e#6929#7089#0" />
-            <element signature="e#7307#7668#0" />
-            <element signature="e#7769#8031#0" />
-            <element signature="e#8070#8226#0" />
-            <element signature="e#8279#10011#0" />
-            <element signature="e#10079#10352#0" />
-            <element signature="e#10164#10351#0" />
-            <element signature="e#10393#12422#0" />
-            <element signature="e#10596#12161#0" />
-            <element signature="e#10714#11303#0" />
-            <element signature="e#10781#11055#0" />
-            <element signature="e#11104#11303#0" />
-            <element signature="e#11176#11302#0" />
-            <element signature="e#11377#12161#0" />
-            <element signature="e#11430#11643#0" />
-            <element signature="e#11502#11642#0" />
-            <element signature="e#11715#12025#0" />
-            <element signature="e#12180#12422#0" />
-            <element signature="e#12463#12597#0" />
-            <element signature="e#12636#13367#0" />
-            <element signature="e#12870#13367#0" />
-            <element signature="e#13402#14304#0" />
-            <element signature="e#14233#14253#0" />
+            <element signature="e#2304#2609#0" />
+            <element signature="e#2635#3896#0" />
+            <element signature="e#2825#3825#0" />
+            <element signature="e#2893#3825#0" />
+            <element signature="e#2928#3086#1" />
+            <element signature="e#3137#3825#0" />
+            <element signature="e#3419#3825#0" />
+            <element signature="e#3654#3825#0" />
+            <element signature="e#3669#3811#0" />
+            <element signature="e#3924#4578#0" />
+            <element signature="e#4116#4507#0" />
+            <element signature="e#4184#4507#0" />
+            <element signature="e#4219#4339#1" />
+            <element signature="e#4601#4784#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/randomovie/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
         </state>
       </provider>
     </entry>
