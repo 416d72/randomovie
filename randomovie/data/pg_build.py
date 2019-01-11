@@ -40,6 +40,22 @@ def create_users():
     con.close()
 
 
+def insert_default_genres():
+    """
+    Insert default genres
+    :return: None
+    """
+    try:
+        con = psycopg2.connect(db_url)
+        cursor = con.cursor()
+        for item in default_genres:
+            cursor.execute('INSERT INTO genres (genre) VALUES (%s);', (item,))
+            con.commit()
+        con.close()
+    except psycopg2.Error as e:
+        print(e)
+
+
 def test_insert():
     """
     Insert a test row
@@ -65,7 +81,8 @@ def drop():
 
 
 if __name__ == '__main__':
-    # drop()
+    drop()
     create_users()
     test_insert()
+    insert_default_genres()
     pass
