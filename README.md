@@ -9,6 +9,11 @@ This bot basically provides you the ability to set custom rules then fetch a ran
 # Inspired by:
 An obsolete bot called [@movie_adviser_bot](https://t.me/movie_adviser_bot), but this bot focuses on more simplicity.
 
+# Usage
+Through this [link](https://t.me/randomovie_bot) which opens Telegram on your device.
+
+Or 
+
 # Movie Database:
 Movie database was fetched from [IMDB](https://www.imdb.com/interfaces/).
 
@@ -18,12 +23,15 @@ There are only two databases used:
 - title.ratings.tsv.gz (Contains the IMDb rating and votes information for titles)
 
 # Local database:
-I made a script `randomovie/data/build.py` which automates local database building steps.
+I made a script `randomovie/data/sqlite_build.py` which automates local database building steps.
+
+# PostgreSQL:
+I made a script `randomovie/data/pg_build.py` which automates Postgres database building steps.
 
 # Requirements:
-- [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot)
+- Python >= 3.6
 
-# Installation:
+# Developing:
 - Create a new bot using [@botfather](https://t.me/botfather).
 - Create a new [heroku](https://www.heroku.com/) account or sign in if you have one.
 - Create a new app.
@@ -32,11 +40,19 @@ I made a script `randomovie/data/build.py` which automates local database buildi
 - Now open your terminal and type:
     - `git clone https://github.com/akkk33/randomovie.git`
     - `cd randomovie/`
+    - `pip3 install -r requirements.txt`
     - `heroku login`
     - `heroku create`
     - `heroku git:remote -a <YOUR APP NAME>`
     - `heroku config:set telegram_token=<YOUR TELEGRAM BOT TOKEN>`
     - `git push heroku master`
+- Then open a bash shell to your 'dyno' with `heroku run bash`
+- The next step before trying the bot is to build the Postgres users database.
+- Within your *heroku* bash shell enter.
+    - `cd randomovie/data/`
+    - `python3 pg_build.py`
+Now you're done with installation.
+
 # Credits:
 - [Free Software Foundation](https://www.fsf.org/)
 - [Telegram](https://telegram.org/)
