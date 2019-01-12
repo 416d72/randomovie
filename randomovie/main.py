@@ -209,8 +209,10 @@ def command_random(bot, update, msg_id=None):
 
 def command_help(bot, update):
     bot.send_message(chat_id=update.effective_message.chat_id,
-                     text="If you found any bug, or have issues with using this bot, please submit an issue "
-                          "in Github's repository.\n Link: https://github.com/akkk33/randomovie/issues/new")
+                     text="If you liked the bot please consider supporting my work using Patreon: "
+                          "https://www.patreon.com/akkk33 \nIf your found any bug, or have issues "
+                          "using this bot, please accept my apologies and kindly submit an issue "
+                          "in Github's repository.\nhttps://github.com/akkk33/randomovie/issues/new")
 
 
 def non_command_msg(bot, update):
