@@ -22,16 +22,18 @@ SOFTWARE.
 """
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
 from telegram import TelegramError, ChatAction, ParseMode, InlineKeyboardButton, InlineKeyboardMarkup
-from os import environ
 from randomovie.database import *
 from data.sqlite_build import default_genres
 
 
-def random_reply_markup(url):
+def random_reply_markup(trailer, url):
     button_list = [
         [
             InlineKeyboardButton("👍 Get one more", callback_data="random"),
-            InlineKeyboardButton("📺 Watch or Download", url=url),
+        ],
+        [
+            InlineKeyboardButton("📺 Official Trailer", url=trailer),
+            InlineKeyboardButton("🎬 Watch or Download", url=url),
         ]
     ]
     return InlineKeyboardMarkup(button_list)
@@ -171,7 +173,8 @@ def command_random(bot, update, msg_id=None):
     user_id = update.effective_user.id
     movie = fetch(user_id)
     if type(movie) is list:
-        url = f"https://www.google.com.eg/search?q=Download full movie {movie[1]}"
+        trailer = f"https://www.youtube.com/results?search_query={movie[1]} trailer"
+        url = f"https://www.google.com/search?q=Download full movie {movie[1]}"
         msg = f"*Title:* {movie[1]}\n" \
               f"*Release year:* {movie[3]}\n" \
               f"*Genres:* {movie[2]}\n" \
@@ -181,13 +184,13 @@ def command_random(bot, update, msg_id=None):
         if msg_id:
             try:
                 bot.edit_message_text(chat_id=chat_id, message_id=msg_id, text=msg,
-                                      reply_markup=random_reply_markup(url), parse_mode=ParseMode.MARKDOWN)
+                                      reply_markup=random_reply_markup(trailer, url), parse_mode=ParseMode.MARKDOWN)
             except TelegramError as e:
                 print(e)
         else:
             try:
                 bot.send_message(chat_id=chat_id, text=msg,
-                                 reply_markup=random_reply_markup(url), parse_mode=ParseMode.MARKDOWN)
+                                 reply_markup=random_reply_markup(trailer, url), parse_mode=ParseMode.MARKDOWN)
             except TelegramError as e:
                 print(e)
     else:  # Error message
