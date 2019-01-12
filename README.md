@@ -54,8 +54,11 @@ I made a script `randomovie/data/pg_build.py` which automates Postgres database 
     - `python3 pg_build.py`
 Now you're done with installation.
 
+# Support me:
+On [Patreon](https://www.patreon.com/akkk33)
+
 # Thanks to:
 - [Free Software Foundation](https://www.fsf.org/)
 - [Heroku](https://www.heroku.com)
 - [JetBrains](https://www.jetbrains.com/)
-And to anyone that contributes to this repository.
+And to anyone contributes to this repository.
