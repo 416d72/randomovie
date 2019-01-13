@@ -57,7 +57,9 @@ def user_has_genres(user_id: int):
         con = psconnect(db_url)
         cursor = con.cursor()
         cursor.execute("SELECT genre_id FROM user_genres WHERE uid = %s ORDER BY RANDOM() LIMIT 1;", (user_id,))
-        return cursor.fetchone()
+        result = cursor.fetchone()
+        con.close()
+        return result
     except psError as e:
         print(e)
 
@@ -97,7 +99,9 @@ def user_get_year_rating(user_id: int):
         con = psconnect(db_url)
         cursor = con.cursor()
         cursor.execute("SELECT year,rating FROM users WHERE uid = %s", (user_id,))
-        return cursor.fetchone()
+        result = cursor.fetchone()
+        con.close()
+        return result
     except psError as e:
         print(e)
 
@@ -112,7 +116,9 @@ def user_get_last_step(user_id):
         con = psconnect(db_url)
         cursor = con.cursor()
         cursor.execute("SELECT last_step FROM users WHERE uid = %s", (user_id,))
-        return cursor.fetchone()[0]
+        result = cursor.fetchone()[0]
+        con.close()
+        return result
     except psError as e:
         print(e)
 
@@ -169,6 +175,7 @@ def fetch(user_id: int):
                        "AND movies.rating >= ? AND movies.year >= ? ORDER BY RANDOM() LIMIT 1",
                        [random_genre[0], rating, year])
         result = cursor.fetchone()
+        con.close()
         if not result:
             return "No result"
         return [f"https://www.imdb.com/title/{result[0]}", *result[1:]]
