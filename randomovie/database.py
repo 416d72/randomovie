@@ -38,7 +38,7 @@ def user_create(user_id: int):
     :return:
     """
     try:
-        con = psconnect(db_url)
+        con = psconnect(db_url, sslmode='require')
         cursor = con.cursor()
         cursor.execute("INSERT INTO users(uid) VALUES(%s) ON CONFLICT DO NOTHING;", (user_id,))
         con.commit()
@@ -55,7 +55,7 @@ def user_has_genres(user_id: int):
     :return:bool
     """
     try:
-        con = psconnect(db_url)
+        con = psconnect(db_url, sslmode='require')
         cursor = con.cursor()
         cursor.execute("SELECT genre_id FROM user_genres WHERE uid = %s ORDER BY RANDOM() LIMIT 1;", (user_id,))
         result = cursor.fetchone()
@@ -71,7 +71,7 @@ def sanitise():
     :return:
     """
     try:
-        con = psconnect(db_url)
+        con = psconnect(db_url, sslmode='require')
         cursor = con.cursor()
         cursor.execute("SELECT COUNT(uid) FROM users;")
         rows = cursor.fetchone()[0]
@@ -94,7 +94,7 @@ def user_update(user_id: int, update_type: str, new_data):
     :return: None
     """
     try:
-        con = psconnect(db_url)
+        con = psconnect(db_url, sslmode='require')
         cursor = con.cursor()
         if update_type in ['year', 'rating']:
             # Update the users table
@@ -117,7 +117,7 @@ def user_get_year_rating(user_id: int):
     :return: str
     """
     try:
-        con = psconnect(db_url)
+        con = psconnect(db_url, sslmode='require')
         cursor = con.cursor()
         cursor.execute("SELECT year,rating FROM users WHERE uid = %s", (user_id,))
         result = cursor.fetchone()
@@ -134,7 +134,7 @@ def user_get_last_step(user_id):
     :return: str
     """
     try:
-        con = psconnect(db_url)
+        con = psconnect(db_url, sslmode='require')
         cursor = con.cursor()
         cursor.execute("SELECT last_step FROM users WHERE uid = %s", (user_id,))
         result = cursor.fetchone()[0]
@@ -152,7 +152,7 @@ def user_set_last_step(user_id, new_step):
     :return: None
     """
     try:
-        con = psconnect(db_url)
+        con = psconnect(db_url, sslmode='require')
         cursor = con.cursor()
         cursor.execute("UPDATE users SET last_step= %s WHERE uid = %s", (new_step, user_id))
         con.commit()
@@ -168,7 +168,7 @@ def user_reset(user_id):
     :return: None
     """
     try:
-        con = psconnect(db_url)
+        con = psconnect(db_url, sslmode='require')
         cursor = con.cursor()
         cursor.execute('UPDATE users SET rating = null, year = null, last_step = null WHERE uid = %s', (user_id,))
         cursor.execute("DELETE FROM user_genres WHERE uid = %s", (user_id,))
