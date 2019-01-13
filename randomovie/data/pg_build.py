@@ -33,10 +33,12 @@ def create_users():
         con = psycopg2.connect(db_url)
         cursor = con.cursor()
         cursor.execute('CREATE TABLE IF NOT EXISTS genres (id SERIAL PRIMARY KEY , genre TEXT UNIQUE);')
-        cursor.execute('CREATE TABLE IF NOT EXISTS users (uid INTEGER PRIMARY KEY ,year SMALLINT, rating SMALLINT, '
-                       'last_step TEXT);')
+        con.commit()
+        cursor.execute('CREATE TABLE IF NOT EXISTS users (id SERIAL PRIMARY KEY ,uid INTEGER UNIQUE,year SMALLINT, '
+                       'rating SMALLINT, last_step TEXT);')
+        con.commit()
         cursor.execute(
-            'CREATE TABLE IF NOT EXISTS user_genres (id SERIAL PRIMARY KEY ,uid INTEGER REFERENCES users(uid), '
+            'CREATE TABLE IF NOT EXISTS user_genres (id SERIAL PRIMARY KEY ,uid INTEGER REFERENCES users(id), '
             'genre_id SMALLINT REFERENCES genres (id));')
         con.commit()
         con.close()

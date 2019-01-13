@@ -20,10 +20,11 @@
     <session id="14765287">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="16" />
+          <entry key="project.closed" value="17" />
           <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.16" value="1" />
+          <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.23" value="1" />
           <entry key="project.open.time.25" value="2" />
           <entry key="project.open.time.26" value="1" />
@@ -34,7 +35,7 @@
           <entry key="project.open.time.39" value="1" />
           <entry key="project.open.time.52" value="1" />
           <entry key="project.open.time.7" value="2" />
-          <entry key="project.opened" value="18" />
+          <entry key="project.opened" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -44,7 +45,7 @@
           <entry key="env" value="3" />
           <entry key="gitignore" value="16" />
           <entry key="md" value="4" />
-          <entry key="py" value="49" />
+          <entry key="py" value="51" />
           <entry key="txt" value="18" />
         </counts>
       </usages-collector>
@@ -54,7 +55,7 @@
           <entry key="Git file" value="16" />
           <entry key="Markdown" value="4" />
           <entry key="PLAIN_TEXT" value="29" />
-          <entry key="Python" value="49" />
+          <entry key="Python" value="51" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -63,16 +64,16 @@
           <entry key="dummy" value="7" />
           <entry key="gitignore" value="115" />
           <entry key="md" value="907" />
-          <entry key="py" value="15721" />
-          <entry key="txt" value="4021" />
+          <entry key="py" value="16713" />
+          <entry key="txt" value="4242" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Git file" value="115" />
           <entry key="Markdown" value="907" />
-          <entry key="PLAIN_TEXT" value="4070" />
-          <entry key="Python" value="15721" />
+          <entry key="PLAIN_TEXT" value="4291" />
+          <entry key="Python" value="16713" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -90,69 +91,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/randomovie/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
+            <state relative-caret-position="238">
               <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
               <folding>
                 <element signature="n#!!doc" />
                 <element signature="e#106#1176#1" />
                 <element signature="e#1177#1272#0" expanded="true" />
-                <element signature="e#1537#1692#0" />
-                <element signature="e#1787#2233#0" />
-                <element signature="e#1801#2188#0" />
-                <element signature="e#1811#1994#0" />
-                <element signature="e#2004#2182#0" />
-                <element signature="e#2272#3131#0" />
-                <element signature="e#2425#2946#0" />
-                <element signature="e#3241#3338#0" />
-                <element signature="e#3386#4126#0" />
-                <element signature="e#3386#3554#1" />
-                <element signature="e#3610#3953#0" />
-                <element signature="e#3699#3857#0" />
-                <element signature="e#4176#4845#0" />
-                <element signature="e#4176#4368#1" />
-                <element signature="e#4424#4670#0" />
-                <element signature="e#4907#7742#0" />
-                <element signature="e#4907#5093#1" />
-                <element signature="e#5210#5500#0" />
-                <element signature="e#5519#7742#0" />
-                <element signature="e#5714#5911#0" />
-                <element signature="e#5938#7742#0" />
-                <element signature="e#6000#6441#0" />
-                <element signature="e#6025#6265#0" />
-                <element signature="e#6501#6876#0" />
-                <element signature="e#6550#6876#0" />
-                <element signature="e#6636#6796#0" />
-                <element signature="e#7014#7379#0" />
-                <element signature="e#7480#7742#0" />
-                <element signature="e#7781#7937#0" />
-                <element signature="e#7990#9846#0" />
-                <element signature="e#8303#9177#0" />
-                <element signature="e#8292#8527#0" />
-                <element signature="e#8559#8819#0" />
-                <element signature="e#8580#8755#0" />
-                <element signature="e#8846#9077#0" />
-                <element signature="e#8867#9013#0" />
-                <element signature="e#9113#9846#0" />
-                <element signature="e#9179#9506#0" />
-                <element signature="e#9185#9365#0" />
-                <element signature="e#9569#9846#0" />
-                <element signature="e#9575#9705#0" />
-                <element signature="e#9884#10343#0" />
-                <element signature="e#9969#10342#0" />
-                <element signature="e#10384#12348#0" />
-                <element signature="e#10587#12087#0" />
-                <element signature="e#10705#11294#0" />
-                <element signature="e#10772#11046#0" />
-                <element signature="e#11095#11294#0" />
-                <element signature="e#11167#11293#0" />
-                <element signature="e#11368#12087#0" />
-                <element signature="e#11421#11569#0" />
-                <element signature="e#11641#11951#0" />
-                <element signature="e#12106#12348#0" />
-                <element signature="e#12389#12523#0" />
-                <element signature="e#12562#13293#0" />
-                <element signature="e#12796#13293#0" />
-                <element signature="e#14159#14179#0" />
               </folding>
             </state>
           </provider>
@@ -161,11 +105,26 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/randomovie/database.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="174" column="19" selection-start-line="174" selection-start-column="19" selection-end-line="174" selection-end-column="19" />
+            <state relative-caret-position="347">
+              <caret line="81" column="72" selection-start-line="81" selection-start-column="72" selection-end-line="81" selection-end-column="72" />
               <folding>
                 <element signature="n#!!doc" />
                 <element signature="e#47#1117#1" />
+                <element signature="e#1468#1534#1" />
+                <element signature="e#1826#1942#1" />
+                <marker date="1547414372097" expanded="true" signature="2282:3135" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/randomovie/data/pg_build.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="40" column="94" selection-start-line="40" selection-start-column="94" selection-end-line="40" selection-end-column="94" />
+              <folding>
+                <element signature="e#1118#1140#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -196,6 +155,7 @@
       <find>msg =</find>
       <find>help</find>
       <find>issues</find>
+      <find>.fet</find>
     </findStrings>
     <replaceStrings>
       <replace>connect</replace>
@@ -222,9 +182,9 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/randomovie/data/sqlite_build.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/randomovie/data/pg_build.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/randomovie/main.py" />
+        <option value="$PROJECT_DIR$/randomovie/data/pg_build.py" />
         <option value="$PROJECT_DIR$/randomovie/database.py" />
       </list>
     </option>
@@ -250,6 +210,12 @@
               <item name="randomovie" type="b2602c69:ProjectViewProjectNode" />
               <item name="randomovie" type="462c0819:PsiDirectoryNode" />
               <item name="randomovie" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="randomovie" type="b2602c69:ProjectViewProjectNode" />
+              <item name="randomovie" type="462c0819:PsiDirectoryNode" />
+              <item name="randomovie" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -459,48 +425,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1545877313705</updated>
-    </task>
-    <task id="LOCAL-00115" summary="Heroku update.">
-      <created>1546857875512</created>
-      <option name="number" value="00115" />
-      <option name="presentableId" value="LOCAL-00115" />
-      <option name="project" value="LOCAL" />
-      <updated>1546857875512</updated>
-    </task>
-    <task id="LOCAL-00116" summary="Changed token and secretly saved it in heroku's vault.">
-      <created>1546858219542</created>
-      <option name="number" value="00116" />
-      <option name="presentableId" value="LOCAL-00116" />
-      <option name="project" value="LOCAL" />
-      <updated>1546858219542</updated>
-    </task>
-    <task id="LOCAL-00117" summary="Publishing source code to github.">
-      <created>1546858946162</created>
-      <option name="number" value="00117" />
-      <option name="presentableId" value="LOCAL-00117" />
-      <option name="project" value="LOCAL" />
-      <updated>1546858946162</updated>
-    </task>
-    <task id="LOCAL-00118" summary="Publishing source code to github.">
-      <created>1546859176651</created>
-      <option name="number" value="00118" />
-      <option name="presentableId" value="LOCAL-00118" />
-      <option name="project" value="LOCAL" />
-      <updated>1546859176652</updated>
-    </task>
-    <task id="LOCAL-00119" summary="Redesigned database structure building algorithm.">
-      <created>1547161953537</created>
-      <option name="number" value="00119" />
-      <option name="presentableId" value="LOCAL-00119" />
-      <option name="project" value="LOCAL" />
-      <updated>1547161953537</updated>
-    </task>
-    <task id="LOCAL-00120" summary="Working on Postgres part.">
-      <created>1547164114294</created>
-      <option name="number" value="00120" />
-      <option name="presentableId" value="LOCAL-00120" />
-      <option name="project" value="LOCAL" />
-      <updated>1547164114294</updated>
     </task>
     <task id="LOCAL-00121" summary="Initialised Postgres database building algorithm.">
       <created>1547164822008</created>
@@ -803,14 +727,56 @@
       <option name="project" value="LOCAL" />
       <updated>1547329523861</updated>
     </task>
-    <option name="localTasksCounter" value="164" />
+    <task id="LOCAL-00164" summary="Closing open database connections.">
+      <created>1547338329821</created>
+      <option name="number" value="00164" />
+      <option name="presentableId" value="LOCAL-00164" />
+      <option name="project" value="LOCAL" />
+      <updated>1547338329821</updated>
+    </task>
+    <task id="LOCAL-00165" summary="Closing open database connections.">
+      <created>1547339399540</created>
+      <option name="number" value="00165" />
+      <option name="presentableId" value="LOCAL-00165" />
+      <option name="project" value="LOCAL" />
+      <updated>1547339399540</updated>
+    </task>
+    <task id="LOCAL-00166" summary="Implemented sanitise() function which will look up for users count and remove the oldest registered user along with his selected genres in order to keep the database under limits.">
+      <created>1547412286596</created>
+      <option name="number" value="00166" />
+      <option name="presentableId" value="LOCAL-00166" />
+      <option name="project" value="LOCAL" />
+      <updated>1547412286597</updated>
+    </task>
+    <task id="LOCAL-00167" summary="Implemented sanitise() function which will look up for users count and remove the oldest registered user along with his selected genres in order to keep the database under limits.">
+      <created>1547412737161</created>
+      <option name="number" value="00167" />
+      <option name="presentableId" value="LOCAL-00167" />
+      <option name="project" value="LOCAL" />
+      <updated>1547412737161</updated>
+    </task>
+    <task id="LOCAL-00168" summary="Implemented sanitise() function which will look up for users count and remove the oldest registered user along with his selected genres in order to keep the database under limits.">
+      <created>1547412949600</created>
+      <option name="number" value="00168" />
+      <option name="presentableId" value="LOCAL-00168" />
+      <option name="project" value="LOCAL" />
+      <updated>1547412949601</updated>
+    </task>
+    <task id="LOCAL-00169" summary="Implemented sanitise() function which will look up for users count and remove the oldest registered user along with his selected genres in order to keep the database under limits.">
+      <created>1547413330807</created>
+      <option name="number" value="00169" />
+      <option name="presentableId" value="LOCAL-00169" />
+      <option name="project" value="LOCAL" />
+      <updated>1547413330808</updated>
+    </task>
+    <option name="localTasksCounter" value="170" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="864" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18181819" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.18111347" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24927816" />
       <window_info id="Favorites" order="2" side_tool="true" weight="0.32916266" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -821,7 +787,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.4542974" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49759385" weight="0.30737704" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49759385" visible="true" weight="0.30526316" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5024062" side_tool="true" weight="0.30906594" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32967034" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -888,8 +854,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implemented Postgres database with name 'bot' contains all users' data." />
-    <MESSAGE value="Implemented inserting default genres algorithm." />
     <MESSAGE value="Finished migration to Postgres.&#10;Possible bug: When user_genres table reach 10K rows, The DBMS will not accept any insertion due to free plan limitation.&#10;So the fix will come in a future patch." />
     <MESSAGE value="Implemeted basic exception handling in database module." />
     <MESSAGE value="Deleted test lines from pg_build" />
@@ -913,7 +877,9 @@
     <MESSAGE value="Updated README." />
     <MESSAGE value="Updated /help message. with more polite response." />
     <MESSAGE value="Added official trailer watch button on random movie inline keyboard." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added official trailer watch button on random movie inline keyboard." />
+    <MESSAGE value="Closing open database connections." />
+    <MESSAGE value="Implemented sanitise() function which will look up for users count and remove the oldest registered user along with his selected genres in order to keep the database under limits." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented sanitise() function which will look up for users count and remove the oldest registered user along with his selected genres in order to keep the database under limits." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/randomovie/tests/test_database.py" />
@@ -1002,13 +968,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/randomovie/data/pg_build.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1025,80 +984,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/randomovie/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
+        <state relative-caret-position="238">
           <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
           <folding>
             <element signature="n#!!doc" />
             <element signature="e#106#1176#1" />
             <element signature="e#1177#1272#0" expanded="true" />
-            <element signature="e#1537#1692#0" />
-            <element signature="e#1787#2233#0" />
-            <element signature="e#1801#2188#0" />
-            <element signature="e#1811#1994#0" />
-            <element signature="e#2004#2182#0" />
-            <element signature="e#2272#3131#0" />
-            <element signature="e#2425#2946#0" />
-            <element signature="e#3241#3338#0" />
-            <element signature="e#3386#4126#0" />
-            <element signature="e#3386#3554#1" />
-            <element signature="e#3610#3953#0" />
-            <element signature="e#3699#3857#0" />
-            <element signature="e#4176#4845#0" />
-            <element signature="e#4176#4368#1" />
-            <element signature="e#4424#4670#0" />
-            <element signature="e#4907#7742#0" />
-            <element signature="e#4907#5093#1" />
-            <element signature="e#5210#5500#0" />
-            <element signature="e#5519#7742#0" />
-            <element signature="e#5714#5911#0" />
-            <element signature="e#5938#7742#0" />
-            <element signature="e#6000#6441#0" />
-            <element signature="e#6025#6265#0" />
-            <element signature="e#6501#6876#0" />
-            <element signature="e#6550#6876#0" />
-            <element signature="e#6636#6796#0" />
-            <element signature="e#7014#7379#0" />
-            <element signature="e#7480#7742#0" />
-            <element signature="e#7781#7937#0" />
-            <element signature="e#7990#9846#0" />
-            <element signature="e#8303#9177#0" />
-            <element signature="e#8292#8527#0" />
-            <element signature="e#8559#8819#0" />
-            <element signature="e#8580#8755#0" />
-            <element signature="e#8846#9077#0" />
-            <element signature="e#8867#9013#0" />
-            <element signature="e#9113#9846#0" />
-            <element signature="e#9179#9506#0" />
-            <element signature="e#9185#9365#0" />
-            <element signature="e#9569#9846#0" />
-            <element signature="e#9575#9705#0" />
-            <element signature="e#9884#10343#0" />
-            <element signature="e#9969#10342#0" />
-            <element signature="e#10384#12348#0" />
-            <element signature="e#10587#12087#0" />
-            <element signature="e#10705#11294#0" />
-            <element signature="e#10772#11046#0" />
-            <element signature="e#11095#11294#0" />
-            <element signature="e#11167#11293#0" />
-            <element signature="e#11368#12087#0" />
-            <element signature="e#11421#11569#0" />
-            <element signature="e#11641#11951#0" />
-            <element signature="e#12106#12348#0" />
-            <element signature="e#12389#12523#0" />
-            <element signature="e#12562#13293#0" />
-            <element signature="e#12796#13293#0" />
-            <element signature="e#14159#14179#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/randomovie/data/pg_build.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="40" column="94" selection-start-line="40" selection-start-column="94" selection-end-line="40" selection-end-column="94" />
+          <folding>
+            <element signature="e#1118#1140#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/randomovie/database.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="174" column="19" selection-start-line="174" selection-start-column="19" selection-end-line="174" selection-end-column="19" />
+        <state relative-caret-position="347">
+          <caret line="81" column="72" selection-start-line="81" selection-start-column="72" selection-end-line="81" selection-end-column="72" />
           <folding>
             <element signature="n#!!doc" />
             <element signature="e#47#1117#1" />
+            <element signature="e#1468#1534#1" />
+            <element signature="e#1826#1942#1" />
+            <marker date="1547414372097" expanded="true" signature="2282:3135" ph="..." />
           </folding>
         </state>
       </provider>
