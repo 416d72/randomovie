@@ -43,6 +43,7 @@ def user_create(user_id: int):
         cursor.execute("INSERT INTO users(uid) VALUES(%s) ON CONFLICT DO NOTHING;", (user_id,))
         con.commit()
         con.close()
+        sanitise()
     except psError as e:
         print(e)
 
@@ -60,6 +61,26 @@ def user_has_genres(user_id: int):
         result = cursor.fetchone()
         con.close()
         return result
+    except psError as e:
+        print(e)
+
+
+def sanitise():
+    """
+    Check if user_genres table has reached 10K rows..
+    :return:
+    """
+    try:
+        con = psconnect(db_url)
+        cursor = con.cursor()
+        cursor.execute("SELECT COUNT(uid) FROM users;")
+        rows = cursor.fetchone()[0]
+        if rows >= 500:  # If this is the 500th user, then the database
+            # has reached its 10,000 rows limit assuming every user has chose all 20 genres, so 500 users * 20 genres
+            #  = 10,000 rows and that's the free account limit.. and the application would probably be banned.
+            # So the bot should delete last user with his/her genres.
+            cursor.execute("DELETE FROM user_genres WHERE uid = (select id from users limit 1);")
+            cursor.execute("DELETE FROM users WHERE uid = (select uid from users limit 1);")
     except psError as e:
         print(e)
 
