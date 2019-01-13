@@ -12,9 +12,9 @@ You can [try](https://t.me/randomovie_bot) this bot now .
 
 Or with directly starting chat with user `@randomovie_bot`
 
-
-# Requirements:
-- Python >= 3.6
+# Known bugs:
+- User filter is inconsistent, and user may have to re-create his/her filter after a while [see details](https://github.com/akkk33/randomovie#support-me).
+- Suggestion algorithm is a bit primitive, eg.. you may like Action movies but don't like Sci-Fi movies so you select Action from genres and skip Sci-Fi , Current algorithm may suggest you an Action-Sci-Fi movie because it hase at least one genre you set (in this case "Action"). I'm going to fix that in a future update.
 
 # Movie Database:
 Movie database was legally fetched from [IMDB](https://www.imdb.com/interfaces/).
@@ -25,10 +25,13 @@ There are only two databases used:
 - title.ratings.tsv.gz (Contains the IMDb rating and votes information for titles)
 
 ## Local database:
-I made a script `randomovie/data/sqlite_build.py` which automates local database building steps.
+I made a script `randomovie/data/sqlite_build.py` which automates local movies database building.
 
 ## PostgreSQL:
-I made a script `randomovie/data/pg_build.py` which automates Postgres database building steps.
+I made a script `randomovie/data/pg_build.py` which automates Postgres users database building.
+
+# Requirements:
+- Python >= 3.6
 
 
 # Developing:
