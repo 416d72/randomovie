@@ -5,15 +5,16 @@ You can specify a minimum release year, genres and a minimum IMDB user ratings.
 Then you can get a random movie based on your filter any time.
 
 This bot basically provides you the ability to set custom rules then fetch a random movie based on these rules.
-
-# Inspired by:
-An obsolete bot called [@movie_adviser_bot](https://t.me/movie_adviser_bot), but this bot focuses on more simplicity.
+It was *inspired* by an obsolete bot called `movie_adviser_bot`, but this one focuses on more simplicity.
 
 # Usage
-Through this [link](https://t.me/randomovie_bot) which opens Telegram on your device.
+You can [try](https://t.me/randomovie_bot) this bot now .
 
 Or with directly starting chat with user `@randomovie_bot`
 
+
+# Requirements:
+- Python >= 3.6
 
 # Movie Database:
 Movie database was legally fetched from [IMDB](https://www.imdb.com/interfaces/).
@@ -23,14 +24,12 @@ There are only two databases used:
     (Contains the following information for titles):
 - title.ratings.tsv.gz (Contains the IMDb rating and votes information for titles)
 
-# Local database:
+## Local database:
 I made a script `randomovie/data/sqlite_build.py` which automates local database building steps.
 
-# PostgreSQL:
+## PostgreSQL:
 I made a script `randomovie/data/pg_build.py` which automates Postgres database building steps.
 
-# Requirements:
-- Python >= 3.6
 
 # Developing:
 - Create a new bot using [@botfather](https://t.me/botfather).
@@ -55,10 +54,14 @@ I made a script `randomovie/data/pg_build.py` which automates Postgres database 
 Now you're done with installation.
 
 # Support me:
-On [Patreon](https://www.patreon.com/akkk33)
+I've hosted my bot on a free heroku account which limits users to only 500 maximum.
+
+So if database reached the 500th user, the bot will start deleting users from oldest to newer, You may be deleted some day along with your filter (sorry for that) but this is the best I can do for now ..
+I'm unemployed and I can't afford a paid account, so if you like my bot, please consider supporting it via [Patreon](https://www.patreon.com/akkk33) and I'll upgrade heroku's account as soon as I get $7/month, Thank you ❤️
 
 # Thanks to:
 - [Free Software Foundation](https://www.fsf.org/)
 - [Heroku](https://www.heroku.com)
 - [JetBrains](https://www.jetbrains.com/)
-And to anyone contributes to this repository.
+- My supporters 💘
+- And to anyone contributes to this repository.
