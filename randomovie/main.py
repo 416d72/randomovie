@@ -69,7 +69,9 @@ def command_start(bot, update):
 
 def command_create(bot, update):  # Create a new filter starting with oldest year, then minimum rating
     # and finally genres
-    user_reset(update.effective_user.id)
+    user_id = update.effective_user.id
+    user_create(user_id)
+    user_reset(user_id)
     create_year(bot, update, 'new')
 
 
@@ -119,6 +121,7 @@ def create_genres(bot, update, step, msg_id=0, qid=0):
     """
     user_id = update.effective_user.id
     chat_id = update.effective_message.chat_id
+    user_create(user_id)
     if step == 'new':
         user_set_last_step(user_id, 'create_genres_0')
         bot.send_message(chat_id=chat_id, text="Now It's time to choose your favourite genres")
@@ -171,6 +174,7 @@ def command_random(bot, update, msg_id=None):
     chat_id = update.effective_message.chat_id
     bot.send_chat_action(chat_id=chat_id, action=ChatAction.TYPING)
     user_id = update.effective_user.id
+    user_create(user_id)
     movie = fetch(user_id)
     if type(movie) is list:
         trailer = f"https://www.youtube.com/results?search_query={movie[1]} trailer"
@@ -222,6 +226,7 @@ def non_command_msg(bot, update):
     user_id = update.effective_user.id
     msg = update.effective_message.text
     chat_id = update.effective_message.chat_id
+    user_create(user_id)
     if msg.isdigit():  # Check the previous message that was sent by bot
         if user_get_last_step(user_id) == 'create_year':  # Check if user is responding to create_year() function
             if 1911 < int(msg) < 2018:  # Minimum release year
