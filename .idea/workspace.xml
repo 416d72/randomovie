@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2d300c70-2013-45a1-82f3-724faad0b0b6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/randomovie/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/randomovie/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/randomovie/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/randomovie/database.py" afterDir="false" />
     </list>
     <list id="3af1febc-77b9-413d-ad8d-6411c6c6aee6" name="Heroku commit" comment="Heroku commit&#10;&#10;(cherry picked from commit 7d5abbfbc0d266e0ce75bdc8c09fc238d62407d7)">
       <changelist_data name="akkk33" email="akkk33@protonmail.com" date="1545886200000" />
@@ -44,7 +44,7 @@
           <entry key="env" value="3" />
           <entry key="gitignore" value="16" />
           <entry key="md" value="4" />
-          <entry key="py" value="48" />
+          <entry key="py" value="49" />
           <entry key="txt" value="18" />
         </counts>
       </usages-collector>
@@ -54,7 +54,7 @@
           <entry key="Git file" value="16" />
           <entry key="Markdown" value="4" />
           <entry key="PLAIN_TEXT" value="29" />
-          <entry key="Python" value="48" />
+          <entry key="Python" value="49" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -63,7 +63,7 @@
           <entry key="dummy" value="7" />
           <entry key="gitignore" value="115" />
           <entry key="md" value="907" />
-          <entry key="py" value="15716" />
+          <entry key="py" value="15721" />
           <entry key="txt" value="4021" />
         </counts>
       </usages-collector>
@@ -72,7 +72,7 @@
           <entry key="Git file" value="115" />
           <entry key="Markdown" value="907" />
           <entry key="PLAIN_TEXT" value="4070" />
-          <entry key="Python" value="15716" />
+          <entry key="Python" value="15721" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -87,11 +87,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/randomovie/main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="96">
-              <caret line="34" column="33" lean-forward="true" selection-start-line="34" selection-start-column="33" selection-end-line="34" selection-end-column="37" />
+              <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
               <folding>
                 <element signature="n#!!doc" />
                 <element signature="e#106#1176#1" />
@@ -158,6 +158,19 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/randomovie/database.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="351">
+              <caret line="174" column="19" selection-start-line="174" selection-start-column="19" selection-end-line="174" selection-end-column="19" />
+              <folding>
+                <element signature="n#!!doc" />
+                <element signature="e#47#1117#1" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -209,10 +222,10 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/randomovie/data/sqlite_build.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/randomovie/database.py" />
         <option value="$PROJECT_DIR$/randomovie/data/pg_build.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/randomovie/main.py" />
+        <option value="$PROJECT_DIR$/randomovie/database.py" />
       </list>
     </option>
   </component>
@@ -446,20 +459,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1545877313705</updated>
-    </task>
-    <task id="LOCAL-00113" summary="Heroku update.">
-      <created>1546857558062</created>
-      <option name="number" value="00113" />
-      <option name="presentableId" value="LOCAL-00113" />
-      <option name="project" value="LOCAL" />
-      <updated>1546857558062</updated>
-    </task>
-    <task id="LOCAL-00114" summary="Heroku update.">
-      <created>1546857747836</created>
-      <option name="number" value="00114" />
-      <option name="presentableId" value="LOCAL-00114" />
-      <option name="project" value="LOCAL" />
-      <updated>1546857747836</updated>
     </task>
     <task id="LOCAL-00115" summary="Heroku update.">
       <created>1546857875512</created>
@@ -790,14 +789,28 @@
       <option name="project" value="LOCAL" />
       <updated>1547329443707</updated>
     </task>
-    <option name="localTasksCounter" value="162" />
+    <task id="LOCAL-00162" summary="Added official trailer watch button on random movie inline keyboard.">
+      <created>1547329460501</created>
+      <option name="number" value="00162" />
+      <option name="presentableId" value="LOCAL-00162" />
+      <option name="project" value="LOCAL" />
+      <updated>1547329460501</updated>
+    </task>
+    <task id="LOCAL-00163" summary="Added official trailer watch button on random movie inline keyboard.">
+      <created>1547329523861</created>
+      <option name="number" value="00163" />
+      <option name="presentableId" value="LOCAL-00163" />
+      <option name="project" value="LOCAL" />
+      <updated>1547329523861</updated>
+    </task>
+    <option name="localTasksCounter" value="164" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="864" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.18181819" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18181819" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24927816" />
       <window_info id="Favorites" order="2" side_tool="true" weight="0.32916266" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -808,7 +821,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.4542974" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49759385" visible="true" weight="0.30737704" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49759385" weight="0.30737704" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5024062" side_tool="true" weight="0.30906594" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32967034" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -989,13 +1002,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/randomovie/database.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="172" column="19" selection-start-line="172" selection-start-column="19" selection-end-line="172" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/randomovie/data/pg_build.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -1020,7 +1026,7 @@
     <entry file="file://$PROJECT_DIR$/randomovie/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
-          <caret line="34" column="33" lean-forward="true" selection-start-line="34" selection-start-column="33" selection-end-line="34" selection-end-column="37" />
+          <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
           <folding>
             <element signature="n#!!doc" />
             <element signature="e#106#1176#1" />
@@ -1082,6 +1088,17 @@
             <element signature="e#12562#13293#0" />
             <element signature="e#12796#13293#0" />
             <element signature="e#14159#14179#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/randomovie/database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="174" column="19" selection-start-line="174" selection-start-column="19" selection-end-line="174" selection-end-column="19" />
+          <folding>
+            <element signature="n#!!doc" />
+            <element signature="e#47#1117#1" />
           </folding>
         </state>
       </provider>
