@@ -32,7 +32,7 @@ I made a script `randomovie/data/pg_build.py` which automates Postgres users dat
 
 # Requirements:
 - Python >= 3.6
-
+- `python-telegram-bot`
 
 # Developing:
 - Create a new bot using [@botfather](https://t.me/botfather).
