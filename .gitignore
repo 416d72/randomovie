@@ -105,6 +105,10 @@ venv.bak/
 # mypy
 .mypy_cache/
 
+# IDEs
+.idea
+.vscode
 
+# IMDB data files
 randomovie/data/*.*sv
 randomovie/data/*.bak

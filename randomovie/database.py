@@ -205,7 +205,7 @@ def fetch(user_id: int):
 
 
 if __name__ == '__main__':
-    print(fetch(1))
+    # print(fetch(1))
     # print(user_has_genres(1))
     # update_user(1, 'genre', 'horror')
     # user_set_last_step(1, None)
