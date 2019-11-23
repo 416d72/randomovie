@@ -1,5 +1,3 @@
-![Randomovie](randomovie/icon/logo.png "Randomovie")
-
 # Introduction
 
 >Ever wanted to watch a movie and needed a suggestion?
